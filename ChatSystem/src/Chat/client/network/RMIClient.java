@@ -18,7 +18,7 @@ public class RMIClient implements Client, ClientCallback
     UnicastRemoteObject.exportObject(this, 0);
   }
 
-  public void start() throws RemoteException, NotBoundException
+  public void startClient() throws RemoteException, NotBoundException
   {
     Registry registry = LocateRegistry.getRegistry("localhost", 1099);
     server = (RMIServer) registry.lookup("Server");
