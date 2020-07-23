@@ -23,7 +23,8 @@ public class RegistrationController {
 
     @FXML
     void backToLogin(ActionEvent event) {
-
+        registerVM.clear();
+        viewHandler.openLoginView();
     }
 
     @FXML
