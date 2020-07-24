@@ -1,35 +1,34 @@
 package Chat.server.network;
 
+import Chat.server.model.ServerModel;
 import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
 
+import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class RMIServerImpl implements RMIServer
 {
-  public RMIServerImpl() throws RemoteException
+  private ServerModel serverModel;
+
+  public RMIServerImpl(ServerModel serverModel) throws RemoteException
   {
     UnicastRemoteObject.exportObject(this, 0);
+    this.serverModel = serverModel;
   }
 
-  @Override public void message(String str, ClientCallback clientCallback)
+  public void startServer() throws RemoteException, AlreadyBoundException
   {
-    try
-    {
-      Thread.sleep(1000);
-    }
-    catch (InterruptedException ignored) {
+    Registry registry = LocateRegistry.createRegistry(1099);
+    registry.bind("Server", this);
+  }
 
-    }
-
-    try
-    {
-      clientCallback.messageResult(str);
-    } catch (RemoteException e)
-    {
-      e.printStackTrace();
-    }
+  @Override public void loginUser()
+  {
+    serverModel.loginUser();
   }
 }

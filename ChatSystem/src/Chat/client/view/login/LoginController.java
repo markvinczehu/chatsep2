@@ -19,6 +19,7 @@ public class LoginController implements ViewController
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
     this.vh = vh;
+    lvm = vmf.getLoginViewModel();
     usernameField.textProperty().bind(lvm.usernameProperty());
     passwordField.textProperty().bind(lvm.passwordProperty());
   }

@@ -18,7 +18,7 @@ public class ModelFactory
   {
     if(loginModel == null)
     {
-      loginModel = new LoginModelManager();
+      loginModel = new LoginModelManager(clientFactory.getClient());
     }
     return loginModel;
   }
