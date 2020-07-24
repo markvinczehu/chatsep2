@@ -5,5 +5,5 @@ import java.rmi.RemoteException;
 
 public interface ClientCallback extends Remote
 {
-  void messageResult (String result) throws RemoteException;
+
 }

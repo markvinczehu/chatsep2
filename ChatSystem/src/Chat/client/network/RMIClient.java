@@ -13,32 +13,33 @@ public class RMIClient implements Client, ClientCallback
 {
   private RMIServer server;
 
-  public RMIClient () throws RemoteException
+  public RMIClient ()
   {
-    UnicastRemoteObject.exportObject(this, 0);
+
   }
 
-  public void startClient() throws RemoteException, NotBoundException
-  {
-    Registry registry = LocateRegistry.getRegistry("localhost", 1099);
-    server = (RMIServer) registry.lookup("Server");
-  }
-
-  public void Chat(String argument)
+  @Override public void startClient()
   {
     try
     {
-      server.message(argument, this);
+      UnicastRemoteObject.exportObject(this, 0);
+      Registry registry = LocateRegistry.getRegistry("localhost", 1099);
+      server = (RMIServer) registry.lookup("Server");
+    }catch (RemoteException | NotBoundException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void loginUser()
+  {
+    try
+    {
+      server.loginUser();
     }
     catch (RemoteException e)
     {
       e.printStackTrace();
     }
-      throw new RuntimeException("Unable to establish connection");
-  }
-
-  @Override public void messageResult(String result)
-  {
-    System.out.println("Result " + result);
   }
 }
