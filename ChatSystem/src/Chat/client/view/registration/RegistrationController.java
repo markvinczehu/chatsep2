@@ -20,16 +20,30 @@ public class RegistrationController {
 
     @FXML
     private Button cancelButton;
+    
+    private RegistrationViewModel rvm;
+    private ViewHandler vh;
+
+    public void init(ViewHandler vh, RegistrationViewModel rvm) {
+        this.RegistrationViewModel = rvm;
+        this.ViewHandler = vh;
+        userName.textProperty().bindBidirectional(rvm.usernameProperty());
+        password.textProperty().bindBidirectional(rvm.passwordProperty());
+        confirmPassword.textProperty().bindBidirectional(rvm.confirmPasswordProperty());
+        errorLabel.textProperty().bind(rvm.registerResponseProperty());
+        registerButton.disableProperty().bind(rvm.registerButtonDisabledProperty());
+        rvm.registerResponseProperty().addListener((observableValue, oldValue, newValue) -> onRegisterResult(newValue));
+    }
 
     @FXML
-    void backToLogin(ActionEvent event) {
-        registerVM.clear();
-        viewHandler.openLoginView();
+    void onCancel(ActionEvent event) {
+        rvm.clear();
+        vh.openLogin();
     }
 
     @FXML
     void createAccount(ActionEvent event) {
-
+        rvm.registerUser();
     }
 
     @FXML
