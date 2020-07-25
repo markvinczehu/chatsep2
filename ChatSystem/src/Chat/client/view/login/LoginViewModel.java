@@ -17,9 +17,9 @@ public class LoginViewModel
     password = new SimpleStringProperty();
 
   }
-  public void loginUser()
+  public void loginUser(String username)
   {
-    loginModel.loginUser();
+    loginModel.loginUser(username);
   }
 
   public StringProperty usernameProperty()

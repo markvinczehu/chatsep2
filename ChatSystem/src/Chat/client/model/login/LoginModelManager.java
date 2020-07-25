@@ -11,8 +11,9 @@ public class LoginModelManager implements LoginModel
     this.client = client;
     client.startClient();
   }
-  @Override public void loginUser()
+
+  @Override public void loginUser(String username)
   {
-    client.loginUser();
+    client.loginUser(username);
   }
 }

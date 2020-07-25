@@ -3,5 +3,5 @@ package Chat.client.network;
 public interface Client
 {
   void startClient();
-  void loginUser();
+  void loginUser(String username);
 }

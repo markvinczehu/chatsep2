@@ -20,12 +20,12 @@ public class LoginController implements ViewController
   {
     this.vh = vh;
     lvm = vmf.getLoginViewModel();
-    usernameField.textProperty().bind(lvm.usernameProperty());
-    passwordField.textProperty().bind(lvm.passwordProperty());
+    usernameField.textProperty().bindBidirectional(lvm.usernameProperty());
+    passwordField.textProperty().bindBidirectional(lvm.passwordProperty());
   }
 
   public void onLoginButton(ActionEvent actionEvent)
   {
-    lvm.loginUser();
+    lvm.loginUser(usernameField.getText());
   }
 }

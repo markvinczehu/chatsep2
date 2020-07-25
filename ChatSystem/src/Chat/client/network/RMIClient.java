@@ -31,11 +31,11 @@ public class RMIClient implements Client, ClientCallback
     }
   }
 
-  @Override public void loginUser()
+  @Override public void loginUser(String username)
   {
     try
     {
-      server.loginUser();
+      server.loginUser(username);
     }
     catch (RemoteException e)
     {
