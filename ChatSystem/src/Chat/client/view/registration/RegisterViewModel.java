@@ -21,7 +21,7 @@ public class RegisterViewModel {
 
     private UserModel userModel;
 
-    public RegisterVM(UserModel userModel) {
+    public RegisterViewModel(UserModel userModel) {
         this.userModel = userModel;
         userModel.addPropertyChangeListener(EventType.REGISTER_RESULT.toString(), this::onRegisterResponse);
         username.addListener((observableValue, oldValue, newValue) -> onInputFieldsUpdated());

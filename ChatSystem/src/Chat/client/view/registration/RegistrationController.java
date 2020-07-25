@@ -10,6 +10,9 @@ public class RegistrationController {
     private PasswordField password;
 
     @FXML
+    private PasswordField passwordrep;
+
+    @FXML
     private TextField userName;
 
     @FXML
