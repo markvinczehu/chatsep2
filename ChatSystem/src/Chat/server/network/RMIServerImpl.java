@@ -27,8 +27,8 @@ public class RMIServerImpl implements RMIServer
     registry.bind("Server", this);
   }
 
-  @Override public void loginUser()
+  @Override public void loginUser(String username)
   {
-    serverModel.loginUser();
+    serverModel.loginUser(username);
   }
 }

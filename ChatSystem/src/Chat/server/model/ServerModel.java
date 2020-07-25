@@ -2,5 +2,5 @@ package Chat.server.model;
 
 public interface ServerModel
 {
-  void loginUser();
+  void loginUser(String username);
 }

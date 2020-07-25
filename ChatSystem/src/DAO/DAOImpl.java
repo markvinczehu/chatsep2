@@ -1,20 +1,24 @@
 package DAO;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DAOImpl implements DAO
 {
   private static DAOImpl instance;
 
-  private DAOImpl() throws SQLException
+  private DAOImpl()
   {
-    DriverManager.registerDriver(new org.postgresql.Driver());
+    try
+    {
+      DriverManager.registerDriver(new org.postgresql.Driver());
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
   }
 
-  public static synchronized DAOImpl getInstance() throws SQLException
+  public static synchronized DAOImpl getInstance()
   {
     if(instance == null)
     {
@@ -36,6 +40,22 @@ public class DAOImpl implements DAO
       statement.setString(1, name);
       statement.setInt(2, age);
       statement.executeUpdate();
+    }
+  }
+
+  @Override public void read(String name) throws SQLException
+  {
+    try(Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM registereduser WHERE username = ?");
+      statement.setString(1, name);
+      ResultSet resultSet = statement.executeQuery();
+      if (resultSet.next()) {
+        String username = resultSet.getString("username");
+        String password = resultSet.getString("password");
+        System.out.println(username + " " + password);
+      } else {
+        System.out.println("Account does not exist");
+      }
     }
   }
 

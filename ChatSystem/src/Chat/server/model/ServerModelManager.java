@@ -1,25 +1,29 @@
 package Chat.server.model;
 
+import DAO.DAO;
+import DAO.DAOImpl;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ServerModelManager implements ServerModel
 {
   private ArrayList<String> users;
+  private DAO database = DAOImpl.getInstance();
 
   public ServerModelManager()
   {
     users = new ArrayList<String>();
-    users.add("Alex");
   }
   
-  @Override public void loginUser()
+  @Override public void loginUser(String username)
   {
-    for (String user: users)
+    try{
+      database.read(username);
+    }
+    catch (SQLException throwables)
     {
-      if(user.equals("Alex"))
-      {
-        System.out.println("Yes");
-      }
+      throwables.printStackTrace();
     }
   }
 }

@@ -5,5 +5,5 @@ import java.rmi.RemoteException;
 
 public interface RMIServer extends Remote
 {
-  void loginUser() throws RemoteException;
+  void loginUser(String username) throws RemoteException;
 }

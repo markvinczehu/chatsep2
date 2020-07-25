@@ -2,5 +2,5 @@ package Chat.client.model.login;
 
 public interface LoginModel
 {
-  void loginUser();
+  void loginUser(String username);
 }
