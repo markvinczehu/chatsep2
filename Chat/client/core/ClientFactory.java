@@ -28,12 +28,11 @@ public class ClientFactory
     }
     return commonChatClient;
   }
-  public RegistrationClientImpl getRegistrationClient()
+  public RegistrationClient getRegistrationClient()
   {
     if (registrationClient == null) {
       registrationClient = new RegistrationClientImpl();
     }
-    //For some reason it requires me to cast the RegistrationClientImpl class into the registrationClient, not sure why - Dimitrios
-    return (RegistrationClientImpl) registrationClient;
+    return registrationClient;
   }
 }
