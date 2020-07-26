@@ -62,7 +62,7 @@ public class ViewHandler
     if(commonChatScene == null){
       try {
         Parent root = loadFXML("../view/commonchat/CommonChat.fxml");
-        stage.setTitle("CommomChat");
+        stage.setTitle("CommonChat");
         commonChatScene = new Scene(root);
       } catch (IOException e) {
         e.printStackTrace();

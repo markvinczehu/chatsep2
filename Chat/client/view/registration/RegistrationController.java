@@ -31,30 +31,34 @@ public class RegistrationController  implements ViewController
     @Override public void init(ViewHandler vh, ViewModelFactory vmf)
     {
         this.vh = vh;
+        rvm = vmf.getRegistrationViewModel();
         userName.textProperty().bindBidirectional(rvm.usernameProperty());
         password.textProperty().bindBidirectional(rvm.passwordProperty());
         passwordrep.textProperty().bindBidirectional(rvm.confirmPasswordProperty());
+        errorLabel.textProperty().bind(rvm.errorProperty());
     }
 
-    private void onRegisterResult(ActionEvent event) {
-
+    private void onRegisterRequest(ActionEvent actionEvent) {
+        vh.openRegistrationView();
         rvm.clear();
-        vh.openLogin();
-    }
-
-    @FXML
-    void onCancel(ActionEvent event) {
-        rvm.clear();
-        vh.openLogin();
-    }
-
-    @FXML
-    void createAccount(ActionEvent event) {
         rvm.registerUser();
+        vh.openLogin();
     }
 
     @FXML
-    void resetData(ActionEvent event) {
+    void onCancel(ActionEvent actionEvent) {
+        rvm.clear();
+        vh.openLogin();
+    }
+
+    @FXML
+    void createAccount(ActionEvent actionEvent) {
+        rvm.registerUser();
+        vh.openCommonChat();
+    }
+
+    @FXML
+    void resetData(ActionEvent actionEvent) {
         rvm.clear();
     }
 }
