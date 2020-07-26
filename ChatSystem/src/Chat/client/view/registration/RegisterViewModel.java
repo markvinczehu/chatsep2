@@ -1,6 +1,6 @@
-package chat.client.view.register;
+package Chat.client.view.registration;
 
-import client.model.UserModel;
+
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

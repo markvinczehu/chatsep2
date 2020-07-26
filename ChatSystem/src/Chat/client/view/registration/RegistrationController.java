@@ -1,9 +1,12 @@
 package Chat.client.view.registration;
+import Chat.client.core.ViewHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import Chat.client.view.ViewHandel;
+import Chat.client.view.registration.RegisterViewModel;
+
 
 public class RegistrationController {
 
@@ -25,12 +28,12 @@ public class RegistrationController {
     @FXML
     private Button cancelButton;
     
-    private RegistrationViewModel rvm;
+    private RegisterViewModel rvm;
     private ViewHandler vh;
 
-    public void init(ViewHandler vh, RegistrationViewModel rvm) {
-        this.RegisterViewModel = rvm;
-        this.ViewHandler = vh;
+    public void init(ViewHandler vh, RegisterViewModel rvm) {
+        this.rvm = rvm;
+        this.vh = vh;
         userName.textProperty().bindBidirectional(rvm.usernameProperty());
         password.textProperty().bindBidirectional(rvm.passwordProperty());
         confirmPassword.textProperty().bindBidirectional(rvm.confirmPasswordProperty());
