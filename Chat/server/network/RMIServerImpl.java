@@ -29,4 +29,9 @@ public class RMIServerImpl implements RMIServer
   {
     serverModel.loginUser(username);
   }
+
+  @Override public void sendMessage() throws RemoteException
+  {
+    serverModel.sendMessage();
+  }
 }

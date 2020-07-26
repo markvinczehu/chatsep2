@@ -1,19 +1,20 @@
 package Chat.client.model.login;
 
 import Chat.client.network.Client;
+import Chat.client.network.login.LoginClient;
 
 public class LoginModelManager implements LoginModel
 {
-  private Client client;
+  private LoginClient loginClient;
 
-  public LoginModelManager(Client client)
+  public LoginModelManager(LoginClient client)
   {
-    this.client = client;
-    client.startClient();
+    this.loginClient = client;
+    loginClient.startClient();
   }
 
   @Override public void loginUser(String username)
   {
-    client.loginUser(username);
+    loginClient.loginUser(username);
   }
 }

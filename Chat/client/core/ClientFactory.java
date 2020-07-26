@@ -1,16 +1,28 @@
 package Chat.client.core;
 
-import Chat.client.network.Client;
-import Chat.client.network.RMIClient;
+import Chat.client.network.commonchat.CommonChatClient;
+import Chat.client.network.commonchat.CommonChatClientImpl;
+import Chat.client.network.login.LoginClient;
+import Chat.client.network.login.LoginClientImpl;
 
 public class ClientFactory
 {
-  private Client client;
+  private LoginClient loginClient;
+  private CommonChatClient commonChatClient;
 
-  public Client getClient() {
-    if(client == null) {
-      client = new RMIClient();
+  public LoginClient getLoginClient()
+  {
+    if(loginClient == null) {
+      loginClient = new LoginClientImpl();
     }
-    return client;
+    return loginClient;
+  }
+
+  public CommonChatClient getCommonChatClient()
+  {
+    if(commonChatClient == null) {
+      commonChatClient = new CommonChatClientImpl();
+    }
+    return commonChatClient;
   }
 }

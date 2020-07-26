@@ -1,19 +1,19 @@
-package Chat.client.network;
+package Chat.client.network.login;
 
-import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
 
 import java.rmi.NotBoundException;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class RMIClient implements Client, ClientCallback
+public class LoginClientImpl implements LoginClient, Remote
 {
   private RMIServer server;
 
-  public RMIClient ()
+  public LoginClientImpl()
   {
 
   }
@@ -30,5 +30,18 @@ public class RMIClient implements Client, ClientCallback
       e.printStackTrace();
     }
   }
+
+  @Override public void loginUser(String username)
+  {
+    try
+    {
+      server.loginUser(username);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
 
 }

@@ -20,11 +20,12 @@ public class CommonChatController implements ViewController
   {
     viewHandler = vh;
     commonChatViewModel = vmf.getCommonChatViewModel();
-    //messageField.textProperty().bindBidirectional();
-    //commonChatArea.textProperty().bindBidirectional();
+    messageField.textProperty().bindBidirectional(commonChatViewModel.messageField());
+    commonChatArea.textProperty().bindBidirectional(commonChatViewModel.chatArea());
   }
 
   public void onSendButton(ActionEvent actionEvent)
   {
+    commonChatViewModel.sendMessage();
   }
 }

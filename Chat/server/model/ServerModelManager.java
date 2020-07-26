@@ -26,4 +26,9 @@ public class ServerModelManager implements ServerModel
       throwables.printStackTrace();
     }
   }
+
+  @Override public void sendMessage()
+  {
+    System.out.println("message sent");
+  }
 }

@@ -26,6 +26,7 @@ public class LoginController implements ViewController
 
   public void onLoginButton(ActionEvent actionEvent)
   {
-    lvm.loginUser(usernameField.getText());
+    //lvm.loginUser(usernameField.getText());
+    vh.openCommonChat();
   }
 }
