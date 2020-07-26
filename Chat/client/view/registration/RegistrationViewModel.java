@@ -1,8 +1,8 @@
 package Chat.client.view.registration;
 import Chat.client.model.registration.RegistrationModel;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.Alert;
 
 import java.beans.PropertyChangeEvent;
 
@@ -12,6 +12,7 @@ public class RegistrationViewModel {
     private StringProperty username;
     private StringProperty password;
     private StringProperty confirmPassword;
+    private Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     public RegistrationViewModel(RegistrationModel registrationModel) {
         this.registrationModel = registrationModel;
@@ -23,19 +24,22 @@ public class RegistrationViewModel {
     public void registerUser() {
         String un = username.get();
         if (un == null || un.equals("")) {
-            registerResponse.set("Username needed!");
-            return;
+            alert.setTitle("Wrong information");
+            alert.setContentText("Please input a username.");
+            alert.showAndWait();
         }
 
         String pw = password.get();
         if(pw == null) {
-            registerResponse.set("Password needed!");
-            return;
+            alert.setTitle("Wrong information");
+            alert.setContentText("Please input a password.");
+            alert.showAndWait();
         }
 
         if (!pw.equals(confirmPassword.get())) {
-            registerResponse.set("Passwords do not match!");
-            return;
+            alert.setTitle("Wrong information");
+            alert.setContentText("Passwords do not match.");
+            alert.showAndWait();
         }
         registrationModel.registerUser(un, pw);
     }

@@ -16,4 +16,9 @@ public class RegistrationModelManager implements RegistrationModel{
     public void createAccount(String username, String password, String passredo) {
 
     }
+
+    @Override
+    public void registerUser(String un, String pw) {
+
+    }
 }

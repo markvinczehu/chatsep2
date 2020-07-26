@@ -39,7 +39,8 @@ public class RegistrationController {
         passwordrep.textProperty().bindBidirectional(rvm.confirmPasswordProperty());
     }
 
-    private void onRegisterResult(String newValue) {
+    private void onRegisterResult(ActionEvent event) {
+
         rvm.clear();
         vh.openLogin();
     }
