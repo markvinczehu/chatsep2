@@ -39,7 +39,7 @@ public class ModelFactory
 
   public RegistrationModel getRegistrationModel() {
     if (registrationModel == null) {
-      //registrationModel = new RegistrationModelManager();
+      registrationModel = new RegistrationModelManager(clientFactory.getRegistrationClient());
     }
     return registrationModel;
   }
