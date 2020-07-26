@@ -11,6 +11,7 @@ import java.io.IOException;
 public class ViewHandler
 {
   private Scene loginScene;
+  private Scene commonChatScene;
   private Stage stage;
   private ViewModelFactory viewModelFactory;
 
@@ -37,6 +38,21 @@ public class ViewHandler
       }
     }
     stage.setScene(loginScene);
+    stage.show();
+  }
+
+  public void openCommonChat()
+  {
+    if(commonChatScene == null){
+      try {
+        Parent root = loadFXML("../view/commonchat/CommonChat.fxml");
+        stage.setTitle("CommomChat");
+        commonChatScene = new Scene(root);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    stage.setScene(commonChatScene);
     stage.show();
   }
 
