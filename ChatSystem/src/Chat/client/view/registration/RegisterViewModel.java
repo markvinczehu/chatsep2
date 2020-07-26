@@ -1,4 +1,4 @@
-package client.view.register;
+package chat.client.view.register;
 
 import client.model.UserModel;
 import javafx.application.Platform;
@@ -49,13 +49,13 @@ public class RegisterViewModel {
     public void registerUser() {
         String un = username.get();
         if (un == null || un.equals("")) {
-            registerResponse.set("Username cannot be empty");
+            registerResponse.set("Username needed");
             return;
         }
 
         String pw = password.get();
         if(pw == null) {
-            registerResponse.set("Password cannot be empty");
+            registerResponse.set("Password needed");
             return;
         }
 

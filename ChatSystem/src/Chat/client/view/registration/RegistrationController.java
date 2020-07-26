@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import Chat.client.view.ViewHandel;
 
 public class RegistrationController {
 
@@ -28,7 +29,7 @@ public class RegistrationController {
     private ViewHandler vh;
 
     public void init(ViewHandler vh, RegistrationViewModel rvm) {
-        this.RegistrationViewModel = rvm;
+        this.RegisterViewModel = rvm;
         this.ViewHandler = vh;
         userName.textProperty().bindBidirectional(rvm.usernameProperty());
         password.textProperty().bindBidirectional(rvm.passwordProperty());
