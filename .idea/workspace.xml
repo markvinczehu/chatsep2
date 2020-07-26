@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f8f3308-f90e-4eff-8028-84b58e537307" name="Default Changelist" comment="" />
+    <list default="true" id="0f8f3308-f90e-4eff-8028-84b58e537307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_14__1_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat/client/network/commonchat/CommonChatClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat/client/network/commonchat/CommonChatClientImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat/client/network/login/LoginClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat/client/network/login/LoginClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/chatsep2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chatsep2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_07_2020_12_07__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_07_2020_12_07__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/core/ClientFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/core/ClientFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/core/ModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/core/ModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/core/ViewModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/model/login/LoginModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/model/login/LoginModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/model/user/UserModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/model/user/UserModelManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/network/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/network/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/RMIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/shared/networking/RMIServer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -26,8 +56,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SDJ2" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/Java/javafx-sdk-12.0.2/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -37,6 +68,40 @@
       <recent name="C:\Users\matej\IdeaProjects\chatsep2" />
       <recent name="C:\Users\matej\IdeaProjects\chatsep2\ChatSystem\src\Chat\client\view" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.RunClient">
+    <configuration name="RunClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Chat.client.RunClient" />
+      <module name="chatsep2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Chat.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Chat.server.RunServer" />
+      <module name="chatsep2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Chat.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RunClient" />
+        <item itemvalue="Application.RunServer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -64,10 +129,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="horseraddish" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser" timestamp="1595757490316">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="249" y="0" key="#Project_Structure" timestamp="1595768093194">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595706778463" />
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1595768093194" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1595767211910">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595767211910" />
     <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595757490316" />
     <state x="581" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595756931759">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -81,24 +150,40 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758206464" />
-    <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1595757712559">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1595768545228">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595704788371" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595768545228" />
     <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595757712559" />
-    <state x="623" y="0" key="SettingsEditor" timestamp="1595758436904">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1595768763325">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595705333545" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595768763325" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1595768763325">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595768763325" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1595768763324">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595768763324" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1595768763325">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595768763325" />
+    <state x="498" y="0" key="SettingsEditor" timestamp="1595768549226">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595768549226" />
     <state x="623" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595758436904" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1595758237596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758237596" />
-    <state x="723" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595758035890">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595770340031">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1595704151189" />
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1595770340031" />
     <state x="723" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758035890" />
   </component>
 </project>

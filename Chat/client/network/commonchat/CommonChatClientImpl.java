@@ -1,4 +1,4 @@
-package Chat.client.network;
+package Chat.client.network.commonchat;
 
 import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
@@ -9,11 +9,11 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class RMIClient implements Client, ClientCallback
+public class CommonChatClientImpl implements CommonChatClient, ClientCallback
 {
   private RMIServer server;
 
-  public RMIClient ()
+  public CommonChatClientImpl()
   {
 
   }
@@ -30,5 +30,18 @@ public class RMIClient implements Client, ClientCallback
       e.printStackTrace();
     }
   }
+
+  @Override public void sendMessage()
+  {
+    try
+    {
+      server.sendMessage();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
 
 }

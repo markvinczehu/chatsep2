@@ -1,5 +1,5 @@
 package Chat.client.view.registration;
-import Chat.client.model.user.UserModel;
+
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.StringProperty;
@@ -8,7 +8,6 @@ import java.beans.PropertyChangeEvent;
 
 public class RegistrationViewModel {
 
-    private UserModel userModel;
     private StringProperty username;
     private StringProperty password;
     private StringProperty confirmPassword;
@@ -16,9 +15,8 @@ public class RegistrationViewModel {
     private BooleanProperty registerButtonDisabled;
 
 
-    public RegistrationViewModel(UserModel userModel) {
-        this.userModel = userModel;
-        userModel.addPropertyChangeListener(EventType.REGISTER_RESULT.toString(), this::onRegisterResponse);
+    public RegistrationViewModel() {
+        //userModel.addPropertyChangeListener(EventType.REGISTER_RESULT.toString(), this::onRegisterResponse);
         username.addListener((observableValue, oldValue, newValue) -> onInputFieldsUpdated());
         password.addListener((observableValue, oldValue, newValue) -> onInputFieldsUpdated());
         confirmPassword.addListener((observableValue, oldValue, newValue) -> onInputFieldsUpdated());
@@ -58,7 +56,7 @@ public class RegistrationViewModel {
             registerResponse.set("Passwords do not match");
             return;
         }
-        userModel.registerUser(un, pw);
+        //userModel.registerUser(un, pw);
     }
 
     public StringProperty usernameProperty() {
