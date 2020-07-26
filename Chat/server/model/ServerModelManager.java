@@ -31,4 +31,9 @@ public class ServerModelManager implements ServerModel
   {
     System.out.println("message sent");
   }
+
+  @Override public void registerUser(String un, String pw)
+  {
+    System.out.println("Account created");
+  }
 }

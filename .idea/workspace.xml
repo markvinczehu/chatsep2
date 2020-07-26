@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b700f179-9b39-4723-a010-b5df1742eb6f" name="Default Changelist" comment="Added a bunch of methods that were missing into the RegistrationModelManager, RegistrationModel, ViewModelFactory and LoginModelManager">
+    <list default="true" id="b700f179-9b39-4723-a010-b5df1742eb6f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/core/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/Registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/Registration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595785384484</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed the errors in the Registration.fxml file, implemented the functionality of the methods in the ViewHandler class that reference the RegistrationViewModel and added functionality to the labels and string properties inside RegistrationController">
+      <created>1595795036808</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1595795036808</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -111,13 +119,14 @@
     <MESSAGE value="Added the RegistrationClient and RegistrationClientImpl classes and added their corresponding methods to the ClientFactory and ModelFactory accordingly" />
     <MESSAGE value="Fixed a method" />
     <MESSAGE value="Added a bunch of methods that were missing into the RegistrationModelManager, RegistrationModel, ViewModelFactory and LoginModelManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a bunch of methods that were missing into the RegistrationModelManager, RegistrationModel, ViewModelFactory and LoginModelManager" />
+    <MESSAGE value="Fixed the errors in the Registration.fxml file, implemented the functionality of the methods in the ViewHandler class that reference the RegistrationViewModel and added functionality to the labels and string properties inside RegistrationController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the errors in the Registration.fxml file, implemented the functionality of the methods in the ViewHandler class that reference the RegistrationViewModel and added functionality to the labels and string properties inside RegistrationController" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="511" y="105" key="#com.intellij.ide.util.MemberChooser" timestamp="1595784990495">
+    <state x="511" y="105" key="#com.intellij.ide.util.MemberChooser" timestamp="1595796406579">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="511" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1595784990495" />
+    <state x="511" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1595796406579" />
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595706778463" />
     <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595757490316" />
     <state x="581" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595756931759">
@@ -128,10 +137,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="748" y="166" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1595499554690" />
-    <state x="105" y="0" key="CommitChangelistDialog2" timestamp="1595785596249">
+    <state x="105" y="0" key="CommitChangelistDialog2" timestamp="1595795035547">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="105" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595785596249" />
+    <state x="105" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595795035547" />
     <state x="587" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758206464" />
     <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1595757712559">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -143,15 +152,15 @@
     </state>
     <state x="498" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595705333545" />
     <state x="623" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595758436904" />
-    <state x="393" y="177" key="Vcs.Push.Dialog.v2" timestamp="1595785386484">
+    <state x="393" y="177" key="Vcs.Push.Dialog.v2" timestamp="1595795039985">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595785386484" />
+    <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595795039985" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758237596" />
-    <state x="514" y="288" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595785295303">
+    <state x="514" y="288" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595795052925">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="514" y="288" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1595785295303" />
+    <state x="514" y="288" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1595795052925" />
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1595704151189" />
     <state x="723" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758035890" />
   </component>

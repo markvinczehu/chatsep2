@@ -12,8 +12,9 @@ public class RegistrationViewModel {
     private StringProperty username;
     private StringProperty password;
     private StringProperty confirmPassword;
+    /*
     private Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
+    */
     private StringProperty error;
 
     public RegistrationViewModel(RegistrationModel registrationModel) {

@@ -34,4 +34,9 @@ public class RMIServerImpl implements RMIServer
   {
     serverModel.sendMessage();
   }
+
+  @Override public void registerUser(String un, String pw)
+  {
+    serverModel.registerUser(un, pw);
+  }
 }
