@@ -28,7 +28,7 @@ public class ViewModelFactory
   {
     if(registrationViewModel == null)
     {
-      registrationViewModel = new RegistrationViewModel(modelFactory.getRegistrationModel(), registerResponse, registerButtonDisabled);
+      registrationViewModel = new RegistrationViewModel(modelFactory.getRegistrationModel());
     }
     return registrationViewModel;
   }
@@ -37,7 +37,7 @@ public class ViewModelFactory
   {
     if (commonChatViewModel == null)
     {
-      commonChatViewModel = new CommonChatViewModel();
+      commonChatViewModel = new CommonChatViewModel(modelFactory.getCommonChatModel());
     }
     return commonChatViewModel;
   }

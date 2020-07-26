@@ -1,24 +1,19 @@
 package Chat.client.model.registration;
-import Chat.client.network.Client;
+
+import Chat.client.network.registration.RegistrationClient;
 
 public class RegistrationModelManager implements RegistrationModel{
 
-    private Client client;
+    private RegistrationClient registrationClient;
 
-    public RegistrationModelManager(Client client)
+    public RegistrationModelManager(RegistrationClient client)
     {
-        this.client = client;
-        client.startClient();
-    }
-
-
-    @Override
-    public void createAccount(String username, String password, String passredo) {
-
+        this.registrationClient = client;
+        registrationClient.startClient();
     }
 
     @Override
     public void registerUser(String un, String pw) {
-
+        registrationClient.registerUser(un, pw);
     }
 }

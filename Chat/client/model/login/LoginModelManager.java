@@ -1,6 +1,5 @@
 package Chat.client.model.login;
 
-import Chat.client.network.Client;
 import Chat.client.network.login.LoginClient;
 
 public class LoginModelManager implements LoginModel

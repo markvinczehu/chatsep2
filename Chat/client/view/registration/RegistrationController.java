@@ -1,38 +1,35 @@
 package Chat.client.view.registration;
 import Chat.client.core.ViewHandler;
+import Chat.client.core.ViewModelFactory;
+import Chat.client.view.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 
-public class RegistrationController {
+public class RegistrationController  implements ViewController
+{
 
     @FXML
     private PasswordField password;
-
     @FXML
     private PasswordField passwordrep;
-
     @FXML
     private TextField userName;
-
     @FXML
     private Button resetButton;
-
     @FXML
     private Button registerButton;
-
     @FXML
     private Button cancelButton;
-
     @FXML
     private Label errorLabel;
     
     private RegistrationViewModel rvm;
     private ViewHandler vh;
 
-    public void init(ViewHandler vh, RegistrationViewModel rvm) {
-        this.rvm = rvm;
+    @Override public void init(ViewHandler vh, ViewModelFactory vmf)
+    {
         this.vh = vh;
         userName.textProperty().bindBidirectional(rvm.usernameProperty());
         password.textProperty().bindBidirectional(rvm.passwordProperty());
