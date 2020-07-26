@@ -28,7 +28,7 @@ public class ViewModelFactory
   {
     if(registrationViewModel == null)
     {
-      registrationViewModel = new RegistrationViewModel(modelFactory.getRegistrationModel());
+      registrationViewModel = new RegistrationViewModel(modelFactory.getRegistrationModel(), registerResponse, registerButtonDisabled);
     }
     return registrationViewModel;
   }

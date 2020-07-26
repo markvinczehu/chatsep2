@@ -1,64 +1,43 @@
 package Chat.client.view.registration;
-import Chat.client.model.user.UserModel;
+import Chat.client.model.registration.RegistrationModel;
 import javafx.application.Platform;
-import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import java.beans.PropertyChangeEvent;
 
+import java.beans.PropertyChangeEvent;
 
 public class RegistrationViewModel {
 
-    private UserModel userModel;
+    private RegistrationModel registrationModel;
     private StringProperty username;
     private StringProperty password;
     private StringProperty confirmPassword;
-    private StringProperty registerResponse;
-    private BooleanProperty registerButtonDisabled;
 
-
-    public RegistrationViewModel(UserModel userModel) {
-        this.userModel = userModel;
-        userModel.addPropertyChangeListener(EventType.REGISTER_RESULT.toString(), this::onRegisterResponse);
-        username.addListener((observableValue, oldValue, newValue) -> onInputFieldsUpdated());
-        password.addListener((observableValue, oldValue, newValue) -> onInputFieldsUpdated());
-        confirmPassword.addListener((observableValue, oldValue, newValue) -> onInputFieldsUpdated());
-    }
-
-    private void onInputFieldsUpdated() {
-        boolean disabled = username.get() == null ||
-                username.get().equals("") ||
-                password.get() == null ||
-                password.get().equals("") ||
-                confirmPassword.get() == null ||
-                confirmPassword.get().equals("");
-        registerButtonDisabled.set(disabled);
-    }
-
-    private void onRegisterResponse(PropertyChangeEvent evt) {
-        String result = (String) evt.getNewValue();
-        Platform.runLater(() -> {
-            registerResponse.set(result);
-        });
+    public RegistrationViewModel(RegistrationModel registrationModel) {
+        this.registrationModel = registrationModel;
+        username = new SimpleStringProperty();
+        password = new SimpleStringProperty();
+        confirmPassword = new SimpleStringProperty();
     }
 
     public void registerUser() {
         String un = username.get();
         if (un == null || un.equals("")) {
-            registerResponse.set("Username cannot be empty");
+            registerResponse.set("Username needed!");
             return;
         }
 
         String pw = password.get();
         if(pw == null) {
-            registerResponse.set("Password cannot be empty");
+            registerResponse.set("Password needed!");
             return;
         }
 
         if (!pw.equals(confirmPassword.get())) {
-            registerResponse.set("Passwords do not match");
+            registerResponse.set("Passwords do not match!");
             return;
         }
-        userModel.registerUser(un, pw);
+        registrationModel.registerUser(un, pw);
     }
 
     public StringProperty usernameProperty() {
@@ -73,18 +52,9 @@ public class RegistrationViewModel {
         return confirmPassword;
     }
 
-    public BooleanProperty registerButtonDisabledProperty() {
-        return registerButtonDisabled;
-    }
-
-    public StringProperty registerResponseProperty() {
-        return registerResponse;
-    }
-
     public void clear() {
         username.set("");
         password.set("");
         confirmPassword.set("");
-        registerResponse.set("");
     }
 }

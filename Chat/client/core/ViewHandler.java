@@ -13,6 +13,7 @@ public class ViewHandler
   private Scene loginScene;
   private Scene commonChatScene;
   private Stage stage;
+  private Scene registrationScene;
   private ViewModelFactory viewModelFactory;
 
   public ViewHandler(ViewModelFactory viewModelFactory)
@@ -38,6 +39,21 @@ public class ViewHandler
       }
     }
     stage.setScene(loginScene);
+    stage.show();
+  }
+
+  public void openRegistrationView()
+  {
+    if(registrationScene == null){
+      try {
+        Parent root = loadFXML("../view/registration/Registration.fxml");
+        stage.setTitle("Registration");
+        registrationScene = new Scene(root);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    stage.setScene(registrationScene);
     stage.show();
   }
 
