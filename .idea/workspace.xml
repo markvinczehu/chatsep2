@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b700f179-9b39-4723-a010-b5df1742eb6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat/shared/util/Subject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/chatsep2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chatsep2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_14__1_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_14__1_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/login/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/login/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/Registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/Registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,18 +53,6 @@
       <recent name="C:\Users\matej\IdeaProjects\chatsep2" />
       <recent name="C:\Users\matej\IdeaProjects\chatsep2\ChatSystem\src\Chat\client\view" />
     </key>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -133,9 +127,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added a couple of needed methods in the RMIServerImpl, ServerModel and ServerModelManager" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="511" y="105" key="#com.intellij.ide.util.MemberChooser" timestamp="1595796406579">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="628" y="161" key="#com.intellij.ide.util.MemberChooser" timestamp="1595845259201">
+      <screen x="0" y="23" width="1680" height="957" />
     </state>
+    <state x="628" y="161" key="#com.intellij.ide.util.MemberChooser/-1920.23.1920.1057/0.23.1680.957@0.23.1680.957" timestamp="1595845259201" />
     <state x="511" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1595796406579" />
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595706778463" />
     <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595757490316" />

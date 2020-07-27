@@ -9,7 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class RMIServerImpl implements RMIServer
+public abstract class RMIServerImpl implements RMIServer
 {
   private ServerModel serverModel;
 
@@ -39,4 +39,5 @@ public class RMIServerImpl implements RMIServer
   {
     serverModel.registerUser(un, pw);
   }
+
 }
