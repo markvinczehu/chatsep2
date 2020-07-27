@@ -17,12 +17,6 @@ public class RegistrationController  implements ViewController
     @FXML
     private TextField userName;
     @FXML
-    private Button resetButton;
-    @FXML
-    private Button registerButton;
-    @FXML
-    private Button cancelButton;
-    @FXML
     private Label errorLabel;
     
     private RegistrationViewModel rvm;
@@ -36,13 +30,6 @@ public class RegistrationController  implements ViewController
         password.textProperty().bindBidirectional(rvm.passwordProperty());
         passwordrep.textProperty().bindBidirectional(rvm.confirmPasswordProperty());
         errorLabel.textProperty().bind(rvm.errorProperty());
-    }
-
-    private void onRegisterRequest(ActionEvent actionEvent) {
-        vh.openRegistrationView();
-        rvm.clear();
-        rvm.registerUser();
-        vh.openLogin();
     }
 
     @FXML

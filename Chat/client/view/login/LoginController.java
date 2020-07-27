@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import Chat.client.view.registration.RegistrationViewModel;
 
 public class LoginController implements ViewController
 {
@@ -15,11 +16,13 @@ public class LoginController implements ViewController
 
   private LoginViewModel lvm;
   private ViewHandler vh;
+  private RegistrationViewModel rvm;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
     this.vh = vh;
     lvm = vmf.getLoginViewModel();
+    rvm=vmf.getRegistrationViewModel();
     usernameField.textProperty().bindBidirectional(lvm.usernameProperty());
     passwordField.textProperty().bindBidirectional(lvm.passwordProperty());
   }
@@ -28,5 +31,13 @@ public class LoginController implements ViewController
   {
     lvm.loginUser(usernameField.getText());
     vh.openCommonChat();
+  }
+
+  @FXML
+  void onRegisterRequest(ActionEvent actionEvent) {
+    vh.openRegistrationView();
+    rvm.clear();
+    rvm.registerUser();
+    vh.openLogin();
   }
 }
