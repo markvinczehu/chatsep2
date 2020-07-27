@@ -1,6 +1,7 @@
 package Chat.client.view.commonchat;
 
 import Chat.client.model.commonchat.CommonChatModel;
+import Chat.shared.transferobjects.Message;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -21,9 +22,9 @@ public class CommonChatViewModel
     activeUsersList = new SimpleListProperty();
   }
 
-  public void sendMessage()
+  public void sendMessage(Message message)
   {
-    commonChatModel.sendMessage();
+    commonChatModel.sendMessage(message);
   }
 
   public StringProperty messageField()

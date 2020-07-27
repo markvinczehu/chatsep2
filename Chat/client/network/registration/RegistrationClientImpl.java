@@ -20,7 +20,14 @@ public class RegistrationClientImpl implements RegistrationClient, Remote
 
   @Override public void registerUser(String un, String pw)
   {
-    server.registerUser(un, pw);
+    try
+    {
+      server.registerUser(un, pw);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void startClient()

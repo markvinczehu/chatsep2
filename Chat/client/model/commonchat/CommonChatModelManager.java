@@ -1,6 +1,7 @@
 package Chat.client.model.commonchat;
 
 import Chat.client.network.commonchat.CommonChatClient;
+import Chat.shared.transferobjects.Message;
 
 public class CommonChatModelManager implements CommonChatModel
 {
@@ -12,8 +13,8 @@ public class CommonChatModelManager implements CommonChatModel
     client.startClient();
   }
 
-  @Override public void sendMessage()
+  @Override public void sendMessage(Message message)
   {
-    client.sendMessage();
+    client.sendMessage(message);
   }
 }

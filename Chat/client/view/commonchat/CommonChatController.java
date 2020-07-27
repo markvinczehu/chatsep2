@@ -3,6 +3,7 @@ package Chat.client.view.commonchat;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
+import Chat.shared.transferobjects.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -29,6 +30,7 @@ public class CommonChatController implements ViewController
 
   public void onSendButton(ActionEvent actionEvent)
   {
-    commonChatViewModel.sendMessage();
+    Message message = new Message("username", messageField.getText());
+    commonChatViewModel.sendMessage(message);
   }
 }
