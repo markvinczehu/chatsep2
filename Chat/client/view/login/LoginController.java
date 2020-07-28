@@ -38,6 +38,5 @@ public class LoginController implements ViewController
     vh.openRegistrationView();
     rvm.clear();
     rvm.registerUser();
-    vh.openLogin();
   }
 }

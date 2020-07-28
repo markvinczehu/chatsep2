@@ -26,7 +26,7 @@ public class CommonChatClientImpl implements CommonChatClient, ClientCallback
       UnicastRemoteObject.exportObject(this, 0);
       Registry registry = LocateRegistry.getRegistry("localhost", 1099);
       server = (RMIServer) registry.lookup("Server");
-      server.registerCommonChat(this);
+      //server.registerCommonChat(this);
     }catch (RemoteException | NotBoundException e)
     {
       e.printStackTrace();
