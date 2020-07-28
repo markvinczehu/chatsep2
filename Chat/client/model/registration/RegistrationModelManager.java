@@ -13,7 +13,7 @@ public class RegistrationModelManager implements RegistrationModel{
     }
 
     @Override
-    public void registerUser(String un, String pw) {
+    public void registerUserChecker(String un, String pw) {
         registrationClient.registerUser(un, pw);
     }
 }

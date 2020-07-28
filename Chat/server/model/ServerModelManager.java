@@ -28,7 +28,7 @@ public class ServerModelManager implements ServerModel
   {
     try{
       database.read(username);
-    }
+       }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();

@@ -37,7 +37,6 @@ public class LoginController implements ViewController
   void onRegisterRequest(ActionEvent actionEvent) {
     vh.openRegistrationView();
     rvm.clear();
-    rvm.registerUser();
   }
 
   @FXML
