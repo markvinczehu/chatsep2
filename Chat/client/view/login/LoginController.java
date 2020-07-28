@@ -39,4 +39,9 @@ public class LoginController implements ViewController
     rvm.clear();
     rvm.registerUser();
   }
+
+  @FXML
+  void onEnterGuest (ActionEvent actionEvent) {
+    vh.openCommonChat();
+  }
 }
