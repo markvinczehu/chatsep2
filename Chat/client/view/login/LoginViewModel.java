@@ -9,17 +9,29 @@ public class LoginViewModel
   private LoginModel loginModel;
   private StringProperty username;
   private StringProperty password;
+  private StringProperty error;
 
   public LoginViewModel(LoginModel loginModel)
   {
     this.loginModel = loginModel;
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
-
+    error = new SimpleStringProperty();
   }
-  public void loginUser(String username)
+  public boolean loginUserChecker(String username)
   {
     loginModel.loginUser(username);
+    if (username == null || username.equals(""))
+    {
+      error.set("Incorrect username");
+      return false;
+    }
+    if (password == null)
+      {
+        error.set("Incorrect password");
+        return false;
+      }
+    return true;
   }
 
   public StringProperty usernameProperty()
@@ -30,5 +42,9 @@ public class LoginViewModel
   public StringProperty passwordProperty()
   {
     return password;
+  }
+  public StringProperty errorProperty()
+  {
+    return error;
   }
 }

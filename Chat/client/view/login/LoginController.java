@@ -5,6 +5,7 @@ import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import Chat.client.view.registration.RegistrationViewModel;
@@ -13,6 +14,7 @@ public class LoginController implements ViewController
 {
   @FXML private TextField usernameField;
   @FXML private PasswordField passwordField;
+  @FXML private Label loginErrorLabel;
 
   private LoginViewModel lvm;
   private ViewHandler vh;
@@ -23,14 +25,18 @@ public class LoginController implements ViewController
     this.vh = vh;
     lvm = vmf.getLoginViewModel();
     rvm=vmf.getRegistrationViewModel();
+    loginErrorLabel.textProperty().bind(lvm.errorProperty());
     usernameField.textProperty().bindBidirectional(lvm.usernameProperty());
     passwordField.textProperty().bindBidirectional(lvm.passwordProperty());
   }
 
   public void onLoginButton(ActionEvent actionEvent)
   {
-    lvm.loginUser(usernameField.getText());
-    vh.openCommonChat();
+    lvm.loginUserChecker(usernameField.getText());
+    if (lvm.loginUserChecker(usernameField.getText()))
+    {
+      vh.openCommonChat();
+    }
   }
 
   @FXML

@@ -1,5 +1,4 @@
 package Chat.client.view.registration;
-import Chat.client.core.ViewHandler;
 import Chat.client.model.registration.RegistrationModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,7 +12,7 @@ public class RegistrationViewModel {
     private StringProperty password;
     private StringProperty confirmPassword;
     private StringProperty error;
-    private ViewHandler vh;
+
     public RegistrationViewModel(RegistrationModel registrationModel) {
         this.registrationModel = registrationModel;
         username = new SimpleStringProperty();
@@ -26,7 +25,6 @@ public class RegistrationViewModel {
         System.out.println("cunttits");
         String un = username.get();
         String pw = password.get();
-        String cpw = confirmPassword.get();
         if (un != null && !"".equals(un)) {
             username.set(un);
         }
