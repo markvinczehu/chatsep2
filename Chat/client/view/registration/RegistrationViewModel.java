@@ -21,25 +21,30 @@ public class RegistrationViewModel {
         error = new SimpleStringProperty();
     }
 
-    public void registerUser() {
+    public boolean registerUserChecker() {
+        System.out.println("cunttits");
         String un = username.get();
-        if (un == null || un.equals("")) {
-            error.set("Incorrect information");
-            error.set("Please input a username");
-        }
-
         String pw = password.get();
-        if(pw == null) {
-            error.set("Wrong information");
+        if (un != null && !"".equals(un)) {
+            username.set(un);
+        }
+        else {
+            error.set("Please input a username");
+            return false;
+        }
+        if(pw != null) {
+            password.set(pw);
+        }
+        else {
             error.set("Please input a password");
+            return false;
         }
-
-        assert pw != null;
         if (!pw.equals(confirmPassword.get())) {
-            error.set("Wrong information");
             error.set("Passwords do not match");
+            return false;
         }
-        registrationModel.registerUser(un, pw);
+        registrationModel.registerUserChecker(un, pw);
+        return true;
     }
 
     public StringProperty usernameProperty() {
@@ -62,5 +67,6 @@ public class RegistrationViewModel {
         username.set("");
         password.set("");
         confirmPassword.set("");
+        error.set("");
     }
 }

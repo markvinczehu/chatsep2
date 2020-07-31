@@ -8,7 +8,6 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -28,23 +27,20 @@
          <children>
             <PasswordField fx:id="password" layoutX="194.0" layoutY="122.0" prefHeight="27.0" prefWidth="389.0" />
             <TextField fx:id="userName" layoutX="194.0" layoutY="80.0" prefHeight="27.0" prefWidth="389.0" />
-            <Label layoutX="139.0" layoutY="210.0" text="By registration you accept our rulebook that can be found in 'About'" />
+            <Label layoutX="139.0" layoutY="210.0" text="By registering you accept the terms and conditions that can be found in 'About us'" />
             <Label layoutX="14.0" layoutY="85.0" text="Username (max. 128 char)" />
             <Label layoutX="14.0" layoutY="128.0" text="Password (4-24 char)" />
             <Button fx:id="resetButton" layoutX="274.0" layoutY="288.0" mnemonicParsing="false" onAction="#resetData" prefHeight="27.0" prefWidth="92.0" text="Reset" />
             <Button fx:id="registerButton" layoutX="274.0" layoutY="245.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="27.0" prefWidth="92.0" text="Register" />
             <Button fx:id="cancelButton" layoutX="274.0" layoutY="330.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="27.0" prefWidth="92.0" text="Cancel" />
-            <Label layoutX="305.0" layoutY="29.0" />
-            <Label layoutX="200.0" layoutY="18.0" text="Welcome to Chat!">
+            <Label fx:id="errorLabel" layoutX="31.0" layoutY="321.0" prefHeight="18.0" prefWidth="148.0" textFill="RED" />
+            <Label layoutX="193.0" layoutY="23.0" text="Welcome to Chat!">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
             <PasswordField fx:id="passwordrep" layoutX="194.0" layoutY="159.0" prefHeight="27.0" prefWidth="389.0" />
             <Label layoutX="14.0" layoutY="164.0" text="Repeat password" />
-             <BorderPane prefHeight="126.0" prefWidth="424.0">
-                 <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="319.0" text="Error label" BorderPane.alignment="CENTER" />
-             </BorderPane>
          </children>
     </AnchorPane>
   </children>

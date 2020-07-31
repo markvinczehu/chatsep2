@@ -40,8 +40,11 @@ public class RegistrationController  implements ViewController
 
     @FXML
     void createAccount(ActionEvent actionEvent) {
-        rvm.registerUser();
-        vh.openCommonChat();
+        rvm.registerUserChecker();
+        if(rvm.registerUserChecker())
+        {
+            vh.openCommonChat();
+        }
     }
 
     @FXML
