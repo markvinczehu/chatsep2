@@ -1,6 +1,8 @@
 package Chat.client.network;
 
-public interface Client
+import Chat.shared.util.Subject;
+
+public interface Client extends Subject
 {
   void startClient();
 }

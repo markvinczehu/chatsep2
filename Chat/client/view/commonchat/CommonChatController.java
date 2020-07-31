@@ -14,7 +14,7 @@ public class CommonChatController implements ViewController
 {
   @FXML private TextField messageField;
   @FXML private TextArea commonChatArea;
-  @FXML private ListView activeUsersList;
+  @FXML private ListView<String> activeUsersList;
 
   private CommonChatViewModel commonChatViewModel;
   private ViewHandler viewHandler;
@@ -24,13 +24,21 @@ public class CommonChatController implements ViewController
     viewHandler = vh;
     commonChatViewModel = vmf.getCommonChatViewModel();
     messageField.textProperty().bindBidirectional(commonChatViewModel.messageField());
-    commonChatArea.textProperty().bindBidirectional(commonChatViewModel.chatArea());
-    activeUsersList.accessibleTextProperty().bindBidirectional(commonChatViewModel.activeUsersList());
+    commonChatArea.setEditable(false);
+    commonChatViewModel.chatArea().addListener((obs, old, newValue) ->{
+      if(!newValue.equals(""))
+      {
+        commonChatArea.appendText(newValue + "\n");
+        commonChatViewModel.chatArea().setValue("");
+      }
+    });
+    //activeUsersList.accessibleTextProperty().bindBidirectional(commonChatViewModel.activeUsersList());
+    //activeUsersList.getItems().add("asd");
   }
 
   public void onSendButton(ActionEvent actionEvent)
   {
-    Message message = new Message("username", messageField.getText());
-    commonChatViewModel.sendMessage(message);
+    commonChatViewModel.sendMessage();
+    messageField.clear();
   }
 }

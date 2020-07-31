@@ -2,6 +2,7 @@ package Chat.client.network.registration;
 
 import Chat.shared.networking.RMIServer;
 
+import java.beans.PropertyChangeListener;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -41,5 +42,17 @@ public class RegistrationClientImpl implements RegistrationClient, Remote
   {
     e.printStackTrace();
   }
+  }
+
+  @Override public void addListener(String evtName,
+      PropertyChangeListener listener)
+  {
+
+  }
+
+  @Override public void removeListener(String evtName,
+      PropertyChangeListener listener)
+  {
+
   }
 }

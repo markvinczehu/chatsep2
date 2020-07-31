@@ -2,6 +2,7 @@ package Chat.client.network.login;
 
 import Chat.shared.networking.RMIServer;
 
+import java.beans.PropertyChangeListener;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -43,5 +44,15 @@ public class LoginClientImpl implements LoginClient, Remote
     }
   }
 
+  @Override public void addListener(String evtName,
+      PropertyChangeListener listener)
+  {
 
+  }
+
+  @Override public void removeListener(String evtName,
+      PropertyChangeListener listener)
+  {
+
+  }
 }

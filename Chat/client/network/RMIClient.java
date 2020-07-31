@@ -3,6 +3,8 @@ package Chat.client.network;
 import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -31,4 +33,21 @@ public class RMIClient implements Client, ClientCallback
     }
   }
 
+  @Override public void sendMessageResult(PropertyChangeEvent event)
+      throws RemoteException
+  {
+
+  }
+
+  @Override public void addListener(String evtName,
+      PropertyChangeListener listener)
+  {
+
+  }
+
+  @Override public void removeListener(String evtName,
+      PropertyChangeListener listener)
+  {
+
+  }
 }

@@ -7,24 +7,37 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.beans.PropertyChangeEvent;
+
 public class CommonChatViewModel
 {
   private CommonChatModel commonChatModel;
   private StringProperty messageField;
   private StringProperty chatArea;
-  private ListProperty activeUsersList;
+  private ListProperty<String> activeUsersList;
 
   public CommonChatViewModel(CommonChatModel commonChatModel)
   {
     this.commonChatModel = commonChatModel;
     messageField = new SimpleStringProperty();
     chatArea = new SimpleStringProperty();
-    activeUsersList = new SimpleListProperty();
+    activeUsersList = new SimpleListProperty<String>();
+    commonChatModel.addListener("SendMessage", this::onSendMessage);
   }
 
-  public void sendMessage(Message message)
+  private void onSendMessage(PropertyChangeEvent event)
   {
-    commonChatModel.sendMessage(message);
+    chatArea.setValue(event.getNewValue().toString());
+    System.out.println("arrived at view model");
+  }
+
+  public void sendMessage()
+  {
+    String input = messageField.get();
+    if(!input.equals("") && input!=null)
+    {
+      commonChatModel.sendMessage(input);
+    }
   }
 
   public StringProperty messageField()
@@ -37,6 +50,6 @@ public class CommonChatViewModel
     return chatArea;
   }
 
-  public ListProperty activeUsersList() { return activeUsersList; }
+  public ListProperty<String> activeUsersList() { return activeUsersList; }
 
 }

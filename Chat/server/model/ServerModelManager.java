@@ -6,6 +6,7 @@ import DAO.DAO;
 import DAO.DAOImpl;
 import javafx.beans.property.ListProperty;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ public class ServerModelManager implements ServerModel
   {
     users = new ArrayList<String>();
     activeUsers = new ArrayList<String>();
+    support = new PropertyChangeSupport(this);
   }
   
   @Override public void loginUser(String username)
@@ -37,9 +39,8 @@ public class ServerModelManager implements ServerModel
 
   @Override public void sendMessage(Message message)
   {
-    System.out.println("message sent");
-
-
+    System.out.println(message.toString());
+    support.firePropertyChange("SendMessage", null, message);
   }
 
   @Override public void registerUser(String un, String pw)
@@ -52,7 +53,7 @@ public class ServerModelManager implements ServerModel
   @Override public void addListener(String evtName,
       PropertyChangeListener listener)
   {
-    //support.addPropertyChangeListener(evtName,listener);
+    support.addPropertyChangeListener(evtName,listener);
   }
 
   @Override public void removeListener(String evtName,

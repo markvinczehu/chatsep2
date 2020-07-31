@@ -3,6 +3,7 @@ package Chat.server.network;
 import Chat.client.network.commonchat.CommonChatClient;
 import Chat.client.network.commonchat.CommonChatClientImpl;
 import Chat.server.model.ServerModel;
+import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
 import Chat.shared.transferobjects.Message;
 
@@ -19,13 +20,14 @@ public class RMIServerImpl implements RMIServer
 {
   private ServerModel serverModel;
   private List<CommonChatClient> commonChatClientList;
+  private ClientCallback clientCallback;
 
   public RMIServerImpl(ServerModel serverModel) throws RemoteException
   {
     UnicastRemoteObject.exportObject(this, 0);
     this.serverModel = serverModel;
     commonChatClientList = new ArrayList<>();
-    serverModel.addListener("Message", this::onSendMessage);
+    serverModel.addListener("SendMessage", this::onSendMessage);
   }
 
   public void startServer() throws RemoteException, AlreadyBoundException
@@ -39,8 +41,9 @@ public class RMIServerImpl implements RMIServer
     serverModel.loginUser(username);
   }
 
-  @Override public void sendMessage(Message message) throws RemoteException
+  @Override public void sendMessage(Message message, ClientCallback clientCallback) throws RemoteException
   {
+    this.clientCallback = clientCallback;
     serverModel.sendMessage(message);
   }
 
@@ -57,12 +60,15 @@ public class RMIServerImpl implements RMIServer
 
   @Override public void onSendMessage(PropertyChangeEvent propertyChangeEvent)
   {
-
-  }
-
-  public void onSendMessage()
-  {
-
+    try
+    {
+      clientCallback.sendMessageResult(propertyChangeEvent);
+      System.out.println("arrived at server");
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 
 }

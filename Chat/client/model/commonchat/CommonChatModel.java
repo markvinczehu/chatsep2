@@ -1,8 +1,12 @@
 package Chat.client.model.commonchat;
 
 import Chat.shared.transferobjects.Message;
+import Chat.shared.util.Subject;
 
-public interface CommonChatModel
+import java.beans.PropertyChangeEvent;
+
+public interface CommonChatModel extends Subject
 {
-  void sendMessage(Message message);
+  void sendMessage(String input);
+  void onSendMessage(PropertyChangeEvent event);
 }
