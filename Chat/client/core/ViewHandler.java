@@ -78,8 +78,8 @@ public class ViewHandler
     if(profileScene == null){
       try {
         Parent root = loadFXML("../view/profile/Profile.fxml");
-        stage.setTitle("profile");
-        commonChatScene = new Scene(root);
+        stage.setTitle("Profile");
+        profileScene = new Scene(root);
       } catch (IOException e) {
         e.printStackTrace();
       }

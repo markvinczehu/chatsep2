@@ -44,8 +44,10 @@ public class ViewModelFactory
     return commonChatViewModel;
   }
 
-  public ProfileViewModel getProfileViewModel() {
-    if(profileViewModel == null) {
+  public ProfileViewModel getProfileViewModel()
+  {
+    if(profileViewModel == null)
+    {
       profileViewModel = new ProfileViewModel(modelFactory.getProfileModel());
     }
     return profileViewModel;

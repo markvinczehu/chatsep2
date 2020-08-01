@@ -39,7 +39,8 @@ public class ClientFactory
     return registrationClient;
   }
 
-  public ProfileClient getProfileClient() {
+  public ProfileClient getProfileClient()
+  {
     if(profileClient == null) {
       profileClient = new ProfileClientImpl();
     }

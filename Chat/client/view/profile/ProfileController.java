@@ -3,12 +3,10 @@ package Chat.client.view.profile;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
-import Chat.client.view.commonchat.CommonChatViewModel;
-import Chat.client.view.login.LoginViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class ProfileController implements ViewController
 {
@@ -37,6 +35,8 @@ public class ProfileController implements ViewController
     @FXML
     private TextField eMailAddress;
 
+    @FXML
+    private Label errorLabel;
 
     private ProfileViewModel profileViewModel;
     private ViewHandler vh;
@@ -53,6 +53,7 @@ public class ProfileController implements ViewController
         profileName.textProperty().bindBidirectional(profileViewModel.profileNameProperty());
         PhoneNumber.textProperty().bindBidirectional(profileViewModel.phoneNumberProperty());
         eMailAddress.textProperty().bindBidirectional(profileViewModel.emailProperty());
+        errorLabel.textProperty().bindBidirectional(profileViewModel.errorProperty());
     }
 
     @FXML
@@ -67,6 +68,9 @@ public class ProfileController implements ViewController
 
     @FXML
     void onUpdate(ActionEvent event) {
-        profileViewModel.editProfileChecker();
+        if (profileViewModel.editProfileChecker())
+        {
+           profileViewModel.errorProperty().set("Changes saved");
+        }
     }
 }

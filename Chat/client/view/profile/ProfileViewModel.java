@@ -135,4 +135,8 @@ public class ProfileViewModel
   {
     return phoneNumber;
   }
+  public StringProperty errorProperty()
+  {
+    return error;
+  }
 }

@@ -17,11 +17,11 @@ public class CommonChatController implements ViewController
   @FXML private ListView<String> activeUsersList;
 
   private CommonChatViewModel commonChatViewModel;
-  private ViewHandler viewHandler;
+  private ViewHandler vh;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
-    viewHandler = vh;
+    this.vh = vh;
     commonChatViewModel = vmf.getCommonChatViewModel();
     messageField.textProperty().bindBidirectional(commonChatViewModel.messageField());
     commonChatArea.setEditable(false);
@@ -40,5 +40,11 @@ public class CommonChatController implements ViewController
   {
     commonChatViewModel.sendMessage();
     messageField.clear();
+  }
+
+
+ public void openUpProfile(ActionEvent actionEvent)
+  {
+    vh.openProfile();
   }
 }

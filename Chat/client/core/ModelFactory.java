@@ -48,8 +48,10 @@ public class ModelFactory
     return registrationModel;
   }
 
-  public ProfileModel getProfileModel() {
-    if(profileModel == null) {
+  public ProfileModel getProfileModel()
+  {
+    if(profileModel == null)
+    {
       profileModel = new ProfileModelManager(clientFactory.getProfileClient());
     }
     return profileModel;
