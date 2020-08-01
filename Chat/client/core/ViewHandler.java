@@ -14,6 +14,7 @@ public class ViewHandler
   private Scene commonChatScene;
   private Stage stage;
   private Scene registrationScene;
+  private Scene profileScene;
   private ViewModelFactory viewModelFactory;
 
   public ViewHandler(ViewModelFactory viewModelFactory)
@@ -69,6 +70,21 @@ public class ViewHandler
       }
     }
     stage.setScene(commonChatScene);
+    stage.show();
+  }
+
+  public void openProfile()
+  {
+    if(profileScene == null){
+      try {
+        Parent root = loadFXML("../view/profile/Profile.fxml");
+        stage.setTitle("profile");
+        commonChatScene = new Scene(root);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    stage.setScene(profileScene);
     stage.show();
   }
 

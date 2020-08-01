@@ -6,6 +6,9 @@ import Chat.client.model.login.LoginModel;
 import Chat.client.model.login.LoginModelManager;
 import Chat.client.model.registration.RegistrationModel;
 import Chat.client.model.registration.RegistrationModelManager;
+import Chat.client.model.profile.ProfileModel;
+import Chat.client.model.profile.ProfileModelManager;
+
 
 public class ModelFactory
 {
@@ -13,6 +16,7 @@ public class ModelFactory
   private LoginModel loginModel;
   private CommonChatModel commonChatModel;
   private RegistrationModel registrationModel;
+  private ProfileModel profileModel;
 
   public ModelFactory(ClientFactory clientFactory)
   {
@@ -42,5 +46,12 @@ public class ModelFactory
       registrationModel = new RegistrationModelManager(clientFactory.getRegistrationClient());
     }
     return registrationModel;
+  }
+
+  public ProfileModel getProfileModel() {
+    if(profileModel == null) {
+      profileModel = new ProfileModelManager(clientFactory.getProfileClient());
+    }
+    return profileModel;
   }
 }

@@ -3,6 +3,7 @@ package Chat.client.core;
 import Chat.client.view.commonchat.CommonChatViewModel;
 import Chat.client.view.login.LoginViewModel;
 import Chat.client.view.registration.RegistrationViewModel;
+import Chat.client.view.profile.ProfileViewModel;
 
 public class ViewModelFactory
 {
@@ -10,6 +11,7 @@ public class ViewModelFactory
   private LoginViewModel loginViewModel;
   private RegistrationViewModel registrationViewModel;
   private CommonChatViewModel commonChatViewModel;
+  private ProfileViewModel profileViewModel;
 
   public ViewModelFactory(ModelFactory mf)
   {
@@ -40,5 +42,12 @@ public class ViewModelFactory
       commonChatViewModel = new CommonChatViewModel(modelFactory.getCommonChatModel());
     }
     return commonChatViewModel;
+  }
+
+  public ProfileViewModel getProfileViewModel() {
+    if(profileViewModel == null) {
+      profileViewModel = new ProfileViewModel(modelFactory.getProfileModel());
+    }
+    return profileViewModel;
   }
 }
