@@ -50,6 +50,12 @@ public class ServerModelManager implements ServerModel
 
   @Override public void showActiveUsers(ListProperty activeUsers) {  }
 
+  @Override public void editProfile(String un, String pw, String fn, String ln,
+      String age, String pn, String pnumb, String email)
+  {
+    System.out.println("Profile edited");
+  }
+
   @Override public void addListener(String evtName,
       PropertyChangeListener listener)
   {

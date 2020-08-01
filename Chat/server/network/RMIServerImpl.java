@@ -71,4 +71,9 @@ public class RMIServerImpl implements RMIServer
     }
   }
 
+  @Override public void editProfile(String un, String pw, String fn, String ln,
+      String age, String pn, String pnumb, String email) throws RemoteException
+  {
+    serverModel.editProfile(un, pw, fn, ln, age, pn, pnumb, email);
+  }
 }
