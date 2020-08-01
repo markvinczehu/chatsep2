@@ -23,13 +23,10 @@ public class ProfileController {
     private TextField ageTextfield;
 
     @FXML
-    private Button saveButton;
+    private Button updateButton;
 
     @FXML
     private Button cancelButton;
-
-    @FXML
-    private Button resetButton;
 
     @FXML
     private TextField profilNameTextfield;
@@ -51,7 +48,7 @@ public class ProfileController {
     }
 
     @FXML
-    void onSave(ActionEvent event) {
+    void onUpdate(ActionEvent event) {
 
     }
 

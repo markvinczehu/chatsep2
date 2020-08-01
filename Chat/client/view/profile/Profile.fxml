@@ -24,9 +24,8 @@
       <Label layoutX="36.0" layoutY="190.0" text="Lastname" />
       <Label layoutX="36.0" layoutY="230.0" text="Age" />
       <Label layoutX="36.0" layoutY="270.0" text="Profile name" />
-      <Button fx:id="saveButton" layoutX="401.0" layoutY="420.0" mnemonicParsing="false" onAction="#onSave" prefHeight="38.0" prefWidth="68.0" text="Save" />
+      <Button fx:id="updateButton" layoutX="401.0" layoutY="420.0" mnemonicParsing="false" onAction="#onUpdate" prefHeight="38.0" prefWidth="68.0" text="Update" />
       <Button fx:id="cancelButton" layoutX="36.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="38.0" prefWidth="68.0" text="Cancel" />
-      <Button fx:id="resetButton" layoutX="237.0" layoutY="420.0" mnemonicParsing="false" onAction="#onReset" prefHeight="38.0" prefWidth="57.0" text="Reset" />
       <Label layoutX="36.0" layoutY="310.0" text="E-mail address" />
       <Label layoutX="36.0" layoutY="350.0" text="Phone number" />
       <TextField fx:id="profilNameTextfield" layoutX="144.0" layoutY="265.0" prefHeight="27.0" prefWidth="325.0" />
