@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.sql.SQLException;
+
 
 public class RegistrationController  implements ViewController
 {
@@ -39,7 +41,7 @@ public class RegistrationController  implements ViewController
     }
 
     @FXML
-    void createAccount(ActionEvent actionEvent) {
+    void createAccount(ActionEvent actionEvent) throws SQLException {
         if(rvm.registerUserChecker())
         {
             vh.openCommonChat();

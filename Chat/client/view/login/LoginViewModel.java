@@ -1,10 +1,12 @@
 package Chat.client.view.login;
 
 import Chat.client.model.login.LoginModel;
+import Chat.server.model.ServerModelManager;
+import DAO.DAOImpl;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-
+import java.sql.SQLException;
 
 public class LoginViewModel
 {
@@ -13,15 +15,14 @@ public class LoginViewModel
   private StringProperty password;
   private StringProperty error;
 
-  public LoginViewModel(LoginModel loginModel)
+  public LoginViewModel(LoginModel loginModel) throws SQLException
   {
     this.loginModel = loginModel;
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     error = new SimpleStringProperty();
   }
-  public boolean loginUserChecker()
-  {
+  public boolean loginUserChecker() throws SQLException {
     String un = username.get();
     String pw = password.get();
 
@@ -35,9 +36,9 @@ public class LoginViewModel
       return false;
     }
     if (pw != null && !"".equals(pw))
-      {
-        password.set(pw);
-      }
+    {
+      password.set(pw);
+    }
     else
     {
       error.set("Please input a correct password");

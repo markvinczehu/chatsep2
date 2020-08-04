@@ -1,8 +1,11 @@
 package Chat.client.view.registration;
+import Chat.client.core.ViewHandler;
 import Chat.client.model.registration.RegistrationModel;
+import DAO.DAOImpl;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.sql.SQLException;
 
 
 public class RegistrationViewModel {
@@ -12,7 +15,7 @@ public class RegistrationViewModel {
     private StringProperty password;
     private StringProperty confirmPassword;
     private StringProperty error;
-
+    private ViewHandler vh;
     public RegistrationViewModel(RegistrationModel registrationModel) {
         this.registrationModel = registrationModel;
         username = new SimpleStringProperty();
@@ -21,10 +24,11 @@ public class RegistrationViewModel {
         error = new SimpleStringProperty();
     }
 
-    public boolean registerUserChecker() {
+    public boolean registerUserChecker() throws SQLException {
         System.out.println("cunttits");
         String un = username.get();
         String pw = password.get();
+        String cpw = confirmPassword.get();
         if (un != null && !"".equals(un)) {
             username.set(un);
         }
@@ -43,8 +47,8 @@ public class RegistrationViewModel {
             error.set("Passwords do not match");
             return false;
         }
-        registrationModel.registerUserChecker(un, pw);
-        return true;
+            registrationModel.registerUserChecker(un, pw);
+            return true;
     }
 
     public StringProperty usernameProperty() {

@@ -1,5 +1,7 @@
 package DAO;
 
+import Chat.shared.networking.User;
+
 import java.sql.*;
 
 public class DAOImpl implements DAO
@@ -29,35 +31,40 @@ public class DAOImpl implements DAO
 
   private Connection getConnection() throws SQLException
   {
-    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=test", "postgres", "293150");
+    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=user_info", "postgres", "0806");
   }
 
-  @Override public void create(String name, int age) throws SQLException
+  @Override public User create(String username, String password) throws SQLException
   {
+    System.out.println("123123");
     try(Connection connection = getConnection()){
       PreparedStatement statement = connection.prepareStatement(
-          "insert into persontest(name, age) values (?, ?);");
-      statement.setString(1, name);
-      statement.setInt(2, age);
+          "insert into userInfo(username, password) values (?, ?);");
+      statement.setString(1, String.valueOf(username));
+      statement.setString(2, String.valueOf(password));
+      System.out.println("blabla");
       statement.executeUpdate();
+      return new User(username, password);
     }
   }
 
   @Override public void read(String name, String pass) throws SQLException
   {
+    System.out.println("123123");
     try(Connection connection = getConnection()) {
-      PreparedStatement statement = connection.prepareStatement("SELECT * FROM registereduser WHERE username = ?");
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userInfo WHERE username = ?");
       statement.setString(1, name);
+      statement.setString(1, pass;
       ResultSet resultSet = statement.executeQuery();
-      if (resultSet.next()) {
-        String username = resultSet.getString("username");
-        String password = resultSet.getString("password");
-        System.out.println(username + " " + password);
-      } else {
+      if(resultSet.next()) {
+        String name = resultSet.getString("username");
+        String pass = resultSet.getString("password");
+        System.out.println(name + " " + pass);
+        }
+    else
         System.out.println("Account does not exist");
       }
     }
-  }
 
   @Override public void updateName(String name) throws SQLException
   {

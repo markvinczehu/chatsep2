@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 
 public class RegistrationClientImpl implements RegistrationClient, Remote
 {
@@ -25,7 +26,7 @@ public class RegistrationClientImpl implements RegistrationClient, Remote
     {
       server.registerUser(un, pw);
     }
-    catch (RemoteException e)
+    catch (RemoteException | SQLException e)
     {
       e.printStackTrace();
     }

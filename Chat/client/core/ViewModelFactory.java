@@ -5,6 +5,8 @@ import Chat.client.view.login.LoginViewModel;
 import Chat.client.view.registration.RegistrationViewModel;
 import Chat.client.view.profile.ProfileViewModel;
 
+import java.sql.SQLException;
+
 public class ViewModelFactory
 {
   private ModelFactory modelFactory;
@@ -18,8 +20,7 @@ public class ViewModelFactory
     modelFactory = mf;
   }
 
-  public LoginViewModel getLoginViewModel()
-  {
+  public LoginViewModel getLoginViewModel() throws SQLException {
     if (loginViewModel == null)
     {
       loginViewModel = new LoginViewModel(modelFactory.getLoginModel());

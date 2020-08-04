@@ -1,10 +1,12 @@
 package DAO;
 
+import Chat.shared.networking.User;
+
 import java.sql.SQLException;
 
 public interface DAO
 {
-  void create(String name, int age) throws SQLException;
+  User create(String username, String password) throws SQLException;
   void read(String name, String pass) throws SQLException;
   void updateName(String name) throws SQLException;
   void updateAge(int age) throws SQLException;

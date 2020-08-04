@@ -43,8 +43,8 @@ public class ServerModelManager implements ServerModel
     support.firePropertyChange("SendMessage", null, message);
   }
 
-  @Override public void registerUser(String un, String pw)
-  {
+  @Override public void registerUser(String un, String pw) throws SQLException {
+    DAOImpl.getInstance().create(un, pw);
     System.out.println("Account created");
   }
 

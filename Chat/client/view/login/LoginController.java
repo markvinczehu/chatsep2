@@ -10,6 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import Chat.client.view.registration.RegistrationViewModel;
 
+import java.sql.SQLException;
+
 public class LoginController implements ViewController
 {
   @FXML private TextField usernameField;
@@ -20,8 +22,7 @@ public class LoginController implements ViewController
   private ViewHandler vh;
   private RegistrationViewModel rvm;
 
-  @Override public void init(ViewHandler vh, ViewModelFactory vmf)
-  {
+  @Override public void init(ViewHandler vh, ViewModelFactory vmf) throws SQLException {
     this.vh = vh;
     lvm = vmf.getLoginViewModel();
     rvm=vmf.getRegistrationViewModel();
@@ -30,8 +31,8 @@ public class LoginController implements ViewController
     passwordField.textProperty().bindBidirectional(lvm.passwordProperty());
   }
 
-  public void onLoginButton(ActionEvent actionEvent)
-  {
+  public void onLoginButton(ActionEvent actionEvent) throws SQLException {
+    lvm.loginUserChecker();
     if (lvm.loginUserChecker())
     {
       vh.openCommonChat();

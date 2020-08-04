@@ -13,6 +13,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +48,7 @@ public class RMIServerImpl implements RMIServer
     serverModel.sendMessage(message);
   }
 
-  @Override public void registerUser(String un, String pw)
-  {
+  @Override public void registerUser(String un, String pw) throws SQLException {
     serverModel.registerUser(un, pw);
   }
 
