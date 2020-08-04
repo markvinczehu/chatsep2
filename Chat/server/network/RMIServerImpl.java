@@ -36,9 +36,9 @@ public class RMIServerImpl implements RMIServer
     registry.bind("Server", this);
   }
 
-  @Override public void loginUser(String username)
+  @Override public void loginUser(String username, String password)
   {
-    serverModel.loginUser(username);
+    serverModel.loginUser(username, password);
   }
 
   @Override public void sendMessage(Message message, ClientCallback clientCallback) throws RemoteException

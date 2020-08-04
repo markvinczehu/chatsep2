@@ -61,10 +61,6 @@ public class ProfileController implements ViewController
        vh.openCommonChat();
     }
 
-    @FXML
-    void onReset(ActionEvent event) {
-        profileViewModel.clear();
-    }
 
     @FXML
     void onUpdate(ActionEvent event) {

@@ -6,7 +6,7 @@ import javafx.beans.property.ListProperty;
 
 public interface ServerModel extends Subject
 {
-  void loginUser(String username);
+  void loginUser(String username, String password);
   void sendMessage(Message message);
   void registerUser(String un, String pw);
   void showActiveUsers(ListProperty activeUsers);

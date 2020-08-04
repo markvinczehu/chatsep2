@@ -91,18 +91,6 @@ public class ProfileViewModel
     return true;
   }
 
-  public void clear() {
-    username.set("");
-    password.set("");
-    firstName.set("");
-    lastName.set("");
-    yearsOld.set("");
-    emailAddress.set("");
-    profileName.set("");
-    phoneNumber.set("");
-    error.set("");
-  }
-
   public StringProperty usernameProperty()
   {
     return username;

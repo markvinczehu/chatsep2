@@ -32,11 +32,11 @@ public class LoginClientImpl implements LoginClient, Remote
     }
   }
 
-  @Override public void loginUser(String username)
+  @Override public void loginUser(String username, String password)
   {
     try
     {
-      server.loginUser(username);
+      server.loginUser(username, password);
     }
     catch (RemoteException e)
     {

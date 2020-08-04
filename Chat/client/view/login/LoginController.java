@@ -32,8 +32,7 @@ public class LoginController implements ViewController
 
   public void onLoginButton(ActionEvent actionEvent)
   {
-    lvm.loginUserChecker(usernameField.getText());
-    if (lvm.loginUserChecker(usernameField.getText()))
+    if (lvm.loginUserChecker())
     {
       vh.openCommonChat();
     }

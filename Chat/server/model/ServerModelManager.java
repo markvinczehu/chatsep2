@@ -26,10 +26,10 @@ public class ServerModelManager implements ServerModel
     support = new PropertyChangeSupport(this);
   }
   
-  @Override public void loginUser(String username)
+  @Override public void loginUser(String username, String password)
   {
     try{
-      database.read(username);
+      database.read(username, password);
        }
     catch (SQLException throwables)
     {

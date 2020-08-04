@@ -1,6 +1,6 @@
 package Chat.shared.networking;
 
-import Chat.shared.util.Subject;
+
 
 import java.beans.PropertyChangeEvent;
 import java.rmi.Remote;

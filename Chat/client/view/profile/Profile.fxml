@@ -29,7 +29,6 @@
       <TextField fx:id="profileName" layoutX="144.0" layoutY="265.0" prefHeight="27.0" prefWidth="325.0" />
       <TextField fx:id="PhoneNumber" layoutX="144.0" layoutY="345.0" prefHeight="27.0" prefWidth="325.0" />
       <TextField fx:id="eMailAddress" layoutX="144.0" layoutY="305.0" prefHeight="27.0" prefWidth="325.0" />
-      <Button layoutX="214.0" layoutY="420.0" mnemonicParsing="false" onAction="#onReset" prefHeight="38.0" prefWidth="67.0" text="Reset" />
       <Label fx:id="errorLabel" layoutX="131.0" layoutY="385.0" prefHeight="27.0" prefWidth="248.0" text="Label" textFill="RED" />
    </children>
 </AnchorPane>

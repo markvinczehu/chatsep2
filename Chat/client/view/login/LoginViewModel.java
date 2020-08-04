@@ -4,6 +4,8 @@ import Chat.client.model.login.LoginModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+
+
 public class LoginViewModel
 {
   private LoginModel loginModel;
@@ -18,19 +20,30 @@ public class LoginViewModel
     password = new SimpleStringProperty();
     error = new SimpleStringProperty();
   }
-  public boolean loginUserChecker(String username)
+  public boolean loginUserChecker()
   {
-    loginModel.loginUser(username);
-    if (username == null || username.equals(""))
+    String un = username.get();
+    String pw = password.get();
+
+    if (un !=null && !"".equals(un))
     {
-      error.set("Incorrect username");
+      username.set(un);
+    }
+    else
+    {
+      error.set("Please input a correct username");
       return false;
     }
-    if (password == null)
+    if (pw != null && !"".equals(pw))
       {
-        error.set("Incorrect password");
-        return false;
+        password.set(pw);
       }
+    else
+    {
+      error.set("Please input a correct password");
+      return false;
+    }
+    loginModel.loginUser(un, pw);
     return true;
   }
 

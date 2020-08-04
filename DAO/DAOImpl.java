@@ -43,7 +43,7 @@ public class DAOImpl implements DAO
     }
   }
 
-  @Override public void read(String name) throws SQLException
+  @Override public void read(String name, String pass) throws SQLException
   {
     try(Connection connection = getConnection()) {
       PreparedStatement statement = connection.prepareStatement("SELECT * FROM registereduser WHERE username = ?");
