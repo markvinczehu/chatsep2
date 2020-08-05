@@ -21,6 +21,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="About us" />
                   <MenuItem mnemonicParsing="false" onAction="#openUpProfile" text="My profile" />
+                  <MenuItem mnemonicParsing="false" onAction="#logOut" text="Log out" />
                </items>
             </Menu>
          </menus>
@@ -43,7 +44,7 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
                         <ListView fx:id="activeUsersList" layoutX="-1.0" layoutY="27.0" prefHeight="293.0" prefWidth="174.0" />
-                        <Label layoutX="54.0" layoutY="5.0" text="Active Users" />
+                        <Label layoutX="70.0" layoutY="6.0" text="Users" />
                      </children></AnchorPane>
                </items>
             </SplitPane>

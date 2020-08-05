@@ -50,9 +50,7 @@ public class CommonChatController implements ViewController
     }
   }
 
+  public void logOut(ActionEvent actionEvent) { vh.openLogin(); }
 
- public void openUpProfile(ActionEvent actionEvent)
-  {
-    vh.openProfile();
-  }
+  public void openUpProfile(ActionEvent actionEvent) { vh.openProfile(); }
 }

@@ -6,20 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-
 <AnchorPane prefHeight="479.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chat.client.view.profile.ProfileController">
    <children>
-      <Label layoutX="171.0" layoutY="41.0" text="User Info">
+      <Label layoutX="179.0" layoutY="30.0" text="User Info">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
       <Label layoutX="36.0" layoutY="110.0" text="Username" />
-      <TextField fx:id="username" layoutX="145.0" layoutY="105.0" prefHeight="27.0" prefWidth="325.0" />
-      <TextField fx:id="firstName" layoutX="145.0" layoutY="145.0" prefHeight="27.0" prefWidth="325.0" />
-      <TextField fx:id="lastName" layoutX="145.0" layoutY="185.0" prefHeight="27.0" prefWidth="325.0" />
-      <TextField fx:id="age" layoutX="145.0" layoutY="225.0" prefHeight="27.0" prefWidth="325.0" />
+      <TextField fx:id="username" editable="false" layoutX="145.0" layoutY="105.0" prefHeight="27.0" prefWidth="325.0" />
+      <TextField fx:id="firstName" editable="false" layoutX="145.0" layoutY="145.0" prefHeight="27.0" prefWidth="325.0" />
+      <TextField fx:id="lastName" editable="false" layoutX="145.0" layoutY="185.0" prefHeight="27.0" prefWidth="325.0" />
+      <TextField fx:id="age" editable="false" layoutX="145.0" layoutY="225.0" prefHeight="27.0" prefWidth="325.0" />
       <Label layoutX="36.0" layoutY="150.0" text="First name" />
       <Label layoutX="36.0" layoutY="190.0" text="Last name" />
       <Label layoutX="36.0" layoutY="230.0" text="Age" />
@@ -28,9 +26,9 @@
       <Button fx:id="cancelButton" layoutX="36.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="38.0" prefWidth="68.0" text="Cancel" />
       <Label layoutX="36.0" layoutY="310.0" text="E-mail address" />
       <Label layoutX="36.0" layoutY="350.0" text="Phone number" />
-      <TextField fx:id="profileName" layoutX="144.0" layoutY="265.0" prefHeight="27.0" prefWidth="325.0" />
-      <TextField fx:id="PhoneNumber" layoutX="144.0" layoutY="345.0" prefHeight="27.0" prefWidth="325.0" />
-      <TextField fx:id="eMailAddress" layoutX="144.0" layoutY="305.0" prefHeight="27.0" prefWidth="325.0" />
+      <TextField fx:id="profileName" editable="false" layoutX="144.0" layoutY="265.0" prefHeight="27.0" prefWidth="325.0" />
+      <TextField fx:id="PhoneNumber" editable="false" layoutX="144.0" layoutY="345.0" prefHeight="27.0" prefWidth="325.0" />
+      <TextField fx:id="eMailAddress" editable="false" layoutX="144.0" layoutY="305.0" prefHeight="27.0" prefWidth="325.0" />
       <Button layoutX="199.0" layoutY="420.0" mnemonicParsing="false" onAction="#onFriend" prefHeight="38.0" prefWidth="96.0" text="Make friend" />
    </children>
 </AnchorPane>
