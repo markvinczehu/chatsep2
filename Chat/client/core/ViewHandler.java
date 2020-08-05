@@ -41,6 +41,7 @@ public class ViewHandler
       }
     }
     stage.setScene(loginScene);
+    stage.setResizable(false);
     stage.show();
   }
 
@@ -56,6 +57,7 @@ public class ViewHandler
       }
     }
     stage.setScene(registrationScene);
+    stage.setResizable(false);
     stage.show();
   }
 
@@ -71,6 +73,7 @@ public class ViewHandler
       }
     }
     stage.setScene(commonChatScene);
+    stage.setResizable(false);
     stage.show();
   }
 
@@ -86,6 +89,7 @@ public class ViewHandler
       }
     }
     stage.setScene(profileScene);
+    stage.setResizable(false);
     stage.show();
   }
 
