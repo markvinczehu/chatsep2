@@ -1,9 +1,11 @@
 package Chat.client.network.commonchat;
 
+
 import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
+import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
-import Chat.shared.util.Subject;
+
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -31,7 +33,7 @@ public class CommonChatClientImpl implements CommonChatClient, ClientCallback
       UnicastRemoteObject.exportObject(this, 0);
       Registry registry = LocateRegistry.getRegistry("localhost", 1099);
       server = (RMIServer) registry.lookup("Server");
-      //server.registerCommonChat(this);
+      server.registerCommonChat(this);
     }catch (RemoteException | NotBoundException e)
     {
       e.printStackTrace();
@@ -42,7 +44,7 @@ public class CommonChatClientImpl implements CommonChatClient, ClientCallback
   {
     try
     {
-      server.sendMessage(message, this);
+      server.sendMessage(message);
     }
     catch (RemoteException e)
     {
@@ -50,10 +52,40 @@ public class CommonChatClientImpl implements CommonChatClient, ClientCallback
     }
   }
 
-  @Override public void sendMessageResult(PropertyChangeEvent event) throws RemoteException
+  @Override public void getUserList()
+  {
+    try
+    {
+      server.getUserList(this);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public User getCurrentUser()
+  {
+    try
+    {
+      return server.getCurrentUser();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public void sendMessageResult(Message message) throws RemoteException
+  {
+    support.firePropertyChange("SendMessage", null, message);
+    System.out.println("arrived at client");
+  }
+
+  @Override public void sendActiveUsers(PropertyChangeEvent event) throws RemoteException
   {
     support.firePropertyChange(event);
-    System.out.println("arrived at client");
   }
 
   @Override public void addListener(String evtName,

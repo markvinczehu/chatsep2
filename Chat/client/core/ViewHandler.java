@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.rmi.NotBoundException;
 
 public class ViewHandler
 {
@@ -36,7 +36,7 @@ public class ViewHandler
         Parent root = loadFXML("../view/login/Login.fxml");
         stage.setTitle("Login");
         loginScene = new Scene(root);
-      } catch (IOException | SQLException e) {
+      } catch (IOException e) {
         e.printStackTrace();
       }
     }
@@ -51,7 +51,7 @@ public class ViewHandler
         Parent root = loadFXML("../view/registration/Registration.fxml");
         stage.setTitle("Registration");
         registrationScene = new Scene(root);
-      } catch (IOException | SQLException e) {
+      } catch (IOException e) {
         e.printStackTrace();
       }
     }
@@ -66,7 +66,7 @@ public class ViewHandler
         Parent root = loadFXML("../view/commonchat/CommonChat.fxml");
         stage.setTitle("CommonChat");
         commonChatScene = new Scene(root);
-      } catch (IOException | SQLException e) {
+      } catch (IOException e) {
         e.printStackTrace();
       }
     }
@@ -81,7 +81,7 @@ public class ViewHandler
         Parent root = loadFXML("../view/profile/Profile.fxml");
         stage.setTitle("Profile");
         profileScene = new Scene(root);
-      } catch (IOException | SQLException e) {
+      } catch (IOException e) {
         e.printStackTrace();
       }
     }
@@ -89,7 +89,8 @@ public class ViewHandler
     stage.show();
   }
 
-  private Parent loadFXML(String path) throws IOException, SQLException {
+  private Parent loadFXML(String path) throws IOException
+  {
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource(path));
     Parent root = loader.load();

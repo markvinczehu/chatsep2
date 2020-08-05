@@ -24,7 +24,7 @@ public class RegistrationViewModel {
         error = new SimpleStringProperty();
     }
 
-    public boolean registerUserChecker() throws SQLException {
+    public boolean registerUserChecker(){
         System.out.println("cunttits");
         String un = username.get();
         String pw = password.get();

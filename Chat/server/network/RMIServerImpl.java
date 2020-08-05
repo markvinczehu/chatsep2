@@ -1,10 +1,9 @@
 package Chat.server.network;
 
-import Chat.client.network.commonchat.CommonChatClient;
-import Chat.client.network.commonchat.CommonChatClientImpl;
 import Chat.server.model.ServerModel;
 import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
+import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -13,14 +12,13 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RMIServerImpl implements RMIServer
 {
   private ServerModel serverModel;
-  private List<CommonChatClient> commonChatClientList;
+  private List<ClientCallback> commonChatClientList;
   private ClientCallback clientCallback;
 
   public RMIServerImpl(ServerModel serverModel) throws RemoteException
@@ -28,7 +26,7 @@ public class RMIServerImpl implements RMIServer
     UnicastRemoteObject.exportObject(this, 0);
     this.serverModel = serverModel;
     commonChatClientList = new ArrayList<>();
-    serverModel.addListener("SendMessage", this::onSendMessage);
+    serverModel.addListener("ActiveUsers", this::onActiveUsers);
   }
 
   public void startServer() throws RemoteException, AlreadyBoundException
@@ -42,28 +40,43 @@ public class RMIServerImpl implements RMIServer
     serverModel.loginUser(username, password);
   }
 
-  @Override public void sendMessage(Message message, ClientCallback clientCallback) throws RemoteException
+  @Override public void sendMessage(Message message) throws RemoteException
   {
-    this.clientCallback = clientCallback;
-    serverModel.sendMessage(message);
+    for (ClientCallback client : commonChatClientList) {
+      client.sendMessageResult(message);
+    }
   }
 
-  @Override public void registerUser(String un, String pw) throws SQLException {
+  @Override public void registerUser(String un, String pw){
     serverModel.registerUser(un, pw);
   }
 
-  @Override public void registerCommonChat(CommonChatClient commonChatClient)
+  @Override public void registerCommonChat(ClientCallback clientCallback)
   {
-    commonChatClientList.add(commonChatClient);
+    System.out.println("arrived at server");
+    commonChatClientList.add(clientCallback);
   }
 
 
-  @Override public void onSendMessage(PropertyChangeEvent propertyChangeEvent)
+  @Override public void editProfile(String un, String pw, String fn, String ln,
+      String age, String pn, String pnumb, String email)
+  {
+    serverModel.editProfile(un, pw, fn, ln, age, pn, pnumb, email);
+  }
+
+  @Override public void getUserList(ClientCallback clientCallback) throws RemoteException
+  {
+    this.clientCallback = clientCallback;
+    serverModel.getUserList();
+    System.out.println("server network");
+  }
+
+  @Override public void onActiveUsers(PropertyChangeEvent event)
   {
     try
     {
-      clientCallback.sendMessageResult(propertyChangeEvent);
-      System.out.println("arrived at server");
+      clientCallback.sendActiveUsers(event);
+      System.out.println("server callback");
     }
     catch (RemoteException e)
     {
@@ -71,9 +84,8 @@ public class RMIServerImpl implements RMIServer
     }
   }
 
-  @Override public void editProfile(String un, String pw, String fn, String ln,
-      String age, String pn, String pnumb, String email)
+  @Override public User getCurrentUser()
   {
-    serverModel.editProfile(un, pw, fn, ln, age, pn, pnumb, email);
+    return serverModel.getCurrentUser();
   }
 }

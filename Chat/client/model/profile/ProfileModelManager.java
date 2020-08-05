@@ -2,6 +2,9 @@ package Chat.client.model.profile;
 
 import Chat.client.network.profile.ProfileClient;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 public class ProfileModelManager implements ProfileModel {
 
     private ProfileClient profileClient;

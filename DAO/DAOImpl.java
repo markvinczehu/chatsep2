@@ -31,7 +31,7 @@ public class DAOImpl implements DAO
 
   private Connection getConnection() throws SQLException
   {
-    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=user_info", "postgres", "0806");
+    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=user_info", "postgres", "293150");
   }
 
   @Override public User create(String username, String password) throws SQLException
@@ -54,11 +54,11 @@ public class DAOImpl implements DAO
     try(Connection connection = getConnection()) {
       PreparedStatement statement = connection.prepareStatement("SELECT * FROM userInfo WHERE username = ?");
       statement.setString(1, name);
-      statement.setString(1, pass;
+      statement.setString(1, pass);
       ResultSet resultSet = statement.executeQuery();
       if(resultSet.next()) {
-        String name = resultSet.getString("username");
-        String pass = resultSet.getString("password");
+        String username = resultSet.getString("username");
+        String password = resultSet.getString("password");
         System.out.println(name + " " + pass);
         }
     else

@@ -1,5 +1,6 @@
 package Chat.client.network.login;
 
+import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
 
 import java.beans.PropertyChangeListener;

@@ -8,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 public class ProfileController implements ViewController
 {
 

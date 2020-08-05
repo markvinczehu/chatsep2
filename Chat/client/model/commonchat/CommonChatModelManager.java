@@ -1,6 +1,7 @@
 package Chat.client.model.commonchat;
 
 import Chat.client.network.commonchat.CommonChatClient;
+import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -17,6 +18,7 @@ public class CommonChatModelManager implements CommonChatModel
     this.client = client;
     client.startClient();
     client.addListener("SendMessage" , this::onSendMessage);
+    client.addListener("ActiveUsers", this::onActiveUsers);
   }
 
   @Override public void sendMessage(String input)
@@ -29,6 +31,21 @@ public class CommonChatModelManager implements CommonChatModel
   {
     support.firePropertyChange(event);
     System.out.println("arrived at model");
+  }
+
+  @Override public void getUserList()
+  {
+    client.getUserList();
+  }
+
+  @Override public void onActiveUsers(PropertyChangeEvent event)
+  {
+    support.firePropertyChange(event);
+  }
+
+  @Override public User getCurrentUser()
+  {
+    return client.getCurrentUser();
   }
 
   @Override public void addListener(String evtName,

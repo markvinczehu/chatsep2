@@ -7,6 +7,9 @@ import Chat.client.view.profile.ProfileViewModel;
 
 import java.sql.SQLException;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 public class ViewModelFactory
 {
   private ModelFactory modelFactory;
@@ -20,7 +23,7 @@ public class ViewModelFactory
     modelFactory = mf;
   }
 
-  public LoginViewModel getLoginViewModel() throws SQLException {
+  public LoginViewModel getLoginViewModel(){
     if (loginViewModel == null)
     {
       loginViewModel = new LoginViewModel(modelFactory.getLoginModel());

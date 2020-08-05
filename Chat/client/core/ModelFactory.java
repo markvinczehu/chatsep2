@@ -9,6 +9,8 @@ import Chat.client.model.registration.RegistrationModelManager;
 import Chat.client.model.profile.ProfileModel;
 import Chat.client.model.profile.ProfileModelManager;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 public class ModelFactory
 {
@@ -41,7 +43,8 @@ public class ModelFactory
     return commonChatModel;
   }
 
-  public RegistrationModel getRegistrationModel() {
+  public RegistrationModel getRegistrationModel()
+  {
     if (registrationModel == null) {
       registrationModel = new RegistrationModelManager(clientFactory.getRegistrationClient());
     }

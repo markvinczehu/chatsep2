@@ -2,6 +2,9 @@ package Chat.client.model.registration;
 
 import Chat.client.network.registration.RegistrationClient;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 public class RegistrationModelManager implements RegistrationModel{
 
     private RegistrationClient registrationClient;

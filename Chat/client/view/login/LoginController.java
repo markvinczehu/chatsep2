@@ -12,6 +12,8 @@ import Chat.client.view.registration.RegistrationViewModel;
 
 import java.sql.SQLException;
 
+import java.rmi.RemoteException;
+
 public class LoginController implements ViewController
 {
   @FXML private TextField usernameField;
@@ -22,7 +24,7 @@ public class LoginController implements ViewController
   private ViewHandler vh;
   private RegistrationViewModel rvm;
 
-  @Override public void init(ViewHandler vh, ViewModelFactory vmf) throws SQLException {
+  @Override public void init(ViewHandler vh, ViewModelFactory vmf){
     this.vh = vh;
     lvm = vmf.getLoginViewModel();
     rvm=vmf.getRegistrationViewModel();
@@ -32,11 +34,12 @@ public class LoginController implements ViewController
   }
 
   public void onLoginButton(ActionEvent actionEvent) throws SQLException {
-    lvm.loginUserChecker();
-    if (lvm.loginUserChecker())
-    {
+//    lvm.loginUserChecker();
+//    lvm.loginUserChecker(usernameField.getText());
+//    if (lvm.loginUserChecker(usernameField.getText()))
+//    {
       vh.openCommonChat();
-    }
+//    }
   }
 
   @FXML

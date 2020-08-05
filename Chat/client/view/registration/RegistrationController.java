@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 
 import java.sql.SQLException;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 public class RegistrationController  implements ViewController
 {

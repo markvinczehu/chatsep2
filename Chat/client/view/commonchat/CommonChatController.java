@@ -3,6 +3,7 @@ package Chat.client.view.commonchat;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
+import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,11 +11,14 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 public class CommonChatController implements ViewController
 {
   @FXML private TextField messageField;
   @FXML private TextArea commonChatArea;
-  @FXML private ListView<String> activeUsersList;
+  @FXML private ListView<User> activeUsersList;
 
   private CommonChatViewModel commonChatViewModel;
   private ViewHandler vh;
@@ -32,14 +36,18 @@ public class CommonChatController implements ViewController
         commonChatViewModel.chatArea().setValue("");
       }
     });
-    //activeUsersList.accessibleTextProperty().bindBidirectional(commonChatViewModel.activeUsersList());
-    //activeUsersList.getItems().add("asd");
+    commonChatViewModel.getUserList();
+    activeUsersList.setItems(commonChatViewModel.activeUsersList());
+
   }
 
   public void onSendButton(ActionEvent actionEvent)
   {
-    commonChatViewModel.sendMessage();
-    messageField.clear();
+    if(messageField != null)
+    {
+      commonChatViewModel.sendMessage();
+      messageField.clear();
+    }
   }
 
 

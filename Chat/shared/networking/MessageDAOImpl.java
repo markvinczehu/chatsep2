@@ -16,7 +16,7 @@ public class MessageDAOImpl implements MessageDAO {
     }
 
     private java.sql.Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql//localhost:5432/user_info?currentSchema", "root", "0806");
+        return DriverManager.getConnection("jdbc:postgresql//localhost:5432/user_info?currentSchema", "postgres", "293150");
     }
 
     public static synchronized MessageDAOImpl getInstance() throws SQLException {

@@ -15,14 +15,14 @@ public class LoginViewModel
   private StringProperty password;
   private StringProperty error;
 
-  public LoginViewModel(LoginModel loginModel) throws SQLException
+  public LoginViewModel(LoginModel loginModel)
   {
     this.loginModel = loginModel;
     username = new SimpleStringProperty();
     password = new SimpleStringProperty();
     error = new SimpleStringProperty();
   }
-  public boolean loginUserChecker() throws SQLException {
+  public boolean loginUserChecker(){
     String un = username.get();
     String pw = password.get();
 
