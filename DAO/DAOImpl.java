@@ -1,6 +1,7 @@
 package DAO;
 
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 
 import java.sql.*;
 
@@ -47,7 +48,6 @@ public class DAOImpl implements DAO
       return new User(username, password);
     }
   }
-
   @Override public void read(String name, String pass) throws SQLException
   {
     System.out.println("123123");
@@ -79,5 +79,25 @@ public class DAOImpl implements DAO
   @Override public void delete(String name) throws SQLException
   {
 
+  }
+
+  @Override public UserInfo getInfo(String username, String firstName,
+      String lastName, String age, String profileName, String email,
+      String phoneNumber) throws SQLException
+  {
+    System.out.println("User info test");
+    try(Connection connection = getConnection())
+    {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userInfo");
+      statement.setString(1, username);
+      statement.setString(1, firstName);
+      statement.setString(1, lastName);
+      statement.setString(1, age);
+      statement.setString(1, profileName);
+      statement.setString(1, email);
+      statement.setString(1, phoneNumber);
+      statement.executeQuery();
+      return new UserInfo(username,firstName,lastName,age,profileName,email,phoneNumber);
+    }
   }
 }

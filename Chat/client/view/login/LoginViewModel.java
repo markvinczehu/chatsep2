@@ -44,7 +44,7 @@ public class LoginViewModel
       error.set("Please input a correct password");
       return false;
     }
-    loginModel.loginUser(un, pw);
+      loginModel.loginUser(un, pw);
     return true;
   }
 

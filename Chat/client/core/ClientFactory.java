@@ -8,6 +8,8 @@ import Chat.client.network.registration.RegistrationClient;
 import Chat.client.network.registration.RegistrationClientImpl;
 import Chat.client.network.profile.ProfileClient;
 import Chat.client.network.profile.ProfileClientImpl;
+import Chat.client.network.userinfo.UserInfoClient;
+import Chat.client.network.userinfo.UserInfoClientImpl;
 
 public class ClientFactory
 {
@@ -15,6 +17,7 @@ public class ClientFactory
   private CommonChatClient commonChatClient;
   private RegistrationClient registrationClient;
   private ProfileClient profileClient;
+  private UserInfoClient userInfoClient;
 
   public LoginClient getLoginClient()
   {
@@ -45,5 +48,14 @@ public class ClientFactory
       profileClient = new ProfileClientImpl();
     }
     return profileClient;
+  }
+
+  public UserInfoClient getUserInfoClient()
+  {
+    if (userInfoClient == null)
+    {
+      userInfoClient = new UserInfoClientImpl();
+    }
+    return userInfoClient;
   }
 }

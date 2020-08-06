@@ -1,5 +1,4 @@
 package Chat.client.view.registration;
-import Chat.client.core.ViewHandler;
 import Chat.client.model.registration.RegistrationModel;
 import DAO.DAOImpl;
 import javafx.beans.property.SimpleStringProperty;
@@ -15,7 +14,8 @@ public class RegistrationViewModel {
     private StringProperty password;
     private StringProperty confirmPassword;
     private StringProperty error;
-    private ViewHandler vh;
+
+
     public RegistrationViewModel(RegistrationModel registrationModel) {
         this.registrationModel = registrationModel;
         username = new SimpleStringProperty();
@@ -24,29 +24,25 @@ public class RegistrationViewModel {
         error = new SimpleStringProperty();
     }
 
-    public boolean registerUserChecker(){
+    public boolean registerUserChecker() {
         System.out.println("cunttits");
         String un = username.get();
         String pw = password.get();
         String cpw = confirmPassword.get();
-        if (un != null && !"".equals(un)) {
+        if (un != null && !"".equals(un) && pw != null && !"".equals(pw)) {
             username.set(un);
-        }
-        else {
-            error.set("Please input a username");
-            return false;
-        }
-        if(pw != null) {
             password.set(pw);
         }
         else {
-            error.set("Please input a password");
+            error.set("Please input a username/password");
             return false;
         }
         if (!pw.equals(confirmPassword.get())) {
             error.set("Passwords do not match");
             return false;
         }
+        else
+            confirmPassword.set(cpw);
             registrationModel.registerUserChecker(un, pw);
             return true;
     }

@@ -18,4 +18,6 @@ public interface RMIServer extends Remote
   void getUserList(ClientCallback clientCallback) throws RemoteException;
   void onActiveUsers(PropertyChangeEvent propertyChangeEvent) throws RemoteException;
   User getCurrentUser() throws RemoteException;
+  UserInfo getCurrentUserInfo() throws RemoteException;
+  void seeUserInfo(String username, String firstName, String lastName,String age, String profileName, String email, String phoneNumber) throws RemoteException;
 }

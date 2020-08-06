@@ -17,6 +17,7 @@ public class ViewHandler
   private Scene registrationScene;
   private Scene profileScene;
   private ViewModelFactory viewModelFactory;
+  private Scene userInfoScene;
 
   public ViewHandler(ViewModelFactory viewModelFactory)
   {
@@ -89,6 +90,24 @@ public class ViewHandler
       }
     }
     stage.setScene(profileScene);
+    stage.setResizable(false);
+    stage.show();
+  }
+
+  public void openUserInfo()
+  {
+    if (userInfoScene == null)
+    {
+      try
+      {
+        Parent root = loadFXML("../view/userinfo/UserInfo.fxml");
+        stage.setTitle("UserInfo");
+        userInfoScene = new Scene(root);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    stage.setScene(userInfoScene);
     stage.setResizable(false);
     stage.show();
   }

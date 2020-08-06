@@ -8,6 +8,8 @@ import Chat.client.model.registration.RegistrationModel;
 import Chat.client.model.registration.RegistrationModelManager;
 import Chat.client.model.profile.ProfileModel;
 import Chat.client.model.profile.ProfileModelManager;
+import Chat.client.model.userinfo.UserInfoModel;
+import Chat.client.model.userinfo.UserInfoModelManager;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -19,6 +21,7 @@ public class ModelFactory
   private CommonChatModel commonChatModel;
   private RegistrationModel registrationModel;
   private ProfileModel profileModel;
+  private UserInfoModel userInfoModel;
 
   public ModelFactory(ClientFactory clientFactory)
   {
@@ -58,5 +61,13 @@ public class ModelFactory
       profileModel = new ProfileModelManager(clientFactory.getProfileClient());
     }
     return profileModel;
+  }
+  public UserInfoModel getUserInfoModel()
+  {
+    if (userInfoModel == null)
+    {
+      userInfoModel = new UserInfoModelManager(clientFactory.getUserInfoClient());
+    }
+    return userInfoModel;
   }
 }

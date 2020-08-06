@@ -1,6 +1,7 @@
 package Chat.server.model;
 
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.util.Subject;
 import DAO.DAO;
@@ -20,6 +21,7 @@ public class ServerModelManager implements ServerModel
   private ArrayList<String> activeUsers;
   private PropertyChangeSupport support;
   private User currentUser;
+  private UserInfo userInfo;
 
   public ServerModelManager()
   {
@@ -76,6 +78,24 @@ public class ServerModelManager implements ServerModel
   @Override public User getCurrentUser()
   {
     return currentUser;
+  }
+
+  @Override public UserInfo getUserInfo()
+  {
+    return userInfo;
+  }
+
+  @Override public void seeUserInfo(String un, String fn, String ln, String age,
+      String pn, String email, String pnumb)
+  {
+    try
+    {
+      userInfo = database.getInfo(un, fn, ln, age, pn, email, pnumb);
+    } catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+    System.out.println("User's profile opened");
   }
 
   @Override public void addListener(String evtName,
