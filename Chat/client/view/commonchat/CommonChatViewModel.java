@@ -19,7 +19,7 @@ public class CommonChatViewModel
   private CommonChatModel commonChatModel;
   private StringProperty messageField;
   private StringProperty chatArea;
-  private ObservableList<User> activeUsersList;
+  private ObservableList<String> activeUsersList;
 
   public CommonChatViewModel(CommonChatModel commonChatModel)
   {
@@ -52,9 +52,9 @@ public class CommonChatViewModel
 
   private void onActiveUsers(PropertyChangeEvent event)
   {
-    ArrayList<User> list = (ArrayList<User>) event.getNewValue();
-    User user = commonChatModel.getCurrentUser();
-    list.removeIf(item -> item.equals(user));
+    ArrayList<String> list = (ArrayList<String>) event.getNewValue();
+    //String user = commonChatModel.getCurrentUser().toUserList();
+    //list.removeIf(item -> item.equals(user));
     activeUsersList.addAll(list);
     System.out.println("back to viewmodel");
   }
@@ -74,6 +74,6 @@ public class CommonChatViewModel
     return chatArea;
   }
 
-  public ObservableList<User> activeUsersList() { return activeUsersList; }
+  public ObservableList<String> activeUsersList() { return activeUsersList; }
 
 }

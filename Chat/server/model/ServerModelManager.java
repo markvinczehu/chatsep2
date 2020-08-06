@@ -17,29 +17,29 @@ public class ServerModelManager implements ServerModel
 {
   private ArrayList<String> users;
   private DAO database = DAOImpl.getInstance();
-  private ArrayList<User> activeUsers;
+  private ArrayList<String> activeUsers;
   private PropertyChangeSupport support;
   private User currentUser;
 
   public ServerModelManager()
   {
     users = new ArrayList<String>();
-    activeUsers = new ArrayList<User>();
+    activeUsers = new ArrayList<String>();
     User u1 = new User("Alex", "123546");
     User u2 = new User("Matej", "123546");
     User u3 = new User("Dimitrios", "123546");
     User u4 = new User("Mark", "123546");
-    activeUsers.add(u1);
-    activeUsers.add(u2);
-    activeUsers.add(u3);
-    activeUsers.add(u4);
+    activeUsers.add(u1.toUserList());
+    activeUsers.add(u2.toUserList());
+    activeUsers.add(u3.toUserList());
+    activeUsers.add(u4.toUserList());
     support = new PropertyChangeSupport(this);
   }
   
   @Override public void loginUser(String username, String password)
   {
     currentUser = new User(username,password);
-    activeUsers.add(currentUser);
+    activeUsers.add(currentUser.toUserList());
     try{
       database.read(username, password);
        }

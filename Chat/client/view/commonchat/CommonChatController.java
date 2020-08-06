@@ -18,7 +18,7 @@ public class CommonChatController implements ViewController
 {
   @FXML private TextField messageField;
   @FXML private TextArea commonChatArea;
-  @FXML private ListView<User> activeUsersList;
+  @FXML private ListView<String> activeUsersList;
 
   private CommonChatViewModel commonChatViewModel;
   private ViewHandler vh;
