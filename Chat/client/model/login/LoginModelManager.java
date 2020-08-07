@@ -12,8 +12,8 @@ public class LoginModelManager implements LoginModel
     loginClient.startClient();
   }
 
-  @Override public void loginUser(String username, String password)
+  @Override public boolean loginUser(String username, String password)
   {
-    loginClient.loginUser(username,password);
+    return loginClient.loginUser(username, password);
   }
 }

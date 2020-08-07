@@ -1,6 +1,5 @@
 package Chat.shared.networking;
 
-import Chat.client.network.commonchat.CommonChatClient;
 import Chat.shared.transferobjects.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -10,7 +9,7 @@ import java.sql.SQLException;
 
 public interface RMIServer extends Remote
 {
-  void loginUser(String username, String password) throws RemoteException;
+  boolean loginUser(String username, String password) throws RemoteException;
   void sendMessage(Message message) throws RemoteException;
   void registerUser(String un, String pw) throws RemoteException, SQLException;
   void registerCommonChat(ClientCallback clientCallback) throws RemoteException;
@@ -18,6 +17,4 @@ public interface RMIServer extends Remote
   void getUserList(ClientCallback clientCallback) throws RemoteException;
   void onActiveUsers(PropertyChangeEvent propertyChangeEvent) throws RemoteException;
   User getCurrentUser() throws RemoteException;
-  UserInfo getCurrentUserInfo() throws RemoteException;
-  void seeUserInfo(String username, String firstName, String lastName,String age, String profileName, String email, String phoneNumber) throws RemoteException;
 }

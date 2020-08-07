@@ -2,5 +2,5 @@ package Chat.client.model.login;
 
 public interface LoginModel
 {
-  void loginUser(String username, String password);
+  boolean loginUser(String username, String password);
 }

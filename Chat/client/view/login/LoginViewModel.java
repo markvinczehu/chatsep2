@@ -22,30 +22,36 @@ public class LoginViewModel
     password = new SimpleStringProperty();
     error = new SimpleStringProperty();
   }
-  public boolean loginUserChecker(){
-    String un = username.get();
-    String pw = password.get();
+  public boolean loginUser(){
 
-    if (un !=null && !"".equals(un))
+    if((username == null || username.getValue().equals("")) && (password == null || password.get().equals("")))
     {
-      username.set(un);
+      error.setValue("Please enter a username and a password");
     }
-    else
+    else if(!(username == null || username.getValue().equals("")) && (password == null || password.get().equals("")))
     {
-      error.set("Please input a correct username");
-      return false;
+      error.setValue("Please enter a password");
     }
-    if (pw != null && !"".equals(pw))
+    else if((username == null || username.getValue().equals("")) && !(password == null || password.get().equals("")))
     {
-      password.set(pw);
+      error.setValue("Please enter a username");
     }
-    else
+    else if(!(username == null || username.getValue().equals("")) && !(password == null || password.get().equals("")))
     {
-      error.set("Please input a correct password");
-      return false;
+      String un = username.get();
+      String pw = password.get();
+      if(loginModel.loginUser(un, pw))
+      {
+        return true;
+      }
+      else
+      {
+        error.setValue("Account does not exist");
+        return false;
+      }
     }
-      loginModel.loginUser(un, pw);
-    return true;
+    else return false;
+    return false;
   }
 
   public StringProperty usernameProperty()
