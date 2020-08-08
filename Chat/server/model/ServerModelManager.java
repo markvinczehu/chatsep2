@@ -19,6 +19,7 @@ public class ServerModelManager implements ServerModel
   private DAO database = DAOImpl.getInstance();
   private PropertyChangeSupport support;
   private User currentUser;
+  private UserInfo userInfo;
 
   public ServerModelManager()
   {
@@ -92,17 +93,21 @@ public class ServerModelManager implements ServerModel
     return new Message(currentUser.getUsername(), input);
   }
 
-  @Override public UserInfo getCurrentUserInfo(String username)
+  @Override public void getUserInfo(String username)
   {
     try
     {
-      return database.getInfo(username);
+      userInfo = database.getInfo(username);
     }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    return null;
+  }
+
+  @Override public void getInfo()
+  {
+    support.firePropertyChange("UserInfo", null, userInfo);
   }
 
   @Override public void addListener(String evtName,

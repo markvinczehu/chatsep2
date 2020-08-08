@@ -99,7 +99,7 @@ public class DAOImpl implements DAO
         String email = resultSet.getString("email");
         String phoneNumber = resultSet.getString("phonenumber");
         Boolean isOnline = resultSet.getBoolean("isonline");
-        System.out.println(name);
+        System.out.println(name + " " + isOnline);
         return new UserInfo(name, firstname, lastname, age, email, phoneNumber,
             isOnline);
       }

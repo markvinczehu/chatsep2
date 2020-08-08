@@ -78,11 +78,11 @@ public class CommonChatClientImpl implements CommonChatClient,
     return null;
   }
 
-  @Override public void seeUserInfo(String username)
+  @Override public void getUserInfo(String username)
   {
     try
     {
-      server.getCurrentUserInfo(username);
+      server.getUserInfo(username);
     }
     catch (RemoteException e)
     {

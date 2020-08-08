@@ -38,6 +38,7 @@ private UserInfoModel userInfoModel;
   private void onUserInfo(PropertyChangeEvent event)
   {
     UserInfo userInfo = (UserInfo) event.getNewValue();
+    System.out.println(userInfo.getIsOnline() + "back to viewmodel");
     username.setValue(userInfo.getUsername());
     firstName.setValue(userInfo.getFirstName());
     lastName.setValue(userInfo.getLastName());
@@ -55,12 +56,9 @@ private UserInfoModel userInfoModel;
 
   }
 
-  public void seeUserInfo()
+  public void getInfo()
   {
-    System.out.println("fuck u!!!!!!!!!");
-    String un = username.get();
-
-    userInfoModel.getInfo(un);
+    userInfoModel.getInfo();
   }
   public StringProperty usernameProperty()
   {

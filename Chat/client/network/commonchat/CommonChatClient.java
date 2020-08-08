@@ -8,5 +8,5 @@ public interface CommonChatClient extends Client
   void sendMessage(String input);
   void getUserList();
   User getCurrentUser();
-  void seeUserInfo(String username);
+  void getUserInfo(String username);
 }

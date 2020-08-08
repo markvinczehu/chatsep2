@@ -12,5 +12,5 @@ public interface CommonChatModel extends Subject
   void getUserList();
   void onUserList(PropertyChangeEvent event);
   User getCurrentUser();
-  void seeUserInfo(String username);
+  void getUserInfo(String username);
 }

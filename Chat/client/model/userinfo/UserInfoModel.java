@@ -6,7 +6,7 @@ import java.beans.PropertyChangeEvent;
 
 public interface UserInfoModel extends Subject
 {
-  void getInfo(String username);
+  void getInfo();
   void onFriendRequest();
   void onPrivateConversation();
   void onUserInfo(PropertyChangeEvent event);

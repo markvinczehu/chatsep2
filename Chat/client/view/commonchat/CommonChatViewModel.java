@@ -78,8 +78,8 @@ public class CommonChatViewModel
 
   public ObservableList<String> allUsersList() { return allUsersList; }
 
-  public void seeUserInfo(String username)
+  public void getUserInfo(String username)
   {
-    commonChatModel.seeUserInfo(username);
+    commonChatModel.getUserInfo(username);
   }
 }

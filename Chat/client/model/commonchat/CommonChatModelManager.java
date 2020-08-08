@@ -48,9 +48,9 @@ public class CommonChatModelManager implements CommonChatModel
     return client.getCurrentUser();
   }
 
-  @Override public void seeUserInfo(String username)
+  @Override public void getUserInfo(String username)
   {
-    client.seeUserInfo(username);
+    client.getUserInfo(username);
   }
 
   @Override public void addListener(String evtName,

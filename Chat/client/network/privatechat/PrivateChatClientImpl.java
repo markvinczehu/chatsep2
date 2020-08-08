@@ -2,8 +2,9 @@ package Chat.client.network.privatechat;
 
 import Chat.client.network.Client;
 import Chat.client.network.commonchat.CommonChatClient;
-import Chat.shared.networking.ClientCallback;
+import Chat.shared.networking.PrivateChatCallback;
 import Chat.shared.networking.MessageDAO;
+import Chat.shared.networking.PrivateChatCallback;
 import Chat.shared.networking.RMIServer;
 import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
@@ -19,7 +20,9 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
 
-public class PrivateChatClientImpl implements PrivateChatClient, ClientCallback {
+public class PrivateChatClientImpl implements PrivateChatClient,
+    PrivateChatCallback
+{
     private RMIServer server;
     private PropertyChangeSupport support;
 
@@ -29,14 +32,14 @@ public class PrivateChatClientImpl implements PrivateChatClient, ClientCallback 
 
     @Override
     public void sendMessage(Message message) {
-        try
-        {
-            server.sendMessage(message);
-        }
-        catch (RemoteException e)
-        {
-            e.printStackTrace();
-        }
+//        try
+//        {
+//            server.sendMessage(message);
+//        }
+//        catch (RemoteException e)
+//        {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -59,7 +62,7 @@ public class PrivateChatClientImpl implements PrivateChatClient, ClientCallback 
             UnicastRemoteObject.exportObject(this, 0);
             Registry registry = LocateRegistry.getRegistry("localhost", 1099);
             server = (RMIServer) registry.lookup("Server");
-            server.registerCommonChat(this);
+            //server.registerCommonChat(this);
         }catch (RemoteException | NotBoundException e)
         {
             e.printStackTrace();

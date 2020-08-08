@@ -15,13 +15,14 @@ public class UserInfoModelManager implements UserInfoModel
   public UserInfoModelManager (UserInfoClient userInfoClient)
   {
     this.userInfoClient=userInfoClient;
+    support = new PropertyChangeSupport(this);
     userInfoClient.startClient();
     userInfoClient.addListener("UserInfo", this::onUserInfo);
   }
 
-  @Override public void getInfo(String username)
+  @Override public void getInfo()
   {
-    userInfoClient.getInfo(username);
+    userInfoClient.getInfo();
   }
 
   @Override public void onFriendRequest()
@@ -37,6 +38,7 @@ public class UserInfoModelManager implements UserInfoModel
   @Override public void onUserInfo(PropertyChangeEvent event)
   {
     support.firePropertyChange(event);
+    System.out.println(event.getNewValue().toString());
   }
 
   @Override public void addListener(String evtName,

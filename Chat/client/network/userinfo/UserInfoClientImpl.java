@@ -4,6 +4,7 @@ import Chat.shared.networking.RMIServer;
 import Chat.shared.networking.UserInfo;
 import Chat.shared.networking.UserInfoCallback;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
@@ -60,20 +61,19 @@ public class UserInfoClientImpl implements UserInfoClient, UserInfoCallback
     {
 
     }
-    @Override public UserInfo getInfo(String username)
+    @Override public void getInfo()
     {
         try
         {
-            rmiServer.getCurrentUserInfo(username);
+            rmiServer.getInfo(this);
         } catch (RemoteException throwable)
         {
             throwable.printStackTrace();
         }
-        return null;
     }
 
-  @Override public void sendUserInfo(UserInfo userInfo) throws RemoteException
+  @Override public void sendUserInfo(PropertyChangeEvent event) throws RemoteException
   {
-    support.firePropertyChange("UserInfo", null, userInfo);
+    support.firePropertyChange(event);
   }
 }

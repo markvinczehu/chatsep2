@@ -22,8 +22,6 @@ public class UserInfoController implements ViewController
   @FXML
   private TextField age;
   @FXML
-  private TextField profileName;
-  @FXML
   private TextField PhoneNumber;
   @FXML
   private TextField eMailAddress;
@@ -44,6 +42,7 @@ public class UserInfoController implements ViewController
     PhoneNumber.textProperty().bindBidirectional(userInfoViewModel.phoneNumberProperty());
     eMailAddress.textProperty().bindBidirectional(userInfoViewModel.emailProperty());
     statusField.textProperty().bindBidirectional(userInfoViewModel.statusProperty());
+    userInfoViewModel.getInfo();
   }
 
   @FXML

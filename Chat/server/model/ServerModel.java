@@ -16,5 +16,6 @@ public interface ServerModel extends Subject
   void getUserList();
   User getCurrentUser();
   Message sendMessage(String input);
-  UserInfo getCurrentUserInfo(String username);
+  void getUserInfo(String username);
+  void getInfo();
 }

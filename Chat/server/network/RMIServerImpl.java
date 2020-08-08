@@ -26,6 +26,7 @@ public class RMIServerImpl implements RMIServer
     this.serverModel = serverModel;
     commonChatClientList = new ArrayList<>();
     serverModel.addListener("UsersList", this::onUserList);
+    serverModel.addListener("UserInfo", this::onUserInfo);
   }
 
   public void startServer() throws RemoteException, AlreadyBoundException
@@ -90,11 +91,27 @@ public class RMIServerImpl implements RMIServer
     return serverModel.getCurrentUser();
   }
 
-  @Override public void getCurrentUserInfo(String username)
+  @Override public void getUserInfo(String username)
       throws RemoteException
   {
-    UserInfo userInfo = serverModel.getCurrentUserInfo(username);
-    userInfoCallback.sendUserInfo(userInfo);
+    serverModel.getUserInfo(username);
+  }
 
+  @Override public void getInfo(UserInfoCallback callback) throws RemoteException
+  {
+    userInfoCallback = callback;
+    serverModel.getInfo();
+  }
+
+  @Override public void onUserInfo(PropertyChangeEvent event)
+  {
+    try
+    {
+      userInfoCallback.sendUserInfo(event);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 }
