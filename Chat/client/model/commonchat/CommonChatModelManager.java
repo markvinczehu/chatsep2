@@ -2,6 +2,7 @@ package Chat.client.model.commonchat;
 
 import Chat.client.network.commonchat.CommonChatClient;
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -45,6 +46,11 @@ public class CommonChatModelManager implements CommonChatModel
   @Override public User getCurrentUser()
   {
     return client.getCurrentUser();
+  }
+
+  @Override public void seeUserInfo(String username)
+  {
+    client.seeUserInfo(username);
   }
 
   @Override public void addListener(String evtName,

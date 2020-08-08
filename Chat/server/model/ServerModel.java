@@ -1,6 +1,7 @@
 package Chat.server.model;
 
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.util.Subject;
 import javafx.beans.property.ListProperty;
@@ -15,4 +16,5 @@ public interface ServerModel extends Subject
   void getUserList();
   User getCurrentUser();
   Message sendMessage(String input);
+  UserInfo getCurrentUserInfo(String username);
 }

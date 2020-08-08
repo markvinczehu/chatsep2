@@ -1,6 +1,7 @@
 package Chat.server.model;
 
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.util.Subject;
 import DAO.DAO;
@@ -69,7 +70,7 @@ public class ServerModelManager implements ServerModel
       ArrayList<String> allUsers = new ArrayList<>();
       for (User u : list)
       {
-        allUsers.add(u.toUserList());
+        allUsers.add(u.getUsername());
       }
       support.firePropertyChange("UsersList", null, allUsers);
       System.out.println("server model");
@@ -89,6 +90,19 @@ public class ServerModelManager implements ServerModel
   @Override public Message sendMessage(String input)
   {
     return new Message(currentUser.getUsername(), input);
+  }
+
+  @Override public UserInfo getCurrentUserInfo(String username)
+  {
+    try
+    {
+      return database.getInfo(username);
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+    return null;
   }
 
   @Override public void addListener(String evtName,

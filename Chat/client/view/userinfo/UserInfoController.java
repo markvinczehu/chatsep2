@@ -27,6 +27,8 @@ public class UserInfoController implements ViewController
   private TextField PhoneNumber;
   @FXML
   private TextField eMailAddress;
+  @FXML
+  private TextField statusField;
 
   private UserInfoViewModel userInfoViewModel;
   private ViewHandler vh;
@@ -39,17 +41,13 @@ public class UserInfoController implements ViewController
     firstName.textProperty().bindBidirectional(userInfoViewModel.firstNameProperty());
     lastName.textProperty().bindBidirectional(userInfoViewModel.lastNameProperty());
     age.textProperty().bindBidirectional(userInfoViewModel.ageProperty());
-    profileName.textProperty().bindBidirectional(userInfoViewModel.profileNameProperty());
     PhoneNumber.textProperty().bindBidirectional(userInfoViewModel.phoneNumberProperty());
     eMailAddress.textProperty().bindBidirectional(userInfoViewModel.emailProperty());
+    statusField.textProperty().bindBidirectional(userInfoViewModel.statusProperty());
   }
 
-
-  public void onCancelButton(ActionEvent event) {
+  @FXML
+  void onCancel(ActionEvent event) {
     vh.openCommonChat();
-  }
-
-  public void onPrivateChatButton(ActionEvent event) {
-    vh.openPrivateChat();
   }
 }

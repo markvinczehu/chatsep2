@@ -83,11 +83,32 @@ public class DAOImpl implements DAO
 
   }
 
-  @Override public UserInfo getInfo(String username, String firstName,
-      String lastName, String age, String profileName, String email,
-      String phoneNumber) throws SQLException
+  @Override public UserInfo getInfo(String username) throws SQLException
   {
-    return null;
+    try(Connection connection = getConnection())
+    {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userinfo WHERE username = ?");
+      statement.setString(1, username);
+      ResultSet resultSet = statement.executeQuery();
+      if (resultSet.next())
+      {
+        String name = resultSet.getString("username");
+        String firstname = resultSet.getString("firstname");
+        String lastname = resultSet.getString("lastname");
+        String age = resultSet.getString("age");
+        String email = resultSet.getString("email");
+        String phoneNumber = resultSet.getString("phonenumber");
+        Boolean isOnline = resultSet.getBoolean("isonline");
+        System.out.println(name);
+        return new UserInfo(name, firstname, lastname, age, email, phoneNumber,
+            isOnline);
+      }
+      else
+      {
+        System.out.println("Account does not exist");
+        return null;
+      }
+    }
   }
 
   @Override public boolean checkUser(String username, String password) throws SQLException

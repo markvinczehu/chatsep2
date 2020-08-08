@@ -16,7 +16,7 @@ public class ProfileModelManager implements ProfileModel {
     }
 
     @Override public void editProfileChecker(String un, String pw, String fn,
-        String ln, String age, String pn, String pnumb, String email)
+        String ln, String age, String pnumb, String email)
     {
         profileClient.editProfile(un, pw, fn, ln, age, pnumb, email);
     }

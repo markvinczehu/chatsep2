@@ -49,7 +49,7 @@ public class CommonChatViewModel
   private void onUserList(PropertyChangeEvent event)
   {
     ArrayList<String> list = (ArrayList<String>) event.getNewValue();
-    String user = commonChatModel.getCurrentUser().toUserList();
+    String user = commonChatModel.getCurrentUser().getUsername();
     list.removeIf(item -> item.equals(user));
     allUsersList.removeAll();
     allUsersList.addAll(list);
@@ -78,4 +78,8 @@ public class CommonChatViewModel
 
   public ObservableList<String> allUsersList() { return allUsersList; }
 
+  public void seeUserInfo(String username)
+  {
+    commonChatModel.seeUserInfo(username);
+  }
 }

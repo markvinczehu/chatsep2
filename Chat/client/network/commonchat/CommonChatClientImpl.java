@@ -1,7 +1,7 @@
 package Chat.client.network.commonchat;
 
 
-import Chat.shared.networking.ClientCallback;
+import Chat.shared.networking.CommonChatCallback;
 import Chat.shared.networking.RMIServer;
 import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
@@ -16,7 +16,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class CommonChatClientImpl implements CommonChatClient, ClientCallback
+public class CommonChatClientImpl implements CommonChatClient,
+    CommonChatCallback
 {
   private RMIServer server;
   private PropertyChangeSupport support;
@@ -75,6 +76,18 @@ public class CommonChatClientImpl implements CommonChatClient, ClientCallback
       e.printStackTrace();
     }
     return null;
+  }
+
+  @Override public void seeUserInfo(String username)
+  {
+    try
+    {
+      server.getCurrentUserInfo(username);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void sendMessageResult(Message message)

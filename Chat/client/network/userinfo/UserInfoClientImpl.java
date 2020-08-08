@@ -2,8 +2,10 @@ package Chat.client.network.userinfo;
 
 import Chat.shared.networking.RMIServer;
 import Chat.shared.networking.UserInfo;
+import Chat.shared.networking.UserInfoCallback;
 
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -11,13 +13,14 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class UserInfoClientImpl implements UserInfoClient, Remote
+public class UserInfoClientImpl implements UserInfoClient, UserInfoCallback
 {
     private RMIServer rmiServer;
+    private PropertyChangeSupport support;
 
     public UserInfoClientImpl()
     {
-
+      support = new PropertyChangeSupport(this);
     }
 
  //   @Override public void seeUserInfo(String username, String firstName,
@@ -68,4 +71,9 @@ public class UserInfoClientImpl implements UserInfoClient, Remote
         }
         return null;
     }
+
+  @Override public void sendUserInfo(UserInfo userInfo) throws RemoteException
+  {
+    support.firePropertyChange("UserInfo", null, userInfo);
+  }
 }

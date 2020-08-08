@@ -1,10 +1,7 @@
 package Chat.server.network;
 
 import Chat.server.model.ServerModel;
-import Chat.shared.networking.ClientCallback;
-import Chat.shared.networking.RMIServer;
-import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.networking.*;
 import Chat.shared.transferobjects.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -19,8 +16,9 @@ import java.util.List;
 public class RMIServerImpl implements RMIServer
 {
   private ServerModel serverModel;
-  private List<ClientCallback> commonChatClientList;
-  private ClientCallback clientCallback;
+  private List<CommonChatCallback> commonChatClientList;
+  private CommonChatCallback commonChatCallback;
+  private UserInfoCallback userInfoCallback;
 
   public RMIServerImpl(ServerModel serverModel) throws RemoteException
   {
@@ -44,7 +42,7 @@ public class RMIServerImpl implements RMIServer
   @Override public void sendMessage(String input) throws RemoteException
   {
     Message message = serverModel.sendMessage(input);
-    for (ClientCallback client : commonChatClientList) {
+    for (CommonChatCallback client : commonChatClientList) {
       client.sendMessageResult(message);
     }
   }
@@ -53,10 +51,11 @@ public class RMIServerImpl implements RMIServer
     serverModel.registerUser(un, pw);
   }
 
-  @Override public void registerCommonChat(ClientCallback clientCallback)
+  @Override public void registerCommonChat(
+      CommonChatCallback commonChatCallback)
   {
     System.out.println("arrived at server");
-    commonChatClientList.add(clientCallback);
+    commonChatClientList.add(commonChatCallback);
   }
 
 
@@ -66,9 +65,9 @@ public class RMIServerImpl implements RMIServer
     serverModel.editProfile(un, pw, fn, ln, age, pnumb, email);
   }
 
-  @Override public void getUserList(ClientCallback clientCallback)
+  @Override public void getUserList(CommonChatCallback commonChatCallback)
   {
-    this.clientCallback = clientCallback;
+    this.commonChatCallback = commonChatCallback;
     serverModel.getUserList();
     System.out.println("server network");
   }
@@ -77,7 +76,7 @@ public class RMIServerImpl implements RMIServer
   {
     try
     {
-      clientCallback.sendUserList(event);
+      commonChatCallback.sendUserList(event);
       System.out.println("server callback");
     }
     catch (RemoteException e)
@@ -91,13 +90,11 @@ public class RMIServerImpl implements RMIServer
     return serverModel.getCurrentUser();
   }
 
-  @Override
-  public UserInfo getCurrentUserInfo(String username) throws RemoteException {
-    return null;
-  }
-
-  @Override
-  public void sendMessage(Message message) {
+  @Override public void getCurrentUserInfo(String username)
+      throws RemoteException
+  {
+    UserInfo userInfo = serverModel.getCurrentUserInfo(username);
+    userInfoCallback.sendUserInfo(userInfo);
 
   }
 }
