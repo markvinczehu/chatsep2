@@ -13,9 +13,10 @@ public interface RMIServer extends Remote
   void sendMessage(String input) throws RemoteException;
   void registerUser(String un, String pw) throws RemoteException, SQLException;
   void registerCommonChat(ClientCallback clientCallback) throws RemoteException;
-  void editProfile (String un, String pw, String fn, String ln, String age, String pn, String pnumb, String email) throws RemoteException;
+  void editProfile (String un, String pw, String fn, String ln, String age, String pnumb, String email) throws RemoteException;
   void getUserList(ClientCallback clientCallback) throws RemoteException;
   void onUserList(PropertyChangeEvent propertyChangeEvent) throws RemoteException;
   User getCurrentUser() throws RemoteException;
   UserInfo getCurrentUserInfo(String username) throws RemoteException;
+  void sendMessage(Message message);
 }

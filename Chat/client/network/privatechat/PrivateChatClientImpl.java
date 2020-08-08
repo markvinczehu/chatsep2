@@ -28,15 +28,8 @@ public class PrivateChatClientImpl implements PrivateChatClient, ClientCallback 
     }
 
     @Override
-    public void sendMessage(Message message) {
-        try
-        {
-            server.sendMessage(message);
-        }
-        catch (RemoteException e)
-        {
-            e.printStackTrace();
-        }
+    public void sendMessage(Message message) throws RemoteException {
+        server.sendMessage(message);
     }
 
     @Override

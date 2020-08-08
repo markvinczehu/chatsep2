@@ -4,6 +4,7 @@ import Chat.shared.networking.RMIServer;
 
 
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -14,10 +15,11 @@ import java.rmi.server.UnicastRemoteObject;
 public class ProfileClientImpl implements ProfileClient, Remote
 {
   private RMIServer server;
+  private PropertyChangeSupport support;
 
   public ProfileClientImpl()
   {
-
+    support = new PropertyChangeSupport(this);
   }
 
   @Override public void startClient()
@@ -36,21 +38,21 @@ public class ProfileClientImpl implements ProfileClient, Remote
   @Override public void addListener(String evtName,
       PropertyChangeListener listener)
   {
-
+    support.addPropertyChangeListener(evtName, listener);
   }
 
   @Override public void removeListener(String evtName,
       PropertyChangeListener listener)
   {
-
+    support.removePropertyChangeListener(evtName, listener);
   }
 
   @Override public void editProfile(String un, String pw, String fn, String ln,
-      String age, String pn, String pnumb, String email)
+      String age, String pnumb, String email)
   {
     try
     {
-      server.editProfile(un, pw, fn, ln, age, pn, pnumb, email);
+      server.editProfile(un, pw, fn, ln, age, pnumb, email);
     }
     catch (RemoteException e)
     {

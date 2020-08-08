@@ -3,6 +3,7 @@ package Chat.client.view.userinfo;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -44,4 +45,11 @@ public class UserInfoController implements ViewController
   }
 
 
+  public void onCancelButton(ActionEvent event) {
+    vh.openCommonChat();
+  }
+
+  public void onPrivateChatButton(ActionEvent event) {
+    vh.openPrivateChat();
+  }
 }

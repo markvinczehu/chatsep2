@@ -4,6 +4,7 @@ import Chat.server.model.ServerModel;
 import Chat.shared.networking.ClientCallback;
 import Chat.shared.networking.RMIServer;
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -60,9 +61,9 @@ public class RMIServerImpl implements RMIServer
 
 
   @Override public void editProfile(String un, String pw, String fn, String ln,
-      String age, String pn, String pnumb, String email)
+      String age, String pnumb, String email)
   {
-    serverModel.editProfile(un, pw, fn, ln, age, pn, pnumb, email);
+    serverModel.editProfile(un, pw, fn, ln, age, pnumb, email);
   }
 
   @Override public void getUserList(ClientCallback clientCallback)
@@ -88,5 +89,15 @@ public class RMIServerImpl implements RMIServer
   @Override public User getCurrentUser()
   {
     return serverModel.getCurrentUser();
+  }
+
+  @Override
+  public UserInfo getCurrentUserInfo(String username) throws RemoteException {
+    return null;
+  }
+
+  @Override
+  public void sendMessage(Message message) {
+
   }
 }
