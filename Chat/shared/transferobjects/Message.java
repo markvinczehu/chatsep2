@@ -47,6 +47,6 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return username + ": " + msg + " - " + date;
+        return date + " - " + username + ": " + msg;
     }
 }

@@ -73,4 +73,11 @@ public class ModelFactory
     }
     return userInfoModel;
   }
+
+  public PrivateChatModel getPrivateChatModel() {
+    if(privateChatModel == null) {
+      privateChatModel = new PrivateChatModelManager(clientFactory.getPrivateChatClient());
+    }
+    return privateChatModel;
+  }
 }
