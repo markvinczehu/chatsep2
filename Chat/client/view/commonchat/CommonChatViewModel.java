@@ -1,17 +1,12 @@
 package Chat.client.view.commonchat;
 
 import Chat.client.model.commonchat.CommonChatModel;
-import Chat.shared.networking.User;
-import Chat.shared.transferobjects.Message;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.beans.PropertyChangeEvent;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class CommonChatViewModel
@@ -19,7 +14,7 @@ public class CommonChatViewModel
   private CommonChatModel commonChatModel;
   private StringProperty messageField;
   private StringProperty chatArea;
-  private ObservableList<String> activeUsersList;
+  private ObservableList<String> allUsersList;
 
 
   public CommonChatViewModel(CommonChatModel commonChatModel)
@@ -27,9 +22,9 @@ public class CommonChatViewModel
     this.commonChatModel = commonChatModel;
     messageField = new SimpleStringProperty();
     chatArea = new SimpleStringProperty();
-    activeUsersList = FXCollections.observableArrayList();
+    allUsersList = FXCollections.observableArrayList();
     commonChatModel.addListener("SendMessage", this::onSendMessage);
-    commonChatModel.addListener("ActiveUsers", this::onActiveUsers);
+    commonChatModel.addListener("UsersList", this::onUserList);
   }
 
   private void onSendMessage(PropertyChangeEvent event)
@@ -51,12 +46,13 @@ public class CommonChatViewModel
     }
   }
 
-  private void onActiveUsers(PropertyChangeEvent event)
+  private void onUserList(PropertyChangeEvent event)
   {
     ArrayList<String> list = (ArrayList<String>) event.getNewValue();
-    //String user = commonChatModel.getCurrentUser().toUserList();
-    //list.removeIf(item -> item.equals(user));
-    activeUsersList.addAll(list);
+    String user = commonChatModel.getCurrentUser().toUserList();
+    list.removeIf(item -> item.equals(user));
+    allUsersList.removeAll();
+    allUsersList.addAll(list);
     System.out.println("back to viewmodel");
   }
 
@@ -80,6 +76,6 @@ public class CommonChatViewModel
     return chatArea;
   }
 
-  public ObservableList<String> activeUsersList() { return activeUsersList; }
+  public ObservableList<String> allUsersList() { return allUsersList; }
 
 }

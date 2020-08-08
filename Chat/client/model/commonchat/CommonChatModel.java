@@ -10,6 +10,6 @@ public interface CommonChatModel extends Subject
   void sendMessage(String input);
   void onSendMessage(PropertyChangeEvent event);
   void getUserList();
-  void onActiveUsers(PropertyChangeEvent event);
+  void onUserList(PropertyChangeEvent event);
   User getCurrentUser();
 }

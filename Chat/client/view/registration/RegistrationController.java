@@ -43,7 +43,7 @@ public class RegistrationController  implements ViewController
     }
 
     @FXML
-    void createAccount(ActionEvent actionEvent) throws SQLException {
+    void createAccount(ActionEvent actionEvent){
         if(rvm.registerUserChecker())
         {
             vh.openCommonChat();
