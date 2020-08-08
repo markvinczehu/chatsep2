@@ -3,8 +3,11 @@ package Chat.client.view.commonchat;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
+import Chat.client.view.userinfo.UserInfoViewModel;
 import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -22,6 +25,7 @@ public class CommonChatController implements ViewController
 
   private CommonChatViewModel commonChatViewModel;
   private ViewHandler vh;
+  private UserInfoViewModel userInfoViewModel;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
@@ -38,6 +42,20 @@ public class CommonChatController implements ViewController
     });
     commonChatViewModel.getUserList();
     activeUsersList.setItems(commonChatViewModel.allUsersList());
+    activeUsersList.getSelectionModel().selectedItemProperty().addListener(
+        new ChangeListener<String>()
+        {
+          @Override public void changed(
+              ObservableValue<? extends String> observableValue, String oldValue,
+              String newValue)
+          {
+            if (newValue.equals(""))
+            {
+              userInfoViewModel.seeUserInfo();
+            }
+            vh.openUserInfo();
+          }
+        });
 
   }
 
@@ -51,6 +69,11 @@ public class CommonChatController implements ViewController
   }
 
   public void logOut(ActionEvent actionEvent) { vh.openLogin(); }
+
+  public void onClickUser(ActionEvent actionEvent)
+  {
+
+  }
 
   public void openUpProfile(ActionEvent actionEvent) { vh.openProfile(); }
 }

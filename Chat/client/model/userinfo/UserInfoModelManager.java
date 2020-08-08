@@ -12,11 +12,9 @@ public class UserInfoModelManager implements UserInfoModel
     userInfoClient.startClient();
   }
 
-  @Override public void seeUserInfo(String username, String firstName,
-      String lastName, String age, String profileName, String email,
-      String phoneNumber)
+  @Override public void getInfo(String username)
   {
-    userInfoClient.seeUserInfo(username, firstName, lastName, age, profileName, email, phoneNumber);
+    userInfoClient.getInfo(username);
   }
 
   @Override public void onFriendRequest()

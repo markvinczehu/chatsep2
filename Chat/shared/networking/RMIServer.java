@@ -17,4 +17,5 @@ public interface RMIServer extends Remote
   void getUserList(ClientCallback clientCallback) throws RemoteException;
   void onUserList(PropertyChangeEvent propertyChangeEvent) throws RemoteException;
   User getCurrentUser() throws RemoteException;
+  UserInfo getCurrentUserInfo(String username) throws RemoteException;
 }
