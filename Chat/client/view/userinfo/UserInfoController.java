@@ -52,4 +52,9 @@ public class UserInfoController implements ViewController
   void onCancel(ActionEvent event) {
     vh.openCommonChat();
   }
+
+  public void onPrivateChatButton(ActionEvent actionEvent)
+  {
+    vh.openPrivateChat();
+  }
 }

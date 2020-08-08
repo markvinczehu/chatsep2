@@ -22,6 +22,6 @@ public interface RMIServer extends Remote
   void getUserInfo(String username) throws RemoteException;
   void getInfo(UserInfoCallback callback) throws RemoteException;
   void onUserInfo(PropertyChangeEvent event) throws RemoteException;
-  void sendPrivateMessage(PrivateMessage message) throws RemoteException;
-  String getToUserForPM() throws RemoteException;
+  void sendPrivateMessage(int fromUser, int toUser, String message) throws RemoteException;
+  int getToUserForPM() throws RemoteException;
 }

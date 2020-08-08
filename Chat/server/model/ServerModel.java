@@ -20,6 +20,6 @@ public interface ServerModel extends Subject
   Message sendMessage(String input);
   void getUserInfo(String username);
   void getInfo();
-  void sendPrivateMessage(PrivateMessage message);
-  String getToUserForPM();
+  void sendPrivateMessage(int fromUser, int toUser, String message);
+  int getToUserForPM();
 }

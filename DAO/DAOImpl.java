@@ -6,7 +6,9 @@ import Chat.shared.transferobjects.Message;
 import Chat.shared.transferobjects.PrivateMessage;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DAOImpl implements DAO
 {
@@ -101,8 +103,9 @@ public class DAOImpl implements DAO
         String email = resultSet.getString("email");
         String phoneNumber = resultSet.getString("phonenumber");
         Boolean isOnline = resultSet.getBoolean("isonline");
+        int id = resultSet.getInt("regid");
         System.out.println(name + " " + isOnline);
-        return new UserInfo(name, firstname, lastname, age, email, phoneNumber,
+        return new UserInfo(id, name, firstname, lastname, age, email, phoneNumber,
             isOnline);
       }
       else
@@ -184,18 +187,32 @@ public class DAOImpl implements DAO
     }
   }
 
-  @Override public void createPrivateMessage(PrivateMessage message)
+  @Override public void createPrivateMessage(int fromUser, int toUser, String message)
       throws SQLException
   {
     try(Connection connection = getConnection()){
       PreparedStatement statement = connection.prepareStatement(
-          "insert into privateusermessages(fromuser, touser, body, createdate) values (?, ?, ?, ?);");
-      statement.setString(1, String.valueOf(message.getFromUser()));
-      statement.setString(2, String.valueOf(message.getToUser()));
-      statement.setString(3, String.valueOf(message.getMsg()));
-      statement.setString(4, String.valueOf(message.getDate()));
+          "insert into privateusermessages(fromuser, touser, body) values (?, ?, ?);");
+      statement.setInt(1, fromUser);
+      statement.setInt(2, toUser);
+      statement.setString(3, message);
       statement.executeUpdate();
       System.out.println("private message created");
+    }
+  }
+
+  @Override public int getID(String username) throws SQLException
+  {
+    try (Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userInfo WHERE username = ?");
+      statement.setString(1, username);
+      ResultSet rs = statement.executeQuery();
+      if(rs.next()) {
+        System.out.println("got the id");
+        return rs.getInt("regid");
+      }
+      else
+        return -1;
     }
   }
 }

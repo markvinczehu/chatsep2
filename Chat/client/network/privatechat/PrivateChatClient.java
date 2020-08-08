@@ -8,8 +8,8 @@ import Chat.shared.transferobjects.PrivateMessage;
 import java.rmi.RemoteException;
 
 public interface PrivateChatClient extends Client {
-    String getFromUserForPM();
-    String getToUserForPM();
+    int getFromUserForPM();
+    int getToUserForPM();
     void startClient();
-    void sendMessage(PrivateMessage message);
+    void sendMessage(int fromUser, int toUser, String message);
 }

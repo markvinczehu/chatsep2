@@ -6,8 +6,8 @@ import Chat.shared.util.Subject;
 import java.beans.PropertyChangeEvent;
 
 public interface PrivateChatModel extends Subject {
-    void sendMessage(PrivateMessage message);
+    void sendMessage(int fromUser, int toUser, String message);
     void onSendMessage(PropertyChangeEvent event);
-  String getFromUserForPM();
-  String getToUserForPM();
+  int getFromUserForPM();
+  int getToUserForPM();
 }

@@ -20,5 +20,6 @@ public interface DAO
   ArrayList<User> getAllUsers() throws SQLException;
   boolean registrationCheck(String username) throws SQLException;
   void setOnline(String username, boolean status) throws SQLException;
-  void createPrivateMessage(PrivateMessage message) throws SQLException;
+  void createPrivateMessage(int fromUser, int toUser, String message) throws SQLException;
+  int getID(String username) throws SQLException;
 }

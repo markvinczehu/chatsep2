@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class UserInfo implements Serializable
 {
+  private int id;
   private String username;
   private String firstName;
   private String lastName;
@@ -12,8 +13,9 @@ public class UserInfo implements Serializable
   private String phoneNumber;
   private boolean isOnline;
 
-  public UserInfo(String username, String firstName, String lastName, String age, String email, String phoneNumber, boolean isOnline)
+  public UserInfo(int id, String username, String firstName, String lastName, String age, String email, String phoneNumber, boolean isOnline)
   {
+    this.id = id;
     this.username=username;
     this.firstName=firstName;
     this.lastName=lastName;
@@ -21,6 +23,11 @@ public class UserInfo implements Serializable
     this.email=email;
     this.phoneNumber=phoneNumber;
     this.isOnline = isOnline;
+  }
+
+  public void setId(int id)
+  {
+    this.id = id;
   }
 
   public void setPhoneNumber(String phoneNumber)
@@ -57,6 +64,11 @@ public class UserInfo implements Serializable
   public void setOnline(Boolean isOnline)
   {
     this.isOnline = isOnline;
+  }
+
+  public int getId()
+  {
+    return id;
   }
 
   public String getUsername()

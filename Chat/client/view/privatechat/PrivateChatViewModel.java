@@ -32,10 +32,9 @@ public class PrivateChatViewModel
         String input = messageField.get();
         if(!input.equals(""))
         {
-            String fromUser = privateChatModel.getFromUserForPM();
-            String toUser = privateChatModel.getToUserForPM();
-            PrivateMessage message = new PrivateMessage(fromUser, toUser , input);
-            privateChatModel.sendMessage(message);
+            int fromUser = privateChatModel.getFromUserForPM();
+            int toUser = privateChatModel.getToUserForPM();
+            privateChatModel.sendMessage(fromUser, toUser , input);
         }
         else{
             messageField.setValue("Please enter a message");

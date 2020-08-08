@@ -37,6 +37,7 @@ public class ServerModelManager implements ServerModel
       {
         database.setOnline(username, true);
         currentUser = new User(username,password);
+        currentUser.setId(database.getID(currentUser.getUsername()));
         return true;
       }
       else return false;
@@ -52,6 +53,7 @@ public class ServerModelManager implements ServerModel
     try
     {
       currentUser = database.create(un, pw);
+      currentUser.setId(database.getID(currentUser.getUsername()));
     }
     catch (SQLException throwables)
     {
@@ -119,11 +121,11 @@ public class ServerModelManager implements ServerModel
     support.firePropertyChange("UserInfo", null, userInfo);
   }
 
-  @Override public void sendPrivateMessage(PrivateMessage message)
+  @Override public void sendPrivateMessage(int fromUser, int toUser, String message)
   {
     try
     {
-      database.createPrivateMessage(message);
+      database.createPrivateMessage(fromUser, toUser, message);
     }
     catch (SQLException throwables)
     {
@@ -131,9 +133,9 @@ public class ServerModelManager implements ServerModel
     }
   }
 
-  @Override public String getToUserForPM()
+  @Override public int getToUserForPM()
   {
-    return userInfo.getUsername();
+    return userInfo.getId();
   }
 
   @Override public void addListener(String evtName,

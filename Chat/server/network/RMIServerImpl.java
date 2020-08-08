@@ -117,12 +117,12 @@ public class RMIServerImpl implements RMIServer
     }
   }
 
-  @Override public void sendPrivateMessage(PrivateMessage message)
+  @Override public void sendPrivateMessage(int fromUser, int toUser, String message)
   {
-    serverModel.sendPrivateMessage(message);
+    serverModel.sendPrivateMessage(fromUser, toUser, message);
   }
 
-  @Override public String getToUserForPM() throws RemoteException
+  @Override public int getToUserForPM() throws RemoteException
   {
     return serverModel.getToUserForPM();
   }

@@ -21,18 +21,18 @@ public class PrivateChatModelManager implements PrivateChatModel {
     }
 
     @Override
-    public String getFromUserForPM() {
+    public int getFromUserForPM() {
         return client.getFromUserForPM();
     }
 
-    @Override public String getToUserForPM()
+    @Override public int getToUserForPM()
     {
         return client.getToUserForPM();
     }
 
     @Override
-    public void sendMessage(PrivateMessage message) {
-        client.sendMessage(message);
+    public void sendMessage(int fromUser, int toUser, String message) {
+        client.sendMessage(fromUser, toUser, message);
     }
 
     @Override

@@ -4,14 +4,21 @@ import java.io.Serializable;
 
 public class User implements Serializable
 {
+    private int id;
     private String username;
     private String password;
     private String status;
 
     public User(String username, String password) {
+        id = 0;
         this.username = username;
         this.password = password;
         status = "Online";
+    }
+
+    public int getId()
+    {
+        return id;
     }
 
     public String getUsername() {
@@ -30,6 +37,11 @@ public class User implements Serializable
     public String toUserList()
     {
         return username + " (" + status + ")";
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
     }
 
     public void setUsername(String username) {

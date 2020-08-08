@@ -31,10 +31,10 @@ public class PrivateChatClientImpl implements PrivateChatClient,
     }
 
     @Override
-    public void sendMessage(PrivateMessage message) {
+    public void sendMessage(int fromUser, int toUser, String message) {
         try
         {
-            server.sendPrivateMessage(message);
+            server.sendPrivateMessage(fromUser, toUser, message);
         }
         catch (RemoteException e)
         {
@@ -43,19 +43,19 @@ public class PrivateChatClientImpl implements PrivateChatClient,
     }
 
     @Override
-    public String getFromUserForPM() {
+    public int getFromUserForPM() {
         try
         {
-            return server.getCurrentUser().getUsername();
+            return server.getCurrentUser().getId();
         }
         catch (RemoteException e)
         {
             e.printStackTrace();
         }
-        return null;
+        return -1;
     }
 
-    @Override public String getToUserForPM()
+    @Override public int getToUserForPM()
     {
         try
         {
@@ -65,7 +65,7 @@ public class PrivateChatClientImpl implements PrivateChatClient,
         {
             e.printStackTrace();
         }
-        return null;
+        return -1;
     }
 
     @Override
