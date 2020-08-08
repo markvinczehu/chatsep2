@@ -1,7 +1,6 @@
 package Chat.server.model;
 
 import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.util.Subject;
 import DAO.DAO;
@@ -18,37 +17,39 @@ public class ServerModelManager implements ServerModel
 {
   private ArrayList<String> users;
   private DAO database = DAOImpl.getInstance();
-  private ArrayList<String> activeUsers;
+  private ArrayList<String> allUsersList;
   private PropertyChangeSupport support;
   private User currentUser;
-  private UserInfo userInfo;
 
   public ServerModelManager()
   {
     users = new ArrayList<String>();
-    activeUsers = new ArrayList<String>();
-    User u1 = new User("Alex", "123546");
+    allUsersList = new ArrayList<String>();
     User u2 = new User("Matej", "123546");
     User u3 = new User("Dimitrios", "123546");
     User u4 = new User("Mark", "123546");
-    activeUsers.add(u1.toUserList());
-    activeUsers.add(u2.toUserList());
-    activeUsers.add(u3.toUserList());
-    activeUsers.add(u4.toUserList());
+    allUsersList.add(u2.toUserList());
+    allUsersList.add(u3.toUserList());
+    allUsersList.add(u4.toUserList());
     support = new PropertyChangeSupport(this);
   }
   
-  @Override public void loginUser(String username, String password)
+  @Override public boolean loginUser(String username, String password)
   {
-    currentUser = new User(username,password);
-    activeUsers.add(currentUser.toUserList());
+
     try{
-      database.read(username, password);
-       }
+      if(database.checkUser(username,password))
+      {
+        currentUser = new User(username,password);
+        return true;
+      }
+      else return false;
+    }
     catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
+    return false;
   }
 
   @Override public void registerUser(String un, String pw){
@@ -71,25 +72,26 @@ public class ServerModelManager implements ServerModel
 
   @Override public void getUserList()
   {
-    support.firePropertyChange("ActiveUsers", null, activeUsers);
-    System.out.println("server model");
+    try
+    {
+      ArrayList<User> list = database.getAllUsers();
+      for (User u : list)
+      {
+        allUsersList.add(u.toUserList());
+      }
+      support.firePropertyChange("ActiveUsers", null, allUsersList);
+      System.out.println("server model");
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+    
   }
 
   @Override public User getCurrentUser()
   {
     return currentUser;
-  }
-
-  @Override public UserInfo getUserInfo(String username)
-  {
-    try
-    {
-      userInfo = database.getInfo(username);
-    } catch (SQLException throwables)
-    {
-      throwables.printStackTrace();
-    }
-    return null;
   }
 
   @Override public void addListener(String evtName,

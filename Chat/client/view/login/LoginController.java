@@ -33,13 +33,10 @@ public class LoginController implements ViewController
     passwordField.textProperty().bindBidirectional(lvm.passwordProperty());
   }
 
-  public void onLoginButton(ActionEvent actionEvent) throws SQLException {
-//    lvm.loginUserChecker();
-//    lvm.loginUserChecker(usernameField.getText());
-//    if (lvm.loginUserChecker(usernameField.getText()))
-//    {
+  public void onLoginButton(ActionEvent actionEvent){
+    boolean b = lvm.loginUser();
+    if(b)
       vh.openCommonChat();
-//    }
   }
 
   @FXML

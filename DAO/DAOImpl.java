@@ -1,9 +1,9 @@
 package DAO;
 
 import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DAOImpl implements DAO
 {
@@ -32,7 +32,7 @@ public class DAOImpl implements DAO
 
   private Connection getConnection() throws SQLException
   {
-    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=user_info", "postgres", "293150");
+    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=test", "postgres", "293150");
   }
 
   @Override public User create(String username, String password) throws SQLException
@@ -48,6 +48,7 @@ public class DAOImpl implements DAO
       return new User(username, password);
     }
   }
+
   @Override public void read(String name, String pass) throws SQLException
   {
     System.out.println("123123");
@@ -81,35 +82,47 @@ public class DAOImpl implements DAO
 
   }
 
-  @Override public UserInfo getInfo(String username) throws SQLException
+  @Override public boolean checkUser(String username, String password) throws SQLException
   {
-    System.out.println("User info test");
-    try(Connection connection = getConnection())
-    {
-      String firstName;
-          String lastName;
-          String age;
-          String profileName;
-          String email;
-         String  phoneNumber;
-      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userInfo WHERE username =?");
+    System.out.println("getting user");
+    try(Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userinfo WHERE username = ?");
       statement.setString(1, username);
       ResultSet resultSet = statement.executeQuery();
-      if(resultSet.next())
-      {
-        username = resultSet.getString("username");
-        firstName = resultSet.getString("firstname");
-        lastName = resultSet.getString("lastname");
-        age = resultSet.getString("age");
-        profileName = resultSet.getString("profilename");
-        email = resultSet.getString("email");
-        phoneNumber = resultSet.getString("phonenumber");
-        return new UserInfo(username,firstName,lastName,age,profileName,email,phoneNumber);
+      if(resultSet.next()) {
+        String name = resultSet.getString("username");
+        String pass = resultSet.getString("password");
+        if(name.equals(username) && password.equals(pass))
+        {
+          System.out.println("correct");
+          return true;
+        }
+        else return false;
       }
       else
       {
-        return null;
+        System.out.println("Account does not exist");
+        return false;
       }
     }
+  }
+
+  @Override public ArrayList<User> getAllUsers() throws SQLException
+  {
+    System.out.println("getting all users");
+    try(Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userinfo");
+      ResultSet resultSet = statement.executeQuery();
+      ArrayList<User> users = new ArrayList<>();
+      while(resultSet.next())
+      {
+        String u = resultSet.getString("username");
+        String p = resultSet.getString("password");
+        User user = new User(u,p);
+        users.add(user);
+      }
+      return users;
+      }
+
   }
 }
