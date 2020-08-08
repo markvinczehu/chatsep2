@@ -40,11 +40,11 @@ public class CommonChatClientImpl implements CommonChatClient, ClientCallback
     }
   }
 
-  @Override public void sendMessage(Message message)
+  @Override public void sendMessage(String input)
   {
     try
     {
-      server.sendMessage(message);
+      server.sendMessage(input);
     }
     catch (RemoteException e)
     {
