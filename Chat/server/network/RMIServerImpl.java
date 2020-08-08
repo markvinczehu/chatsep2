@@ -92,12 +92,7 @@ public class RMIServerImpl implements RMIServer
 
   @Override public UserInfo getCurrentUserInfo()
   {
-    return serverModel.getUserInfo();
-  }
-
-  @Override public void seeUserInfo(String username, String firstName,
-      String lastName,String age, String profileName, String email, String phoneNumber)
-  {
-    serverModel.seeUserInfo(username, firstName, lastName, age, profileName, email, phoneNumber);
+    String username="";
+    return serverModel.getUserInfo(username);
   }
 }

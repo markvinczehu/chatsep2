@@ -12,6 +12,6 @@ public interface DAO
   void updateName(String name) throws SQLException;
   void updateAge(int age) throws SQLException;
   void delete(String name) throws SQLException;
-  UserInfo getInfo(String username, String firstName, String lastName, String age, String profileName, String email, String phoneNumber)
+  UserInfo getInfo(String username)
       throws SQLException;
 }

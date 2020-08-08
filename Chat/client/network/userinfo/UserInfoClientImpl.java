@@ -1,6 +1,7 @@
 package Chat.client.network.userinfo;
 
 import Chat.shared.networking.RMIServer;
+import Chat.shared.networking.UserInfo;
 
 import java.beans.PropertyChangeListener;
 import java.rmi.NotBoundException;
@@ -9,6 +10,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 
 public class UserInfoClientImpl implements UserInfoClient, Remote
 {
@@ -19,18 +21,6 @@ public class UserInfoClientImpl implements UserInfoClient, Remote
 
     }
 
-    @Override public void seeUserInfo(String username, String firstName,
-        String lastName, String age, String profileName, String email,
-        String phoneNumber)
-    {
-        try
-        {
-            rmiServer.seeUserInfo(username, firstName, lastName, age, profileName, email, phoneNumber);
-        } catch (RemoteException e)
-        {
-            e.printStackTrace();
-        }
-    }
 
     @Override public void startClient()
     {
@@ -55,5 +45,17 @@ public class UserInfoClientImpl implements UserInfoClient, Remote
         PropertyChangeListener listener)
     {
 
+    }
+
+    @Override public UserInfo getInfo(String username)
+    {
+        try
+        {
+            rmiServer.getCurrentUserInfo();
+        } catch (RemoteException throwable)
+        {
+            throwable.printStackTrace();
+        }
+        return null;
     }
 }

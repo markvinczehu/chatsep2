@@ -15,6 +15,5 @@ public interface ServerModel extends Subject
   void editProfile(String un, String pw, String fn, String ln, String age, String pn, String pnumb, String email);
   void getUserList();
   User getCurrentUser();
-  UserInfo getUserInfo();
-  void seeUserInfo(String un, String fn, String ln, String age, String pn,String email, String pnumb);
+  UserInfo getUserInfo(String username);
 }

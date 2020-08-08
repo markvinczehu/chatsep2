@@ -80,22 +80,16 @@ public class ServerModelManager implements ServerModel
     return currentUser;
   }
 
-  @Override public UserInfo getUserInfo()
-  {
-    return userInfo;
-  }
-
-  @Override public void seeUserInfo(String un, String fn, String ln, String age,
-      String pn, String email, String pnumb)
+  @Override public UserInfo getUserInfo(String username)
   {
     try
     {
-      userInfo = database.getInfo(un, fn, ln, age, pn, email, pnumb);
+      userInfo = database.getInfo(username);
     } catch (SQLException throwables)
     {
       throwables.printStackTrace();
     }
-    System.out.println("User's profile opened");
+    return null;
   }
 
   @Override public void addListener(String evtName,

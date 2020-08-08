@@ -3,8 +3,11 @@ package Chat.client.view.commonchat;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
+import Chat.client.view.userinfo.UserInfoViewModel;
 import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -13,6 +16,7 @@ import javafx.scene.control.TextField;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 
 public class CommonChatController implements ViewController
 {
@@ -22,11 +26,13 @@ public class CommonChatController implements ViewController
 
   private CommonChatViewModel commonChatViewModel;
   private ViewHandler vh;
+  private UserInfoViewModel userInfoViewModel;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
     this.vh = vh;
     commonChatViewModel = vmf.getCommonChatViewModel();
+    userInfoViewModel = vmf.getUserInfoViewModel();
     messageField.textProperty().bindBidirectional(commonChatViewModel.messageField());
     commonChatArea.setEditable(false);
     commonChatViewModel.chatArea().addListener((obs, old, newValue) ->{
@@ -38,7 +44,20 @@ public class CommonChatController implements ViewController
     });
     commonChatViewModel.getUserList();
     activeUsersList.setItems(commonChatViewModel.activeUsersList());
-
+    activeUsersList.getSelectionModel().selectedItemProperty().addListener(
+        new ChangeListener<String>()
+        {
+          @Override public void changed(
+              ObservableValue<? extends String> observableValue, String oldValue,
+              String newValue)
+          {
+            if (newValue.equals(""))
+            {
+              userInfoViewModel.seeUserInfo();
+            }
+            vh.openUserInfo();
+          }
+        });
   }
 
   public void onSendButton(ActionEvent actionEvent)
@@ -50,6 +69,10 @@ public class CommonChatController implements ViewController
     }
   }
 
+  public void onClickUser(ActionEvent actionEvent)
+  {
+
+  }
   public void logOut(ActionEvent actionEvent) { vh.openLogin(); }
 
   public void openUpProfile(ActionEvent actionEvent) { vh.openProfile(); }

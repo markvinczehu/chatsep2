@@ -43,4 +43,5 @@ public class UserInfoController implements ViewController
     eMailAddress.textProperty().bindBidirectional(userInfoViewModel.emailProperty());
   }
 
+
 }

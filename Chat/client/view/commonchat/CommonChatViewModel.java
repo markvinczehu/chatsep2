@@ -21,6 +21,7 @@ public class CommonChatViewModel
   private StringProperty chatArea;
   private ObservableList<String> activeUsersList;
 
+
   public CommonChatViewModel(CommonChatModel commonChatModel)
   {
     this.commonChatModel = commonChatModel;
@@ -62,6 +63,11 @@ public class CommonChatViewModel
   public void getUserList()
   {
     commonChatModel.getUserList();
+  }
+
+  public void onClickUser()
+  {
+
   }
 
   public StringProperty messageField()

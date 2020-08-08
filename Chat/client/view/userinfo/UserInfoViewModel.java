@@ -17,7 +17,8 @@ private UserInfoModel userInfoModel;
   private StringProperty profileName;
   private StringProperty emailAddress;
   private StringProperty phoneNumber;
-  private DAOImpl dao;
+
+
 
   public UserInfoViewModel(UserInfoModel userInfoModel)
   {
@@ -30,18 +31,13 @@ private UserInfoModel userInfoModel;
     emailAddress = new SimpleStringProperty();
     phoneNumber = new SimpleStringProperty();
   }
-  public void seeUserInfo() throws SQLException
+
+  public void seeUserInfo()
   {
     System.out.println("fuck u!!!!!!!!!");
     String un = username.get();
-    String fn = firstName.get();
-    String ln = lastName.get();
-    String age = yearsOld.get();
-    String pn = profileName.get();
-    String email = emailAddress.get();
-    String pnumb = phoneNumber.get();
 
-    dao.getInfo(un, fn, ln, age, pn, email, pnumb);
+    userInfoModel.getInfo(un);
   }
   public StringProperty usernameProperty()
   {
