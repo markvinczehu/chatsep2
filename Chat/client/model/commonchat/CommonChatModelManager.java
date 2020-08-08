@@ -23,8 +23,7 @@ public class CommonChatModelManager implements CommonChatModel
 
   @Override public void sendMessage(String input)
   {
-    Message message = new Message("username", input);
-    client.sendMessage(message);
+    client.sendMessage(input);
   }
 
   @Override public void onSendMessage(PropertyChangeEvent event)

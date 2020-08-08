@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 
 public interface CommonChatClient extends Client
 {
-  void sendMessage(Message message);
+  void sendMessage(String input);
   void getUserList();
   User getCurrentUser();
 }

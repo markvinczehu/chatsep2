@@ -86,6 +86,11 @@ public class ServerModelManager implements ServerModel
     return currentUser;
   }
 
+  @Override public Message sendMessage(String input)
+  {
+    return new Message(currentUser.getUsername(), input);
+  }
+
   @Override public void addListener(String evtName,
       PropertyChangeListener listener)
   {

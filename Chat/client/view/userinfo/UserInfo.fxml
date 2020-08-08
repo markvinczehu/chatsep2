@@ -22,13 +22,13 @@
       <Label layoutX="36.0" layoutY="190.0" text="Last name" />
       <Label layoutX="36.0" layoutY="230.0" text="Age" />
       <Label layoutX="36.0" layoutY="270.0" text="Profile name" />
-      <Button fx:id="updateButton" layoutX="373.0" layoutY="420.0" mnemonicParsing="false" onAction="#onChat" prefHeight="38.0" prefWidth="96.0" text="Private chat" />
+      <Button fx:id="updateButton" layoutX="373.0" layoutY="420.0" mnemonicParsing="false"  prefHeight="38.0" prefWidth="96.0" text="Private chat" />
       <Button fx:id="cancelButton" layoutX="36.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="38.0" prefWidth="68.0" text="Cancel" />
       <Label layoutX="36.0" layoutY="310.0" text="E-mail address" />
       <Label layoutX="36.0" layoutY="350.0" text="Phone number" />
       <TextField fx:id="profileName" editable="false" layoutX="144.0" layoutY="265.0" prefHeight="27.0" prefWidth="325.0" />
       <TextField fx:id="PhoneNumber" editable="false" layoutX="144.0" layoutY="345.0" prefHeight="27.0" prefWidth="325.0" />
       <TextField fx:id="eMailAddress" editable="false" layoutX="144.0" layoutY="305.0" prefHeight="27.0" prefWidth="325.0" />
-      <Button layoutX="199.0" layoutY="420.0" mnemonicParsing="false" onAction="#onFriend" prefHeight="38.0" prefWidth="96.0" text="Make friend" />
+      <Button layoutX="199.0" layoutY="420.0" mnemonicParsing="false"  prefHeight="38.0" prefWidth="96.0" text="Make friend" />
    </children>
 </AnchorPane>

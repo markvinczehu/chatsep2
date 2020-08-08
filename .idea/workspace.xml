@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b700f179-9b39-4723-a010-b5df1742eb6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/network/commonchat/CommonChatClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/commonchat/CommonChatClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/network/userinfo/UserInfoClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/userinfo/UserInfoClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/login/LoginViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/shared/networking/ClientCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/shared/networking/ClientCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/shared/networking/RMIServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/shared/transferobjects/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/shared/transferobjects/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAO/DAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/DAOImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="b700f179-9b39-4723-a010-b5df1742eb6f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +118,21 @@
       <option name="project" value="LOCAL" />
       <updated>1596792323120</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="message class and user list">
+      <created>1596888370751</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1596888370751</updated>
+    </task>
+    <task id="LOCAL-00006" summary="message username">
+      <created>1596890262782</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1596890262782</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -153,7 +150,9 @@
     <MESSAGE value="Added the RegistrationClient and RegistrationClientImpl classes and added their corresponding methods to the ClientFactory and ModelFactory accordingly" />
     <MESSAGE value="Implemented functionality on all the Profile.fxml related classes" />
     <MESSAGE value="login stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="login stuff" />
+    <MESSAGE value="message class and user list" />
+    <MESSAGE value="message username" />
+    <option name="LAST_COMMIT_MESSAGE" value="message username" />
   </component>
   <component name="WindowStateProjectService">
     <state x="520" y="236" key="#Notifications" timestamp="1596790861638">
@@ -168,11 +167,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1596643111362" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1596803344530">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1596889874797">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1596742316638" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596803344530" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596889874797" />
     <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595757490316" />
     <state x="581" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595756931759">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -182,11 +181,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="748" y="166" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1595499554690" />
-    <state x="375" y="0" key="CommitChangelistDialog2" timestamp="1596792322191">
+    <state x="375" y="0" key="CommitChangelistDialog2" timestamp="1596890262090">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1596302006875" />
-    <state x="375" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1596792322191" />
+    <state x="375" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1596890262090" />
     <state x="587" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758206464" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1596791897032">
       <screen x="0" y="0" width="1536" height="824" />
@@ -197,26 +196,26 @@
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595871344566" />
     <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595757712559" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1596887635189">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1596890427436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="154" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596743354628" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596887635189" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1596887635189">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596890427436" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1596890427436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="154" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596743354627" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596887635189" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1596887635188">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596890427436" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1596890427436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="154" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596743354627" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596887635188" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1596887635189">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596890427436" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1596890427436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1323" height="154" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596743354628" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596887635189" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596890427436" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1596311132456">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -233,10 +232,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1596311132456" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1595846806662">
+    <state x="147" y="65" key="MergeDialog" timestamp="1596890421326">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1595846806662" />
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1596890421326" />
+    <state x="407" y="174" key="MultipleFileMergeDialog" timestamp="1596890421334">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1596890421334" />
     <state x="567" y="133" key="RollbackChangesDialog" timestamp="1596791046932">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -247,21 +250,21 @@
     <state x="368" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1596310930691" />
     <state x="498" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595847097625" />
     <state x="623" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595758436904" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1596792326573">
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1596890264132">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1596302014069" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1596792326573" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1596890264132" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758237596" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1596803277013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1596803277013" />
-    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596883457504">
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596890479433">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="514" y="288" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1595776915597" />
-    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1596883457504" />
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1596890479433" />
     <state x="723" y="411" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595758035890" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596653640520">
       <screen x="0" y="0" width="1536" height="824" />

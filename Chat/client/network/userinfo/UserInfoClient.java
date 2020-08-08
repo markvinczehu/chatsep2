@@ -1,8 +1,9 @@
 package Chat.client.network.userinfo;
 
 import Chat.client.network.Client;
+import Chat.shared.networking.UserInfo;
 
 public interface UserInfoClient extends Client
 {
-  void seeUserInfo(String username, String firstName, String lastName, String age, String profileName, String email, String phoneNumber);
+  UserInfo getInfo(String username);
 }

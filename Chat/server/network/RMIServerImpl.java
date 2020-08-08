@@ -40,8 +40,9 @@ public class RMIServerImpl implements RMIServer
     return serverModel.loginUser(username, password);
   }
 
-  @Override public void sendMessage(Message message) throws RemoteException
+  @Override public void sendMessage(String input) throws RemoteException
   {
+    Message message = serverModel.sendMessage(input);
     for (ClientCallback client : commonChatClientList) {
       client.sendMessageResult(message);
     }
