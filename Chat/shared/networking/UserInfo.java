@@ -8,19 +8,19 @@ public class UserInfo implements Serializable
   private String firstName;
   private String lastName;
   private String age;
-  private String profileName;
   private String email;
   private String phoneNumber;
+  private boolean isOnline;
 
-  public UserInfo(String username, String firstName, String lastName, String age, String profileName, String email, String phoneNumber)
+  public UserInfo(String username, String firstName, String lastName, String age, String email, String phoneNumber, boolean isOnline)
   {
     this.username=username;
     this.firstName=firstName;
     this.lastName=lastName;
     this.age=age;
-    this.profileName=profileName;
     this.email=email;
     this.phoneNumber=phoneNumber;
+    this.isOnline = isOnline;
   }
 
   public void setPhoneNumber(String phoneNumber)
@@ -33,10 +33,6 @@ public class UserInfo implements Serializable
     this.email = email;
   }
 
-  public void setProfileName(String profileName)
-  {
-    this.profileName = profileName;
-  }
 
   public void setAge(String age)
   {
@@ -56,6 +52,11 @@ public class UserInfo implements Serializable
   public void setUsername(String username)
   {
     this.username = username;
+  }
+
+  public void setOnline(Boolean isOnline)
+  {
+    this.isOnline = isOnline;
   }
 
   public String getUsername()
@@ -78,11 +79,6 @@ public class UserInfo implements Serializable
     return age;
   }
 
-  public String getProfileName()
-  {
-    return profileName;
-  }
-
   public String getEmail()
   {
     return email;
@@ -91,5 +87,10 @@ public class UserInfo implements Serializable
   public String getPhoneNumber()
   {
     return phoneNumber;
+  }
+
+  public Boolean getIsOnline()
+  {
+    return isOnline;
   }
 }

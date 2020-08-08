@@ -30,9 +30,6 @@ public class ProfileController implements ViewController
     private TextField age;
 
     @FXML
-    private TextField profileName;
-
-    @FXML
     private TextField PhoneNumber;
 
     @FXML
@@ -53,7 +50,6 @@ public class ProfileController implements ViewController
         firstName.textProperty().bindBidirectional(profileViewModel.firstNameProperty());
         lastName.textProperty().bindBidirectional(profileViewModel.lastNameProperty());
         age.textProperty().bindBidirectional(profileViewModel.ageProperty());
-        profileName.textProperty().bindBidirectional(profileViewModel.profileNameProperty());
         PhoneNumber.textProperty().bindBidirectional(profileViewModel.phoneNumberProperty());
         eMailAddress.textProperty().bindBidirectional(profileViewModel.emailProperty());
         errorLabel.textProperty().bindBidirectional(profileViewModel.errorProperty());

@@ -1,10 +1,12 @@
 package Chat.client.view.userinfo;
 
 import Chat.client.model.userinfo.UserInfoModel;
+import Chat.shared.networking.UserInfo;
 import DAO.DAOImpl;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.beans.PropertyChangeEvent;
 import java.sql.SQLException;
 
 public class UserInfoViewModel {
@@ -14,9 +16,9 @@ private UserInfoModel userInfoModel;
   private StringProperty firstName;
   private StringProperty lastName;
   private StringProperty yearsOld;
-  private StringProperty profileName;
   private StringProperty emailAddress;
   private StringProperty phoneNumber;
+  private StringProperty status;
 
 
 
@@ -27,9 +29,30 @@ private UserInfoModel userInfoModel;
     firstName = new SimpleStringProperty();
     lastName = new SimpleStringProperty();
     yearsOld = new SimpleStringProperty();
-    profileName = new SimpleStringProperty();
     emailAddress = new SimpleStringProperty();
     phoneNumber = new SimpleStringProperty();
+    status = new SimpleStringProperty();
+    userInfoModel.addListener("UserInfo", this::onUserInfo);
+  }
+
+  private void onUserInfo(PropertyChangeEvent event)
+  {
+    UserInfo userInfo = (UserInfo) event.getNewValue();
+    username.setValue(userInfo.getUsername());
+    firstName.setValue(userInfo.getFirstName());
+    lastName.setValue(userInfo.getLastName());
+    yearsOld.setValue(userInfo.getAge());
+    emailAddress.setValue(userInfo.getEmail());
+    phoneNumber.setValue(userInfo.getPhoneNumber());
+    if (userInfo.getIsOnline())
+    {
+      status.setValue("Online");
+    }
+    else
+    {
+      status.setValue("Offline");
+    }
+
   }
 
   public void seeUserInfo()
@@ -59,12 +82,11 @@ private UserInfoModel userInfoModel;
   {
     return emailAddress;
   }
-  public StringProperty profileNameProperty()
-  {
-    return profileName;
-  }
   public StringProperty phoneNumberProperty()
   {
     return phoneNumber;
+  }
+  public StringProperty statusProperty(){
+    return status;
   }
 }

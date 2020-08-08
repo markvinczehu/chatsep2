@@ -46,11 +46,11 @@ public class ProfileClientImpl implements ProfileClient, Remote
   }
 
   @Override public void editProfile(String un, String pw, String fn, String ln,
-      String age, String pn, String pnumb, String email)
+      String age, String pnumb, String email)
   {
     try
     {
-      server.editProfile(un, pw, fn, ln, age, pn, pnumb, email);
+      server.editProfile(un, pw, fn, ln, age, pnumb, email);
     }
     catch (RemoteException e)
     {

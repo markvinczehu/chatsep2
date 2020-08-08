@@ -49,9 +49,9 @@ public class CommonChatController implements ViewController
               ObservableValue<? extends String> observableValue, String oldValue,
               String newValue)
           {
-            if (newValue.equals(""))
+            if (!newValue.equals(""))
             {
-              userInfoViewModel.seeUserInfo();
+              commonChatViewModel.seeUserInfo(newValue);
             }
             vh.openUserInfo();
           }
