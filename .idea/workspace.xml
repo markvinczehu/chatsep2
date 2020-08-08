@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b700f179-9b39-4723-a010-b5df1742eb6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/model/login/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/model/login/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/model/login/LoginModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/model/login/LoginModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/network/login/LoginClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/login/LoginClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/network/login/LoginClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/login/LoginClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/login/LoginController.java" afterDir="false" />
+    <list default="true" id="da9c40ec-e099-424e-80b5-e7736030ade2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/model/commonchat/CommonChatModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/network/commonchat/CommonChatClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/commonchat/CommonChatClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/network/userinfo/UserInfoClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/network/userinfo/UserInfoClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/commonchat/CommonChatViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat/client/view/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/login/LoginViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/client/view/registration/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/model/ServerModelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/server/network/RMIServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/shared/networking/ClientCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/shared/networking/ClientCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/shared/networking/RMIServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat/shared/transferobjects/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat/shared/transferobjects/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DAO/DAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/DAOImpl.java" afterDir="false" />
     </list>
@@ -92,7 +94,19 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
