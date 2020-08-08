@@ -23,13 +23,13 @@ public class UserInfoClientImpl implements UserInfoClient, Remote
         String lastName, String age, String profileName, String email,
         String phoneNumber)
     {
-        try
-        {
-            rmiServer.seeUserInfo(username, firstName, lastName, age, profileName, email, phoneNumber);
-        } catch (RemoteException e)
-        {
-            e.printStackTrace();
-        }
+//        try
+//        {
+//            rmiServer.seeUserInfo(username, firstName, lastName, age, profileName, email, phoneNumber);
+//        } catch (RemoteException e)
+//        {
+//            e.printStackTrace();
+//        }
     }
 
     @Override public void startClient()

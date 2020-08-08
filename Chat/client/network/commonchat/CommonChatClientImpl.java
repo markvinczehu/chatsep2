@@ -77,13 +77,13 @@ public class CommonChatClientImpl implements CommonChatClient, ClientCallback
     return null;
   }
 
-  @Override public void sendMessageResult(Message message) throws RemoteException
+  @Override public void sendMessageResult(Message message)
   {
     support.firePropertyChange("SendMessage", null, message);
     System.out.println("arrived at client");
   }
 
-  @Override public void sendActiveUsers(PropertyChangeEvent event) throws RemoteException
+  @Override public void sendUserList(PropertyChangeEvent event)
   {
     support.firePropertyChange(event);
   }

@@ -26,7 +26,7 @@ public class RMIServerImpl implements RMIServer
     UnicastRemoteObject.exportObject(this, 0);
     this.serverModel = serverModel;
     commonChatClientList = new ArrayList<>();
-    serverModel.addListener("ActiveUsers", this::onActiveUsers);
+    serverModel.addListener("UsersList", this::onUserList);
   }
 
   public void startServer() throws RemoteException, AlreadyBoundException
@@ -64,18 +64,18 @@ public class RMIServerImpl implements RMIServer
     serverModel.editProfile(un, pw, fn, ln, age, pn, pnumb, email);
   }
 
-  @Override public void getUserList(ClientCallback clientCallback) throws RemoteException
+  @Override public void getUserList(ClientCallback clientCallback)
   {
     this.clientCallback = clientCallback;
     serverModel.getUserList();
     System.out.println("server network");
   }
 
-  @Override public void onActiveUsers(PropertyChangeEvent event)
+  @Override public void onUserList(PropertyChangeEvent event)
   {
     try
     {
-      clientCallback.sendActiveUsers(event);
+      clientCallback.sendUserList(event);
       System.out.println("server callback");
     }
     catch (RemoteException e)

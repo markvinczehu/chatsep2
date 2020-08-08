@@ -1,6 +1,7 @@
 package DAO;
 
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -82,6 +83,13 @@ public class DAOImpl implements DAO
 
   }
 
+  @Override public UserInfo getInfo(String username, String firstName,
+      String lastName, String age, String profileName, String email,
+      String phoneNumber) throws SQLException
+  {
+    return null;
+  }
+
   @Override public boolean checkUser(String username, String password) throws SQLException
   {
     System.out.println("getting user");
@@ -124,5 +132,32 @@ public class DAOImpl implements DAO
       return users;
       }
 
+  }
+
+  public boolean registrationCheck(String username) throws SQLException {
+    String dbUsername;
+    try (Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM userInfo WHERE username = ?");
+      statement.setString(1, username);
+      ResultSet rs = statement.executeQuery();
+      if(rs.next()) {
+          System.out.println("Account already exists");
+          return false;
+      }
+      else
+        System.out.println("DAOcreation");
+      System.out.println(username);
+      return true;
+    }
+  }
+
+  @Override public void setOnline(String username, boolean status) throws SQLException
+  {
+    try(Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("UPDATE userinfo SET isOnline = ? WHERE username = ?");
+      statement.setBoolean(1, status);
+      statement.setString(2, username);
+      statement.executeUpdate();
+    }
   }
 }

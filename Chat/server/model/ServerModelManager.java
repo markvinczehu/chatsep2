@@ -15,22 +15,12 @@ import java.util.ArrayList;
 
 public class ServerModelManager implements ServerModel
 {
-  private ArrayList<String> users;
   private DAO database = DAOImpl.getInstance();
-  private ArrayList<String> allUsersList;
   private PropertyChangeSupport support;
   private User currentUser;
 
   public ServerModelManager()
   {
-    users = new ArrayList<String>();
-    allUsersList = new ArrayList<String>();
-    User u2 = new User("Matej", "123546");
-    User u3 = new User("Dimitrios", "123546");
-    User u4 = new User("Mark", "123546");
-    allUsersList.add(u2.toUserList());
-    allUsersList.add(u3.toUserList());
-    allUsersList.add(u4.toUserList());
     support = new PropertyChangeSupport(this);
   }
   
@@ -40,6 +30,7 @@ public class ServerModelManager implements ServerModel
     try{
       if(database.checkUser(username,password))
       {
+        database.setOnline(username, true);
         currentUser = new User(username,password);
         return true;
       }
@@ -75,11 +66,12 @@ public class ServerModelManager implements ServerModel
     try
     {
       ArrayList<User> list = database.getAllUsers();
+      ArrayList<String> allUsers = new ArrayList<>();
       for (User u : list)
       {
-        allUsersList.add(u.toUserList());
+        allUsers.add(u.toUserList());
       }
-      support.firePropertyChange("ActiveUsers", null, allUsersList);
+      support.firePropertyChange("UsersList", null, allUsers);
       System.out.println("server model");
     }
     catch (SQLException throwables)
