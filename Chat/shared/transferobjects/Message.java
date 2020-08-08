@@ -1,19 +1,24 @@
 package Chat.shared.transferobjects;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.io.Serializable;
+import java.util.TimeZone;
 
 public class Message implements Serializable {
 
     private String username;
     private String msg;
-    private Date date;
-
+    private String date;
     public Message(String username, String msg) {
-        this.date = new Date();
         this.username = username;
         this.msg = msg;
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        this.date = formatter.format(date);
     }
 
     public void setUsername(String username) {
@@ -32,20 +37,16 @@ public class Message implements Serializable {
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        this.date = formatter.format(date);
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
     @Override
     public String toString() {
-        return "Message{" +
-                "username='" + username + '\'' +
-                ", msg='" + msg + '\'' +
-                ", date=" + date +
-                '}';
+        return username + ": " + msg + " - " + date;
     }
 }
-

@@ -1,6 +1,7 @@
 package DAO;
 
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,6 +13,10 @@ public interface DAO
   void updateName(String name) throws SQLException;
   void updateAge(int age) throws SQLException;
   void delete(String name) throws SQLException;
+  UserInfo getInfo(String username, String firstName, String lastName, String age, String profileName, String email, String phoneNumber)
+      throws SQLException;
   boolean checkUser(String username, String password) throws SQLException;
   ArrayList<User> getAllUsers() throws SQLException;
+  boolean registrationCheck(String username) throws SQLException;
+  void setOnline(String username, boolean status) throws SQLException;
 }

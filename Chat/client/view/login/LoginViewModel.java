@@ -23,7 +23,6 @@ public class LoginViewModel
     error = new SimpleStringProperty();
   }
   public boolean loginUser(){
-
     if((username == null || username.getValue().equals("")) && (password == null || password.get().equals("")))
     {
       error.setValue("Please enter a username and a password");

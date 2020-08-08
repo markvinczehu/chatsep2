@@ -37,7 +37,7 @@ public class CommonChatController implements ViewController
       }
     });
     commonChatViewModel.getUserList();
-    activeUsersList.setItems(commonChatViewModel.activeUsersList());
+    activeUsersList.setItems(commonChatViewModel.allUsersList());
 
   }
 

@@ -18,7 +18,7 @@ public class CommonChatModelManager implements CommonChatModel
     this.client = client;
     client.startClient();
     client.addListener("SendMessage" , this::onSendMessage);
-    client.addListener("ActiveUsers", this::onActiveUsers);
+    client.addListener("UsersList", this::onUserList);
   }
 
   @Override public void sendMessage(String input)
@@ -38,7 +38,7 @@ public class CommonChatModelManager implements CommonChatModel
     client.getUserList();
   }
 
-  @Override public void onActiveUsers(PropertyChangeEvent event)
+  @Override public void onUserList(PropertyChangeEvent event)
   {
     support.firePropertyChange(event);
   }
