@@ -5,9 +5,10 @@ import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-import java.awt.*;
 import java.rmi.RemoteException;
 
 public class UserInfoController implements ViewController
@@ -27,6 +28,8 @@ public class UserInfoController implements ViewController
   private TextField eMailAddress;
   @FXML
   private TextField statusField;
+  @FXML
+  private Button cancelButton;
 
   private UserInfoViewModel userInfoViewModel;
   private ViewHandler vh;

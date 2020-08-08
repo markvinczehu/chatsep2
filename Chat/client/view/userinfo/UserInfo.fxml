@@ -31,6 +31,6 @@
       <TextField fx:id="eMailAddress" editable="false" layoutX="144.0" layoutY="305.0" prefHeight="27.0" prefWidth="325.0" />
       <Button layoutX="198.0" layoutY="445.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="96.0" text="Make friend" />
       <Label layoutX="41.0" layoutY="396.0" text="Status" />
-      <TextField fx:id="statusField" layoutX="144.0" layoutY="392.0" prefHeight="26.0" prefWidth="326.0" />
+      <TextField fx:id="statusField" editable="false" layoutX="144.0" layoutY="392.0" prefHeight="26.0" prefWidth="326.0" />
    </children>
 </AnchorPane>

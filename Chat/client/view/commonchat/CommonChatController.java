@@ -54,7 +54,6 @@ public class CommonChatController implements ViewController
               commonChatViewModel.getUserInfo(newValue);
               vh.openUserInfo();
             }
-
           }
         });
 

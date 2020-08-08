@@ -8,7 +8,7 @@ import Chat.shared.networking.PrivateChatCallback;
 import Chat.shared.networking.RMIServer;
 import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
-
+import Chat.shared.transferobjects.PrivateMessage;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -31,22 +31,35 @@ public class PrivateChatClientImpl implements PrivateChatClient,
     }
 
     @Override
-    public void sendMessage(Message message) {
-//        try
-//        {
-//            server.sendMessage(message);
-//        }
-//        catch (RemoteException e)
-//        {
-//            e.printStackTrace();
-//        }
+    public void sendMessage(PrivateMessage message) {
+        try
+        {
+            server.sendPrivateMessage(message);
+        }
+        catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public User getCurrentUser() {
+    public String getFromUserForPM() {
         try
         {
-            return server.getCurrentUser();
+            return server.getCurrentUser().getUsername();
+        }
+        catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override public String getToUserForPM()
+    {
+        try
+        {
+            return server.getToUserForPM();
         }
         catch (RemoteException e)
         {

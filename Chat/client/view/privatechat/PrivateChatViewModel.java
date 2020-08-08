@@ -1,18 +1,21 @@
 package Chat.client.view.privatechat;
 
 import Chat.client.model.privatechat.PrivateChatModel;
+import Chat.shared.networking.User;
+import Chat.shared.transferobjects.PrivateMessage;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.beans.PropertyChangeEvent;
 
-public class PrivatChatViewModel {
+public class PrivateChatViewModel
+{
 
     private PrivateChatModel privateChatModel;
     private StringProperty messageField;
     private StringProperty chatArea;
 
-    public PrivatChatViewModel(PrivateChatModel privateChatModel) {
+    public PrivateChatViewModel(PrivateChatModel privateChatModel) {
         this.privateChatModel = privateChatModel;
         messageField = new SimpleStringProperty();
         chatArea = new SimpleStringProperty();
@@ -29,7 +32,10 @@ public class PrivatChatViewModel {
         String input = messageField.get();
         if(!input.equals(""))
         {
-            privateChatModel.sendMessage(input);
+            String fromUser = privateChatModel.getFromUserForPM();
+            String toUser = privateChatModel.getToUserForPM();
+            PrivateMessage message = new PrivateMessage(fromUser, toUser , input);
+            privateChatModel.sendMessage(message);
         }
         else{
             messageField.setValue("Please enter a message");

@@ -5,12 +5,7 @@ import Chat.client.view.login.LoginViewModel;
 import Chat.client.view.registration.RegistrationViewModel;
 import Chat.client.view.profile.ProfileViewModel;
 import Chat.client.view.userinfo.UserInfoViewModel;
-import Chat.client.view.privatechat.PrivatChatViewModel;
-
-import java.sql.SQLException;
-
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
+import Chat.client.view.privatechat.PrivateChatViewModel;
 
 public class ViewModelFactory
 {
@@ -20,7 +15,7 @@ public class ViewModelFactory
   private CommonChatViewModel commonChatViewModel;
   private ProfileViewModel profileViewModel;
   private UserInfoViewModel userInfoViewModel;
-  private PrivatChatViewModel privatChatViewModel;
+  private PrivateChatViewModel privateChatViewModel;
 
   public ViewModelFactory(ModelFactory mf)
   {
@@ -68,10 +63,10 @@ public class ViewModelFactory
     }
     return userInfoViewModel;
   }
-  public PrivatChatViewModel getPrivatChatViewModel() {
-    if(privatChatViewModel == null) {
-      privatChatViewModel = new PrivatChatViewModel(modelFactory.getPrivateChatModel());
+  public PrivateChatViewModel getPrivatChatViewModel() {
+    if(privateChatViewModel == null) {
+      privateChatViewModel = new PrivateChatViewModel(modelFactory.getPrivateChatModel());
     }
-    return privatChatViewModel;
+    return privateChatViewModel;
   }
 }

@@ -3,6 +3,8 @@ package Chat.server.network;
 import Chat.server.model.ServerModel;
 import Chat.shared.networking.*;
 import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.PrivateMessage;
+import javafx.beans.property.StringProperty;
 
 import java.beans.PropertyChangeEvent;
 import java.rmi.AlreadyBoundException;
@@ -113,5 +115,15 @@ public class RMIServerImpl implements RMIServer
     {
       e.printStackTrace();
     }
+  }
+
+  @Override public void sendPrivateMessage(PrivateMessage message)
+  {
+    serverModel.sendPrivateMessage(message);
+  }
+
+  @Override public String getToUserForPM() throws RemoteException
+  {
+    return serverModel.getToUserForPM();
   }
 }

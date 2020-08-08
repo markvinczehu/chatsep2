@@ -1,5 +1,9 @@
 package Chat.shared.networking;
 
+import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.PrivateMessage;
+import javafx.beans.property.StringProperty;
+
 import java.beans.PropertyChangeEvent;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -18,4 +22,6 @@ public interface RMIServer extends Remote
   void getUserInfo(String username) throws RemoteException;
   void getInfo(UserInfoCallback callback) throws RemoteException;
   void onUserInfo(PropertyChangeEvent event) throws RemoteException;
+  void sendPrivateMessage(PrivateMessage message) throws RemoteException;
+  String getToUserForPM() throws RemoteException;
 }

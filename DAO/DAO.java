@@ -2,6 +2,8 @@ package DAO;
 
 import Chat.shared.networking.User;
 import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.PrivateMessage;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,4 +20,5 @@ public interface DAO
   ArrayList<User> getAllUsers() throws SQLException;
   boolean registrationCheck(String username) throws SQLException;
   void setOnline(String username, boolean status) throws SQLException;
+  void createPrivateMessage(PrivateMessage message) throws SQLException;
 }

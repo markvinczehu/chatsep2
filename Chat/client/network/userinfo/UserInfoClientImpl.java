@@ -53,13 +53,13 @@ public class UserInfoClientImpl implements UserInfoClient, UserInfoCallback
     @Override public void addListener(String evtName,
         PropertyChangeListener listener)
     {
-
+      support.addPropertyChangeListener(evtName, listener);
     }
 
     @Override public void removeListener(String evtName,
         PropertyChangeListener listener)
     {
-
+      support.removePropertyChangeListener(evtName, listener);
     }
     @Override public void getInfo()
     {

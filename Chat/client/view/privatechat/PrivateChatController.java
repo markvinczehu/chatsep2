@@ -3,7 +3,7 @@ package Chat.client.view.privatechat;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
-import Chat.client.view.privatechat.PrivatChatViewModel;
+import Chat.client.view.privatechat.PrivateChatViewModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -21,7 +21,7 @@ public class PrivateChatController implements ViewController {
     @FXML
     private TextField privateChatMessageField;
 
-    private PrivatChatViewModel privateChatViewModel;
+    private PrivateChatViewModel privateChatViewModel;
     private ViewHandler vh;
 
     @FXML
@@ -37,8 +37,6 @@ public class PrivateChatController implements ViewController {
             privateChatMessageField.clear();
         }
     }
-
-
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) throws RemoteException {

@@ -3,10 +3,12 @@ package Chat.server.model;
 import Chat.shared.networking.User;
 import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.PrivateMessage;
 import Chat.shared.util.Subject;
 import DAO.DAO;
 import DAO.DAOImpl;
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.StringProperty;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -20,6 +22,7 @@ public class ServerModelManager implements ServerModel
   private PropertyChangeSupport support;
   private User currentUser;
   private UserInfo userInfo;
+  private int i = 0;
 
   public ServerModelManager()
   {
@@ -98,6 +101,12 @@ public class ServerModelManager implements ServerModel
     try
     {
       userInfo = database.getInfo(username);
+      if(i >= 1)
+      {
+        getInfo();
+      }
+      i++;
+      System.out.println("UserInfo in the servermodel is: " +userInfo.getUsername() + " " + userInfo.getIsOnline());
     }
     catch (SQLException throwables)
     {
@@ -108,6 +117,23 @@ public class ServerModelManager implements ServerModel
   @Override public void getInfo()
   {
     support.firePropertyChange("UserInfo", null, userInfo);
+  }
+
+  @Override public void sendPrivateMessage(PrivateMessage message)
+  {
+    try
+    {
+      database.createPrivateMessage(message);
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+  }
+
+  @Override public String getToUserForPM()
+  {
+    return userInfo.getUsername();
   }
 
   @Override public void addListener(String evtName,

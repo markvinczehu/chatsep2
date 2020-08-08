@@ -38,7 +38,7 @@ private UserInfoModel userInfoModel;
   private void onUserInfo(PropertyChangeEvent event)
   {
     UserInfo userInfo = (UserInfo) event.getNewValue();
-    System.out.println(userInfo.getIsOnline() + "back to viewmodel");
+    System.out.println(userInfo.getUsername() + "back to viewmodel for userinfo");
     username.setValue(userInfo.getUsername());
     firstName.setValue(userInfo.getFirstName());
     lastName.setValue(userInfo.getLastName());

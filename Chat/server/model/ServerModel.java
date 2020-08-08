@@ -3,8 +3,10 @@ package Chat.server.model;
 import Chat.shared.networking.User;
 import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.PrivateMessage;
 import Chat.shared.util.Subject;
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.StringProperty;
 
 import java.sql.SQLException;
 
@@ -18,4 +20,6 @@ public interface ServerModel extends Subject
   Message sendMessage(String input);
   void getUserInfo(String username);
   void getInfo();
+  void sendPrivateMessage(PrivateMessage message);
+  String getToUserForPM();
 }

@@ -2,6 +2,8 @@ package DAO;
 
 import Chat.shared.networking.User;
 import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.PrivateMessage;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -179,6 +181,21 @@ public class DAOImpl implements DAO
       statement.setBoolean(1, status);
       statement.setString(2, username);
       statement.executeUpdate();
+    }
+  }
+
+  @Override public void createPrivateMessage(PrivateMessage message)
+      throws SQLException
+  {
+    try(Connection connection = getConnection()){
+      PreparedStatement statement = connection.prepareStatement(
+          "insert into privateusermessages(fromuser, touser, body, createdate) values (?, ?, ?, ?);");
+      statement.setString(1, String.valueOf(message.getFromUser()));
+      statement.setString(2, String.valueOf(message.getToUser()));
+      statement.setString(3, String.valueOf(message.getMsg()));
+      statement.setString(4, String.valueOf(message.getDate()));
+      statement.executeUpdate();
+      System.out.println("private message created");
     }
   }
 }

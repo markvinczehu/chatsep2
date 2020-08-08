@@ -3,12 +3,13 @@ package Chat.client.model.privatechat;
 import Chat.client.network.privatechat.PrivateChatClient;
 import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.PrivateMessage;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class PrivateChatModelManager implements PrivateChatClient, PrivateChatModel {
+public class PrivateChatModelManager implements PrivateChatModel {
     private PrivateChatClient client;
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
@@ -20,23 +21,17 @@ public class PrivateChatModelManager implements PrivateChatClient, PrivateChatMo
     }
 
     @Override
-    public User getCurrentUser() {
-        return null;
+    public String getFromUserForPM() {
+        return client.getFromUserForPM();
+    }
+
+    @Override public String getToUserForPM()
+    {
+        return client.getToUserForPM();
     }
 
     @Override
-    public void startClient() {
-
-    }
-
-    @Override
-    public void sendMessage(Message message) {
-
-    }
-
-    @Override
-    public void sendMessage(String input) {
-        Message message = new Message("username", input);
+    public void sendMessage(PrivateMessage message) {
         client.sendMessage(message);
     }
 
