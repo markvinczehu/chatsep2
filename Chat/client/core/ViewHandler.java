@@ -18,6 +18,7 @@ public class ViewHandler
   private Scene profileScene;
   private ViewModelFactory viewModelFactory;
   private Scene userInfoScene;
+  private Scene privateChatScene;
 
   public ViewHandler(ViewModelFactory viewModelFactory)
   {
@@ -108,6 +109,23 @@ public class ViewHandler
       }
     }
     stage.setScene(userInfoScene);
+    stage.setResizable(false);
+    stage.show();
+  }
+
+  public void openPrivateChat() {
+    if (privateChatScene == null)
+    {
+      try
+      {
+        Parent root = loadFXML("../view/privatechat/PrivateChat.fxml");
+        stage.setTitle("Private Chat");
+        privateChatScene = new Scene(root);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    stage.setScene(privateChatScene);
     stage.setResizable(false);
     stage.show();
   }

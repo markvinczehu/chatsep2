@@ -5,6 +5,7 @@ import Chat.client.view.login.LoginViewModel;
 import Chat.client.view.registration.RegistrationViewModel;
 import Chat.client.view.profile.ProfileViewModel;
 import Chat.client.view.userinfo.UserInfoViewModel;
+import Chat.client.view.privatechat.PrivatChatViewModel;
 
 import java.sql.SQLException;
 
@@ -19,6 +20,7 @@ public class ViewModelFactory
   private CommonChatViewModel commonChatViewModel;
   private ProfileViewModel profileViewModel;
   private UserInfoViewModel userInfoViewModel;
+  private PrivatChatViewModel privatChatViewModel;
 
   public ViewModelFactory(ModelFactory mf)
   {
@@ -65,5 +67,11 @@ public class ViewModelFactory
       userInfoViewModel = new UserInfoViewModel(modelFactory.getUserInfoModel());
     }
     return userInfoViewModel;
+  }
+  public PrivatChatViewModel getPrivatChatViewModel() {
+    if(privatChatViewModel == null) {
+      privatChatViewModel = new PrivatChatViewModel(modelFactory.getPrivateChatModel());
+    }
+    return privatChatViewModel;
   }
 }

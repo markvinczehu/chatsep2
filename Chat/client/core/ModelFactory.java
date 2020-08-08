@@ -10,6 +10,8 @@ import Chat.client.model.profile.ProfileModel;
 import Chat.client.model.profile.ProfileModelManager;
 import Chat.client.model.userinfo.UserInfoModel;
 import Chat.client.model.userinfo.UserInfoModelManager;
+import Chat.client.model.privatechat.PrivateChatModel;
+import Chat.client.model.privatechat.PrivateChatModelManager;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -22,6 +24,7 @@ public class ModelFactory
   private RegistrationModel registrationModel;
   private ProfileModel profileModel;
   private UserInfoModel userInfoModel;
+  private PrivateChatModel privateChatModel;
 
   public ModelFactory(ClientFactory clientFactory)
   {
