@@ -4,12 +4,15 @@ import Chat.client.network.commonchat.CommonChatClient;
 import Chat.client.network.commonchat.CommonChatClientImpl;
 import Chat.client.network.login.LoginClient;
 import Chat.client.network.login.LoginClientImpl;
+import Chat.client.network.privatechat.PrivateChatClient;
 import Chat.client.network.registration.RegistrationClient;
 import Chat.client.network.registration.RegistrationClientImpl;
 import Chat.client.network.profile.ProfileClient;
 import Chat.client.network.profile.ProfileClientImpl;
 import Chat.client.network.userinfo.UserInfoClient;
 import Chat.client.network.userinfo.UserInfoClientImpl;
+import Chat.client.network.privatechat.PrivateChatClient;
+import Chat.client.network.privatechat.PrivateChatClientImpl;
 
 public class ClientFactory
 {
@@ -18,6 +21,7 @@ public class ClientFactory
   private RegistrationClient registrationClient;
   private ProfileClient profileClient;
   private UserInfoClient userInfoClient;
+  private PrivateChatClient privateChatClient;
 
   public LoginClient getLoginClient()
   {
@@ -57,5 +61,12 @@ public class ClientFactory
       userInfoClient = new UserInfoClientImpl();
     }
     return userInfoClient;
+  }
+
+  public PrivateChatClient getPrivateChatClient() {
+    if(privateChatClient == null) {
+      privateChatClient = new PrivateChatClientImpl();
+    }
+    return privateChatClient;
   }
 }
