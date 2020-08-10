@@ -38,6 +38,9 @@ public class ProfileController implements ViewController
     @FXML
     private Label errorLabel;
 
+    @FXML
+    private ChoiceBox<String> statusChoice;
+
     private ProfileViewModel profileViewModel;
     private ViewHandler vh;
 
@@ -53,6 +56,7 @@ public class ProfileController implements ViewController
         PhoneNumber.textProperty().bindBidirectional(profileViewModel.phoneNumberProperty());
         eMailAddress.textProperty().bindBidirectional(profileViewModel.emailProperty());
         errorLabel.textProperty().bindBidirectional(profileViewModel.errorProperty());
+        profileViewModel.getProfileInfo();
     }
 
     @FXML

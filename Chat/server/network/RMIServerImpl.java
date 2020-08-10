@@ -42,9 +42,8 @@ public class RMIServerImpl implements RMIServer
     return serverModel.loginUser(username, password);
   }
 
-  @Override public void sendMessage(String input) throws RemoteException
+  @Override public void sendMessage(Message message) throws RemoteException
   {
-    Message message = serverModel.sendMessage(input);
     for (CommonChatCallback client : commonChatClientList) {
       client.sendMessageResult(message);
     }
@@ -88,7 +87,7 @@ public class RMIServerImpl implements RMIServer
     }
   }
 
-  @Override public User getCurrentUser()
+  @Override public UserInfo getCurrentUser()
   {
     return serverModel.getCurrentUser();
   }
@@ -117,13 +116,35 @@ public class RMIServerImpl implements RMIServer
     }
   }
 
-  @Override public void sendPrivateMessage(int fromUser, int toUser, String message)
+  @Override public void sendPrivateMessage(PrivateMessage privateMessage)
   {
-    serverModel.sendPrivateMessage(fromUser, toUser, message);
+    serverModel.sendPrivateMessage(privateMessage);
   }
 
   @Override public int getToUserForPM() throws RemoteException
   {
     return serverModel.getToUserForPM();
   }
+
+  @Override public void setGuestUser() throws RemoteException
+  {
+    serverModel.setGuestUser();
+  }
+
+  @Override public boolean getGuestUser() throws RemoteException
+  {
+    return serverModel.getGuestUser();
+  }
+
+  @Override public ArrayList<PrivateMessage> getMessageLog()
+      throws RemoteException
+  {
+    return serverModel.getMessageLog();
+  }
+
+  @Override public UserInfo getToUser() throws RemoteException
+  {
+    return serverModel.getToUser();
+  }
+
 }

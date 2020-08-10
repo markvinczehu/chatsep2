@@ -16,4 +16,9 @@ public class LoginModelManager implements LoginModel
   {
     return loginClient.loginUser(username, password);
   }
+
+  @Override public void setGuestUser()
+  {
+    loginClient.setGuestUser();
+  }
 }

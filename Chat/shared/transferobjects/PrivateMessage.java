@@ -6,30 +6,38 @@ import java.util.Date;
 
 public class PrivateMessage implements Serializable
 {
-  private String fromUser;
-  private String toUser;
+  private int fromUser;
+  private int toUser;
   private String msg;
   private String date;
-  public PrivateMessage(String fromUser, String toUser, String msg) {
+
+  public PrivateMessage(int fromUser, int toUser, String msg) {
     this.fromUser = fromUser;
     this.toUser = toUser;
     this.msg = msg;
     Date date = new Date();
-    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
     this.date = formatter.format(date);
   }
 
-  public void setFromUser(String fromUser) {
+  public PrivateMessage(int fromUser, int toUser, String msg, String date)
+  {
+    this.fromUser = fromUser;
+    this.toUser = toUser;
+    this.msg = msg;
+    this.date = date;
+  }
+  public void setFromUser(int fromUser) {
     this.fromUser = fromUser;
   }
-  public String getFromUser() {
+  public int getFromUser() {
     return fromUser;
   }
 
-  public void setToUser(String toUser) {
+  public void setToUser(int toUser) {
     this.toUser = toUser;
   }
-  public String getToUser() {
+  public int getToUser() {
     return toUser;
   }
 
@@ -42,7 +50,7 @@ public class PrivateMessage implements Serializable
   }
 
   public void setDate(Date date) {
-    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
     this.date = formatter.format(date);
   }
 

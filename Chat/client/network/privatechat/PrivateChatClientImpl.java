@@ -2,11 +2,8 @@ package Chat.client.network.privatechat;
 
 import Chat.client.network.Client;
 import Chat.client.network.commonchat.CommonChatClient;
+import Chat.shared.networking.*;
 import Chat.shared.networking.PrivateChatCallback;
-import Chat.shared.networking.MessageDAO;
-import Chat.shared.networking.PrivateChatCallback;
-import Chat.shared.networking.RMIServer;
-import Chat.shared.networking.User;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.transferobjects.PrivateMessage;
 
@@ -19,6 +16,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class PrivateChatClientImpl implements PrivateChatClient,
     PrivateChatCallback
@@ -31,15 +29,54 @@ public class PrivateChatClientImpl implements PrivateChatClient,
     }
 
     @Override
-    public void sendMessage(int fromUser, int toUser, String message) {
+    public void sendMessage(PrivateMessage privateMessage) {
         try
         {
-            server.sendPrivateMessage(fromUser, toUser, message);
+            server.sendPrivateMessage(privateMessage);
         }
         catch (RemoteException e)
         {
             e.printStackTrace();
         }
+    }
+
+    @Override public ArrayList<PrivateMessage> getMessageLog()
+    {
+        try
+        {
+            return server.getMessageLog();
+        }
+        catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override public UserInfo getCurrentUser()
+    {
+        try
+        {
+            return server.getCurrentUser();
+        }
+        catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override public UserInfo getToUser()
+    {
+        try
+        {
+            return server.getToUser();
+        }
+        catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

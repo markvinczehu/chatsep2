@@ -1,7 +1,6 @@
 package Chat.client.model.commonchat;
 
 import Chat.client.network.commonchat.CommonChatClient;
-import Chat.shared.networking.User;
 import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 
@@ -22,9 +21,9 @@ public class CommonChatModelManager implements CommonChatModel
     client.addListener("UsersList", this::onUserList);
   }
 
-  @Override public void sendMessage(String input)
+  @Override public void sendMessage(Message message)
   {
-    client.sendMessage(input);
+    client.sendMessage(message);
   }
 
   @Override public void onSendMessage(PropertyChangeEvent event)
@@ -43,7 +42,7 @@ public class CommonChatModelManager implements CommonChatModel
     support.firePropertyChange(event);
   }
 
-  @Override public User getCurrentUser()
+  @Override public UserInfo getCurrentUser()
   {
     return client.getCurrentUser();
   }
@@ -51,6 +50,11 @@ public class CommonChatModelManager implements CommonChatModel
   @Override public void getUserInfo(String username)
   {
     client.getUserInfo(username);
+  }
+
+  @Override public boolean getGuestUser()
+  {
+    return client.getGuestUser();
   }
 
   @Override public void addListener(String evtName,

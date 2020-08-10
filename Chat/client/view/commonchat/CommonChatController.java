@@ -40,7 +40,11 @@ public class CommonChatController implements ViewController
         commonChatViewModel.chatArea().setValue("");
       }
     });
-    commonChatViewModel.getUserList();
+    commonChatViewModel.getCurrentUser();
+    if(!commonChatViewModel.getGuestUser())
+    {
+      commonChatViewModel.getUserList();
+    }
     activeUsersList.setItems(commonChatViewModel.allUsersList());
     activeUsersList.getSelectionModel().selectedItemProperty().addListener(
         new ChangeListener<String>()

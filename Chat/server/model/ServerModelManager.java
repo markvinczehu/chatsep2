@@ -20,24 +20,27 @@ public class ServerModelManager implements ServerModel
 {
   private DAO database = DAOImpl.getInstance();
   private PropertyChangeSupport support;
-  private User currentUser;
+  private UserInfo currentUser;
   private UserInfo userInfo;
+  private String guestUser;
   private int i = 0;
 
   public ServerModelManager()
   {
     support = new PropertyChangeSupport(this);
+    currentUser = new UserInfo();
   }
   
   @Override public boolean loginUser(String username, String password)
   {
 
     try{
+      guestUser = null;
       if(database.checkUser(username,password))
       {
         database.setOnline(username, true);
-        currentUser = new User(username,password);
-        currentUser.setId(database.getID(currentUser.getUsername()));
+        currentUser = database.getInfo(username);
+        //currentUser.setId(database.getID(currentUser.getUsername()));
         return true;
       }
       else return false;
@@ -52,8 +55,9 @@ public class ServerModelManager implements ServerModel
   @Override public void registerUser(String un, String pw){
     try
     {
-      currentUser = database.create(un, pw);
-      currentUser.setId(database.getID(currentUser.getUsername()));
+      guestUser = null;
+      database.create(un, pw);
+      currentUser = database.getInfo(un);
     }
     catch (SQLException throwables)
     {
@@ -72,9 +76,9 @@ public class ServerModelManager implements ServerModel
   {
     try
     {
-      ArrayList<User> list = database.getAllUsers();
+      ArrayList<UserInfo> list = database.getAllUsers();
       ArrayList<String> allUsers = new ArrayList<>();
-      for (User u : list)
+      for (UserInfo u : list)
       {
         allUsers.add(u.getUsername());
       }
@@ -88,14 +92,9 @@ public class ServerModelManager implements ServerModel
     
   }
 
-  @Override public User getCurrentUser()
+  @Override public UserInfo getCurrentUser()
   {
     return currentUser;
-  }
-
-  @Override public Message sendMessage(String input)
-  {
-    return new Message(currentUser.getUsername(), input);
   }
 
   @Override public void getUserInfo(String username)
@@ -121,11 +120,11 @@ public class ServerModelManager implements ServerModel
     support.firePropertyChange("UserInfo", null, userInfo);
   }
 
-  @Override public void sendPrivateMessage(int fromUser, int toUser, String message)
+  @Override public void sendPrivateMessage(PrivateMessage privateMessage)
   {
     try
     {
-      database.createPrivateMessage(fromUser, toUser, message);
+      database.createPrivateMessage(privateMessage);
     }
     catch (SQLException throwables)
     {
@@ -136,6 +135,46 @@ public class ServerModelManager implements ServerModel
   @Override public int getToUserForPM()
   {
     return userInfo.getId();
+  }
+
+  @Override public void setGuestUser()
+  {
+    try
+    {
+      guestUser = "anonymous" + (int)(Math.random()*1000);
+      int id = database.createGuestUser(guestUser);
+      currentUser.setUsername(guestUser);
+      System.out.println(guestUser);
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+  }
+
+  @Override public boolean getGuestUser()
+  {
+    return guestUser != null;
+  }
+
+  @Override public ArrayList<PrivateMessage> getMessageLog()
+  {
+    int toUser = getToUserForPM();
+    int fromUser = getCurrentUser().getId();
+    try
+    {
+      return database.getPrivateMessages(fromUser, toUser);
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public UserInfo getToUser()
+  {
+    return userInfo;
   }
 
   @Override public void addListener(String evtName,

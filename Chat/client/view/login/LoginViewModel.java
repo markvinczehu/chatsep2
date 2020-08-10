@@ -14,6 +14,7 @@ public class LoginViewModel
   private StringProperty username;
   private StringProperty password;
   private StringProperty error;
+  private String guestUsername;
 
   public LoginViewModel(LoginModel loginModel)
   {
@@ -65,5 +66,10 @@ public class LoginViewModel
   public StringProperty errorProperty()
   {
     return error;
+  }
+
+  public void setGuestUser()
+  {
+    loginModel.setGuestUser();
   }
 }

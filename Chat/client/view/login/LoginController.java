@@ -47,6 +47,7 @@ public class LoginController implements ViewController
 
   @FXML
   void onEnterGuest (ActionEvent actionEvent) {
+    lvm.setGuestUser();
     vh.openCommonChat();
   }
 }

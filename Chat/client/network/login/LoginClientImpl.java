@@ -45,6 +45,18 @@ public class LoginClientImpl implements LoginClient, Remote
     return false;
   }
 
+  @Override public void setGuestUser()
+  {
+    try
+    {
+      server.setGuestUser();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public void addListener(String evtName,
       PropertyChangeListener listener)
   {

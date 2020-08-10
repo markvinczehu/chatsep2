@@ -3,7 +3,7 @@ package Chat.client.network.commonchat;
 
 import Chat.shared.networking.CommonChatCallback;
 import Chat.shared.networking.RMIServer;
-import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.Message;
 
 
@@ -41,11 +41,11 @@ public class CommonChatClientImpl implements CommonChatClient,
     }
   }
 
-  @Override public void sendMessage(String input)
+  @Override public void sendMessage(Message message)
   {
     try
     {
-      server.sendMessage(input);
+      server.sendMessage(message);
     }
     catch (RemoteException e)
     {
@@ -65,7 +65,7 @@ public class CommonChatClientImpl implements CommonChatClient,
     }
   }
 
-  @Override public User getCurrentUser()
+  @Override public UserInfo getCurrentUser()
   {
     try
     {
@@ -88,6 +88,19 @@ public class CommonChatClientImpl implements CommonChatClient,
     {
       e.printStackTrace();
     }
+  }
+
+  @Override public boolean getGuestUser()
+  {
+    try
+    {
+      return server.getGuestUser();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return false;
   }
 
   @Override public void sendMessageResult(Message message)

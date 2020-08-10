@@ -40,7 +40,7 @@ public class DAOImpl implements DAO
     return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=test", "postgres", "293150");
   }
 
-  @Override public User create(String username, String password) throws SQLException
+  @Override public void create(String username, String password) throws SQLException
   {
     System.out.println("123123");
     try(Connection connection = getConnection()){
@@ -50,7 +50,6 @@ public class DAOImpl implements DAO
       statement.setString(2, String.valueOf(password));
       System.out.println("blabla");
       statement.executeUpdate();
-      return new User(username, password);
     }
   }
 
@@ -96,16 +95,17 @@ public class DAOImpl implements DAO
       ResultSet resultSet = statement.executeQuery();
       if (resultSet.next())
       {
+        int id = resultSet.getInt("regid");
         String name = resultSet.getString("username");
+        String password = resultSet.getString("password");
         String firstname = resultSet.getString("firstname");
         String lastname = resultSet.getString("lastname");
         String age = resultSet.getString("age");
         String email = resultSet.getString("email");
         String phoneNumber = resultSet.getString("phonenumber");
         Boolean isOnline = resultSet.getBoolean("isonline");
-        int id = resultSet.getInt("regid");
         System.out.println(name + " " + isOnline);
-        return new UserInfo(id, name, firstname, lastname, age, email, phoneNumber,
+        return new UserInfo(id, name, password, firstname, lastname, age, email, phoneNumber,
             isOnline);
       }
       else
@@ -141,18 +141,17 @@ public class DAOImpl implements DAO
     }
   }
 
-  @Override public ArrayList<User> getAllUsers() throws SQLException
+  @Override public ArrayList<UserInfo> getAllUsers() throws SQLException
   {
     System.out.println("getting all users");
     try(Connection connection = getConnection()) {
       PreparedStatement statement = connection.prepareStatement("SELECT * FROM userinfo");
       ResultSet resultSet = statement.executeQuery();
-      ArrayList<User> users = new ArrayList<>();
+      ArrayList<UserInfo> users = new ArrayList<>();
       while(resultSet.next())
       {
         String u = resultSet.getString("username");
-        String p = resultSet.getString("password");
-        User user = new User(u,p);
+        UserInfo user = new UserInfo(u);
         users.add(user);
       }
       return users;
@@ -187,15 +186,16 @@ public class DAOImpl implements DAO
     }
   }
 
-  @Override public void createPrivateMessage(int fromUser, int toUser, String message)
+  @Override public void createPrivateMessage(PrivateMessage privateMessage)
       throws SQLException
   {
     try(Connection connection = getConnection()){
       PreparedStatement statement = connection.prepareStatement(
-          "insert into privateusermessages(fromuser, touser, body) values (?, ?, ?);");
-      statement.setInt(1, fromUser);
-      statement.setInt(2, toUser);
-      statement.setString(3, message);
+          "insert into privateusermessages(fromuser, touser, body, createdate) values (?, ?, ?, ?);");
+      statement.setInt(1, privateMessage.getFromUser());
+      statement.setInt(2, privateMessage.getToUser());
+      statement.setString(3, privateMessage.getMsg());
+      statement.setString(4, privateMessage.getDate());
       statement.executeUpdate();
       System.out.println("private message created");
     }
@@ -213,6 +213,43 @@ public class DAOImpl implements DAO
       }
       else
         return -1;
+    }
+  }
+
+  @Override public int createGuestUser(String guestName) throws SQLException
+  {
+    try (Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("INSERT INTO guestuser(guestname) values(?)", PreparedStatement.RETURN_GENERATED_KEYS);
+      statement.setString(1, guestName);
+      statement.executeUpdate();
+      ResultSet keys = statement.getGeneratedKeys();
+      if(keys.next()) {
+        return keys.getInt("guestid");
+      }
+      else
+        return -1;
+    }
+  }
+
+  @Override public ArrayList<PrivateMessage> getPrivateMessages(int fromUser,
+      int toUser) throws SQLException
+  {
+    try (Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("SELECT * FROM privateusermessages WHERE fromuser = ? and touser = ?");
+      statement.setInt(1, fromUser);
+      statement.setInt(2, toUser);
+      ResultSet rs = statement.executeQuery();
+      ArrayList<PrivateMessage> list = new ArrayList<>();
+      while(rs.next())
+      {
+        int fu = rs.getInt("fromuser");
+        int tu = rs.getInt("touser");
+        String mess = rs.getString("body");
+        String date = rs.getString("createdate");
+        PrivateMessage pm = new PrivateMessage(fu, tu, mess, date);
+        list.add(pm);
+      }
+      return list;
     }
   }
 }

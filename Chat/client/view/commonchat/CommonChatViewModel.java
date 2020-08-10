@@ -1,6 +1,9 @@
 package Chat.client.view.commonchat;
 
 import Chat.client.model.commonchat.CommonChatModel;
+import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.Message;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -15,6 +18,7 @@ public class CommonChatViewModel
   private StringProperty messageField;
   private StringProperty chatArea;
   private ObservableList<String> allUsersList;
+  private UserInfo currentUser;
 
 
   public CommonChatViewModel(CommonChatModel commonChatModel)
@@ -39,7 +43,8 @@ public class CommonChatViewModel
     String input = messageField.get();
     if(!input.equals(""))
     {
-      commonChatModel.sendMessage(input);
+      Message message = new Message(currentUser.getUsername(), input);
+      commonChatModel.sendMessage(message);
     }
     else{
       messageField.setValue("Please enter a message");
@@ -49,8 +54,8 @@ public class CommonChatViewModel
   private void onUserList(PropertyChangeEvent event)
   {
     ArrayList<String> list = (ArrayList<String>) event.getNewValue();
-    String user = commonChatModel.getCurrentUser().getUsername();
-    list.removeIf(item -> item.equals(user));
+    //String user = commonChatModel.getCurrentUser().getUsername();
+    list.removeIf(item -> item.equals(currentUser.getUsername()));
     allUsersList.removeAll();
     allUsersList.addAll(list);
     System.out.println("back to viewmodel");
@@ -81,5 +86,15 @@ public class CommonChatViewModel
   public void getUserInfo(String username)
   {
     commonChatModel.getUserInfo(username);
+  }
+
+  public void getCurrentUser()
+  {
+    currentUser = commonChatModel.getCurrentUser();
+  }
+
+  public boolean getGuestUser()
+  {
+    return commonChatModel.getGuestUser();
   }
 }

@@ -2,11 +2,13 @@ package Chat.client.view.privatechat;
 
 import Chat.client.model.privatechat.PrivateChatModel;
 import Chat.shared.networking.User;
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
 
 public class PrivateChatViewModel
 {
@@ -14,11 +16,15 @@ public class PrivateChatViewModel
     private PrivateChatModel privateChatModel;
     private StringProperty messageField;
     private StringProperty chatArea;
+    private UserInfo currentUser;
+    private UserInfo toUser;
 
     public PrivateChatViewModel(PrivateChatModel privateChatModel) {
         this.privateChatModel = privateChatModel;
         messageField = new SimpleStringProperty();
         chatArea = new SimpleStringProperty();
+        currentUser = privateChatModel.getCurrentUser();
+        toUser = privateChatModel.getToUser();
         privateChatModel.addListener("SendMessage", this::onSendMessage);
     }
 
@@ -32,9 +38,9 @@ public class PrivateChatViewModel
         String input = messageField.get();
         if(!input.equals(""))
         {
-            int fromUser = privateChatModel.getFromUserForPM();
-            int toUser = privateChatModel.getToUserForPM();
-            privateChatModel.sendMessage(fromUser, toUser , input);
+            PrivateMessage pm = new PrivateMessage(currentUser.getId(), toUser.getId(), input);
+            privateChatModel.sendMessage(pm);
+            chatArea.setValue(pm.getDate() + " - " + currentUser.getUsername() + ": " + pm.getMsg());
         }
         else{
             messageField.setValue("Please enter a message");
@@ -50,4 +56,9 @@ public class PrivateChatViewModel
     {
         return chatArea;
     }
+
+  public ArrayList<PrivateMessage> getMessageLog()
+  {
+      return privateChatModel.getMessageLog();
+  }
 }

@@ -1,7 +1,7 @@
 package Chat.client.network.profile;
 
 import Chat.shared.networking.RMIServer;
-
+import Chat.shared.networking.UserInfo;
 
 import java.beans.PropertyChangeListener;
 import java.rmi.NotBoundException;
@@ -56,5 +56,18 @@ public class ProfileClientImpl implements ProfileClient, Remote
     {
       e.printStackTrace();
     }
+  }
+
+  @Override public UserInfo getProfileInfo()
+  {
+    try
+    {
+      return server.getCurrentUser();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
   }
 }

@@ -1,13 +1,18 @@
 package Chat.client.model.privatechat;
 
+import Chat.shared.networking.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
 import Chat.shared.util.Subject;
 
 import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
 
 public interface PrivateChatModel extends Subject {
-    void sendMessage(int fromUser, int toUser, String message);
+    void sendMessage(PrivateMessage privateMessage);
     void onSendMessage(PropertyChangeEvent event);
   int getFromUserForPM();
   int getToUserForPM();
+  ArrayList<PrivateMessage> getMessageLog();
+  UserInfo getCurrentUser();
+  UserInfo getToUser();
 }

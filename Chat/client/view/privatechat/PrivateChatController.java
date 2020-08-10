@@ -4,14 +4,18 @@ import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
 import Chat.client.view.privatechat.PrivateChatViewModel;
+import Chat.shared.transferobjects.PrivateMessage;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class PrivateChatController implements ViewController {
 
@@ -20,6 +24,8 @@ public class PrivateChatController implements ViewController {
 
     @FXML
     private TextField privateChatMessageField;
+
+    @FXML private Button exitButton;
 
     private PrivateChatViewModel privateChatViewModel;
     private ViewHandler vh;
@@ -44,6 +50,11 @@ public class PrivateChatController implements ViewController {
         privateChatViewModel = vmf.getPrivatChatViewModel();
         privateChatMessageField.textProperty().bindBidirectional(privateChatViewModel.messageField());
         privateChatTextArea.setEditable(false);
+        ArrayList<PrivateMessage> list = privateChatViewModel.getMessageLog();
+        for(PrivateMessage privateMessage : list)
+        {
+            privateChatTextArea.appendText(privateMessage.toString() + '\n');
+        }
         privateChatViewModel.chatArea().addListener((obs, old, newValue) ->{
             if(!newValue.equals(""))
             {

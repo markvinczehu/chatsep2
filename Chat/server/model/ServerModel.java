@@ -9,6 +9,7 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.StringProperty;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface ServerModel extends Subject
 {
@@ -16,10 +17,13 @@ public interface ServerModel extends Subject
   void registerUser(String un, String pw);
   void editProfile(String un, String pw, String fn, String ln, String age, String pnumb, String email);
   void getUserList();
-  User getCurrentUser();
-  Message sendMessage(String input);
+  UserInfo getCurrentUser();
   void getUserInfo(String username);
   void getInfo();
-  void sendPrivateMessage(int fromUser, int toUser, String message);
+  void sendPrivateMessage(PrivateMessage privateMessage);
   int getToUserForPM();
+  void setGuestUser();
+  boolean getGuestUser();
+  ArrayList<PrivateMessage> getMessageLog();
+  UserInfo getToUser();
 }

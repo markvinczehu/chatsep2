@@ -1,6 +1,7 @@
 package Chat.client.view.profile;
 
 import Chat.client.model.profile.ProfileModel;
+import Chat.shared.networking.UserInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -16,6 +17,7 @@ public class ProfileViewModel
   private StringProperty emailAddress;
   private StringProperty phoneNumber;
   private StringProperty error;
+  private StringProperty status;
 
   public ProfileViewModel(ProfileModel profileModel)
   {
@@ -27,6 +29,7 @@ public class ProfileViewModel
     yearsOld = new SimpleStringProperty();
     emailAddress = new SimpleStringProperty();
     phoneNumber = new SimpleStringProperty();
+    status = new SimpleStringProperty();
     error = new SimpleStringProperty();
   }
 
@@ -112,5 +115,29 @@ public class ProfileViewModel
   public StringProperty errorProperty()
   {
     return error;
+  }
+  public StringProperty statusProperty()
+  {
+    return status;
+  }
+
+  public void getProfileInfo()
+  {
+    UserInfo userInfo = profileModel.getProfileInfo();
+    username.setValue(userInfo.getUsername());
+    password.setValue(userInfo.getPassword());
+    firstName.setValue(userInfo.getFirstName());
+    yearsOld.setValue(userInfo.getAge());
+    emailAddress.setValue(userInfo.getEmail());
+    phoneNumber.setValue(userInfo.getPhoneNumber());
+    if(userInfo.getIsOnline())
+    {
+      status.setValue("Online");
+    }
+    else
+    {
+      status.setValue("Offline");
+    }
+
   }
 }
