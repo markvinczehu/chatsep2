@@ -24,4 +24,5 @@ public interface DAO
   int getID(String username) throws SQLException;
   int createGuestUser(String guestName) throws SQLException;
   ArrayList<PrivateMessage> getPrivateMessages(int fromUser, int toUser) throws SQLException;
+  void updateUser(UserInfo userInfo) throws SQLException;
 }

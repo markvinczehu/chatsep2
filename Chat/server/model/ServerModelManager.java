@@ -69,7 +69,15 @@ public class ServerModelManager implements ServerModel
   @Override public void editProfile(String un, String pw, String fn, String ln,
       String age, String pnumb, String email)
   {
-    System.out.println("Profile edited");
+    try
+    {
+      currentUser = new UserInfo(currentUser.getId(), un, pw, fn, ln, age, email, pnumb, currentUser.getIsOnline());
+      database.updateUser(currentUser);
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
   }
 
   @Override public void getUserList()

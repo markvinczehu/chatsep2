@@ -87,4 +87,9 @@ private UserInfoModel userInfoModel;
   public StringProperty statusProperty(){
     return status;
   }
+
+  public void logOutUser()
+  {
+
+  }
 }

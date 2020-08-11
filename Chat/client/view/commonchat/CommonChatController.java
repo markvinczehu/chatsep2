@@ -72,7 +72,11 @@ public class CommonChatController implements ViewController
     }
   }
 
-  public void logOut(ActionEvent actionEvent) { vh.openLogin(); }
+  public void logOut(ActionEvent actionEvent)
+  {
+    userInfoViewModel.logOutUser();
+    vh.openLogin();
+  }
 
   public void onClickUser(ActionEvent actionEvent)
   {

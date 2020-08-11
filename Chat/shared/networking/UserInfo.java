@@ -47,7 +47,7 @@ public class UserInfo implements Serializable
     this.password = "";
     this.firstName="";
     this.lastName="";
-    this.age="";
+    this.age= "";
     this.email="";
     this.phoneNumber="";
     this.isOnline = false;
@@ -60,7 +60,7 @@ public class UserInfo implements Serializable
     this.password = "";
     this.firstName="";
     this.lastName="";
-    this.age="";
+    this.age= "";
     this.email="";
     this.phoneNumber="";
     this.isOnline = false;

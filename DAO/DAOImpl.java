@@ -252,4 +252,20 @@ public class DAOImpl implements DAO
       return list;
     }
   }
+
+  @Override public void updateUser(UserInfo userInfo) throws SQLException
+  {
+    try (Connection connection = getConnection()) {
+      PreparedStatement statement = connection.prepareStatement("update userinfo set username = ?, password = ?, firstname = ?, lastname = ?, age = ?, email = ?, phonenumber = ? where regid = ?");
+      statement.setString(1, userInfo.getUsername());
+      statement.setString(2, userInfo.getPassword());
+      statement.setString(3, userInfo.getFirstName());
+      statement.setString(4, userInfo.getLastName());
+      statement.setInt(5, Integer.parseInt(userInfo.getAge()));
+      statement.setString(6, userInfo.getEmail());
+      statement.setString(7, userInfo.getPhoneNumber());
+      statement.setInt(8, userInfo.getId());
+      statement.executeUpdate();
+    }
+  }
 }
