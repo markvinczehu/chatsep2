@@ -28,7 +28,7 @@ public class LoginController implements ViewController
     this.vh = vh;
     lvm = vmf.getLoginViewModel();
     rvm=vmf.getRegistrationViewModel();
-    loginErrorLabel.textProperty().bind(lvm.errorProperty());
+    loginErrorLabel.textProperty().bindBidirectional(lvm.errorProperty());
     usernameField.textProperty().bindBidirectional(lvm.usernameProperty());
     passwordField.textProperty().bindBidirectional(lvm.passwordProperty());
   }
@@ -36,7 +36,12 @@ public class LoginController implements ViewController
   public void onLoginButton(ActionEvent actionEvent){
     boolean b = lvm.loginUser();
     if(b)
+    {
       vh.openCommonChat();
+      usernameField.clear();
+      passwordField.clear();
+      lvm.errorProperty().setValue("");
+    }
   }
 
   @FXML

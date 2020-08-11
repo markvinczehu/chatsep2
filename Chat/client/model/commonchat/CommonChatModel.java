@@ -15,4 +15,5 @@ public interface CommonChatModel extends Subject
   UserInfo getCurrentUser();
   void getUserInfo(String username);
   boolean getGuestUser();
+  void logoutUser();
 }

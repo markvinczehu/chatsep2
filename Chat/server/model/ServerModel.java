@@ -26,4 +26,5 @@ public interface ServerModel extends Subject
   boolean getGuestUser();
   ArrayList<PrivateMessage> getMessageLog();
   UserInfo getToUser();
+  void logoutUser();
 }

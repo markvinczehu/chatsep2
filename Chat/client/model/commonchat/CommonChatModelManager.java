@@ -57,6 +57,11 @@ public class CommonChatModelManager implements CommonChatModel
     return client.getGuestUser();
   }
 
+  @Override public void logoutUser()
+  {
+    client.logoutUser();
+  }
+
   @Override public void addListener(String evtName,
       PropertyChangeListener listener)
   {

@@ -11,4 +11,5 @@ public interface CommonChatClient extends Client
   UserInfo getCurrentUser();
   void getUserInfo(String username);
   boolean getGuestUser();
+  void logoutUser();
 }

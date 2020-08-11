@@ -185,6 +185,18 @@ public class ServerModelManager implements ServerModel
     return userInfo;
   }
 
+  @Override public void logoutUser()
+  {
+    try
+    {
+      database.setOnline(currentUser.getUsername(), false);
+    }
+    catch (SQLException throwables)
+    {
+      throwables.printStackTrace();
+    }
+  }
+
   @Override public void addListener(String evtName,
       PropertyChangeListener listener)
   {

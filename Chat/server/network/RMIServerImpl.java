@@ -147,4 +147,9 @@ public class RMIServerImpl implements RMIServer
     return serverModel.getToUser();
   }
 
+  @Override public void logoutUser() throws RemoteException
+  {
+    serverModel.logoutUser();
+  }
+
 }

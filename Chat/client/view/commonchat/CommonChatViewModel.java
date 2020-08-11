@@ -97,4 +97,9 @@ public class CommonChatViewModel
   {
     return commonChatModel.getGuestUser();
   }
+
+  public void logOutUser()
+  {
+    commonChatModel.logoutUser();
+  }
 }

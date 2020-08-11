@@ -29,4 +29,5 @@ public interface RMIServer extends Remote
   boolean getGuestUser() throws RemoteException;
   ArrayList<PrivateMessage> getMessageLog() throws RemoteException;
   UserInfo getToUser() throws RemoteException;
+  void logoutUser() throws RemoteException;
 }

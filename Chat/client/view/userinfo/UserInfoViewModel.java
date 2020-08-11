@@ -88,8 +88,4 @@ private UserInfoModel userInfoModel;
     return status;
   }
 
-  public void logOutUser()
-  {
-
-  }
 }

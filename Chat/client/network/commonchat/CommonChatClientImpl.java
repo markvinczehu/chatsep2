@@ -103,6 +103,18 @@ public class CommonChatClientImpl implements CommonChatClient,
     return false;
   }
 
+  @Override public void logoutUser()
+  {
+    try
+    {
+      server.logoutUser();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public void sendMessageResult(Message message)
   {
     support.firePropertyChange("SendMessage", null, message);

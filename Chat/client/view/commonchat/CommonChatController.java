@@ -25,7 +25,6 @@ public class CommonChatController implements ViewController
 
   private CommonChatViewModel commonChatViewModel;
   private ViewHandler vh;
-  private UserInfoViewModel userInfoViewModel;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf)
   {
@@ -74,7 +73,7 @@ public class CommonChatController implements ViewController
 
   public void logOut(ActionEvent actionEvent)
   {
-    userInfoViewModel.logOutUser();
+    commonChatViewModel.logOutUser();
     vh.openLogin();
   }
 
