@@ -1,6 +1,6 @@
 package Chat.client.model.profile;
 
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 
 public interface ProfileModel
 {

@@ -1,7 +1,7 @@
 package Chat.client.network.commonchat;
 
 import Chat.client.network.Client;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.Message;
 
 public interface CommonChatClient extends Client

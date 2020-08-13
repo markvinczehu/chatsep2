@@ -1,14 +1,12 @@
 package Chat.client.network.userinfo;
 
 import Chat.shared.networking.RMIServer;
-import Chat.shared.networking.UserInfo;
 import Chat.shared.networking.UserInfoCallback;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;

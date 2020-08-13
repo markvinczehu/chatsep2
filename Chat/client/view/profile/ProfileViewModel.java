@@ -1,7 +1,7 @@
 package Chat.client.view.profile;
 
 import Chat.client.model.profile.ProfileModel;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

@@ -1,4 +1,4 @@
-package Chat.shared.networking;
+package Chat.shared.transferobjects;
 
 import java.io.Serializable;
 

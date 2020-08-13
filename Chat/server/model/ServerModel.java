@@ -1,14 +1,9 @@
 package Chat.server.model;
 
-import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
-import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
 import Chat.shared.util.Subject;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.StringProperty;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface ServerModel extends Subject

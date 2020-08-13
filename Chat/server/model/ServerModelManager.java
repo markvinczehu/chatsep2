@@ -1,16 +1,10 @@
 package Chat.server.model;
 
-import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
-import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
-import Chat.shared.util.Subject;
 import DAO.DAO;
 import DAO.DAOImpl;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.StringProperty;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.SQLException;
@@ -40,7 +34,6 @@ public class ServerModelManager implements ServerModel
       {
         database.setOnline(username, true);
         currentUser = database.getInfo(username);
-        //currentUser.setId(database.getID(currentUser.getUsername()));
         return true;
       }
       else return false;

@@ -1,9 +1,7 @@
 package Chat.client.model.privatechat;
 
 import Chat.client.network.privatechat.PrivateChatClient;
-import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
-import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
 
 import java.beans.PropertyChangeEvent;

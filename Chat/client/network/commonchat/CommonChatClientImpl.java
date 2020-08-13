@@ -3,7 +3,7 @@ package Chat.client.network.commonchat;
 
 import Chat.shared.networking.CommonChatCallback;
 import Chat.shared.networking.RMIServer;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.Message;
 
 

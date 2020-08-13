@@ -1,10 +1,7 @@
 package Chat.client.model.profile;
 
 import Chat.client.network.profile.ProfileClient;
-import Chat.shared.networking.UserInfo;
-
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
+import Chat.shared.transferobjects.UserInfo;
 
 public class ProfileModelManager implements ProfileModel {
 

@@ -1,7 +1,7 @@
 package Chat.client.network.profile;
 
 import Chat.client.network.Client;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 
 public interface ProfileClient extends Client
 {

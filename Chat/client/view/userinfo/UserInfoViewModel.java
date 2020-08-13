@@ -1,13 +1,11 @@
 package Chat.client.view.userinfo;
 
 import Chat.client.model.userinfo.UserInfoModel;
-import Chat.shared.networking.UserInfo;
-import DAO.DAOImpl;
+import Chat.shared.transferobjects.UserInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.beans.PropertyChangeEvent;
-import java.sql.SQLException;
 
 public class UserInfoViewModel {
 

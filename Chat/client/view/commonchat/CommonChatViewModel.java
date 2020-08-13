@@ -1,8 +1,7 @@
 package Chat.client.view.commonchat;
 
 import Chat.client.model.commonchat.CommonChatModel;
-import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.Message;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

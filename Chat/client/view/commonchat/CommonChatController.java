@@ -3,9 +3,6 @@ package Chat.client.view.commonchat;
 import Chat.client.core.ViewHandler;
 import Chat.client.core.ViewModelFactory;
 import Chat.client.view.ViewController;
-import Chat.client.view.userinfo.UserInfoViewModel;
-import Chat.shared.networking.User;
-import Chat.shared.transferobjects.Message;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -13,9 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 
 public class CommonChatController implements ViewController
 {

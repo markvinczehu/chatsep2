@@ -1,7 +1,7 @@
 package Chat.client.model.commonchat;
 
 import Chat.client.network.commonchat.CommonChatClient;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.Message;
 
 import java.beans.PropertyChangeEvent;

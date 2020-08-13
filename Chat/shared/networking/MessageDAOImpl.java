@@ -1,6 +1,7 @@
 package Chat.shared.networking;
 
 import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.User;
 
 import java.sql.*;
 import java.util.Date;

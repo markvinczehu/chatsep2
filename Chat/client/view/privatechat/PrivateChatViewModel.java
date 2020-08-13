@@ -1,8 +1,7 @@
 package Chat.client.view.privatechat;
 
 import Chat.client.model.privatechat.PrivateChatModel;
-import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

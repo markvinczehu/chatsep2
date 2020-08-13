@@ -1,6 +1,6 @@
 package Chat.client.model.commonchat;
 
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.util.Subject;
 

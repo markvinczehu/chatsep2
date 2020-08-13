@@ -1,11 +1,10 @@
 package Chat.client.network.privatechat;
 
-import Chat.client.network.Client;
-import Chat.client.network.commonchat.CommonChatClient;
 import Chat.shared.networking.*;
 import Chat.shared.networking.PrivateChatCallback;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.transferobjects.PrivateMessage;
+import Chat.shared.transferobjects.UserInfo;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -15,7 +14,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PrivateChatClientImpl implements PrivateChatClient,

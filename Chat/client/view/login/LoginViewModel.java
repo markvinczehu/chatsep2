@@ -24,19 +24,20 @@ public class LoginViewModel
     error = new SimpleStringProperty();
   }
   public boolean loginUser(){
-    if((username == null || username.getValue().equals("")) && (password == null || password.get().equals("")))
+    System.out.println(username + " " + password);
+    if((username.getValue() == null || "".equals(username.getValue())) && (password.getValue() == null || "".equals(password.get())))
     {
       error.setValue("Please enter a username and a password");
     }
-    else if(!(username == null || username.getValue().equals("")) && (password == null || password.get().equals("")))
+    else if(!(username.getValue() == null || "".equals(username.getValue())) && (password.getValue() == null || "".equals(password.get())))
     {
       error.setValue("Please enter a password");
     }
-    else if((username == null || username.getValue().equals("")) && !(password == null || password.get().equals("")))
+    else if((username.getValue() == null || "".equals(username.getValue())) && !(password.getValue() == null || "".equals(password.get())))
     {
       error.setValue("Please enter a username");
     }
-    else if(!(username == null || username.getValue().equals("")) && !(password == null || password.get().equals("")))
+    else if(!(username.getValue() == null || "".equals(username.getValue())) && !(password.getValue() == null || "".equals(password.get())))
     {
       String un = username.get();
       String pw = password.get();

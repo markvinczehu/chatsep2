@@ -4,7 +4,7 @@ import Chat.server.model.ServerModel;
 import Chat.shared.networking.*;
 import Chat.shared.transferobjects.Message;
 import Chat.shared.transferobjects.PrivateMessage;
-import javafx.beans.property.StringProperty;
+import Chat.shared.transferobjects.UserInfo;
 
 import java.beans.PropertyChangeEvent;
 import java.rmi.AlreadyBoundException;

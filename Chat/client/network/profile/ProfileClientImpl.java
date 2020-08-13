@@ -1,7 +1,7 @@
 package Chat.client.network.profile;
 
 import Chat.shared.networking.RMIServer;
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 
 import java.beans.PropertyChangeListener;
 import java.rmi.NotBoundException;

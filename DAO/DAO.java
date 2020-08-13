@@ -1,8 +1,6 @@
 package DAO;
 
-import Chat.shared.networking.User;
-import Chat.shared.networking.UserInfo;
-import Chat.shared.transferobjects.Message;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
 
 import java.sql.SQLException;

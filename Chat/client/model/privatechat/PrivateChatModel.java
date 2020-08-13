@@ -1,6 +1,6 @@
 package Chat.client.model.privatechat;
 
-import Chat.shared.networking.UserInfo;
+import Chat.shared.transferobjects.UserInfo;
 import Chat.shared.transferobjects.PrivateMessage;
 import Chat.shared.util.Subject;
 
