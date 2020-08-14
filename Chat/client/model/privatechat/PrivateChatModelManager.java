@@ -53,7 +53,6 @@ public class PrivateChatModelManager implements PrivateChatModel {
     @Override
     public void onSendMessage(PropertyChangeEvent event) {
         support.firePropertyChange(event);
-        System.out.println("arrived at model");
     }
 
     @Override

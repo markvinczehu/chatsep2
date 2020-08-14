@@ -22,19 +22,6 @@ public class UserInfoClientImpl implements UserInfoClient, UserInfoCallback
       support = new PropertyChangeSupport(this);
     }
 
- //   @Override public void seeUserInfo(String username, String firstName,
-  //      String lastName, String age, String profileName, String email,
-    //    String phoneNumber)
-    {
-//        try
-//        {
-//            rmiServer.seeUserInfo(username, firstName, lastName, age, profileName, email, phoneNumber);
-//        } catch (RemoteException e)
-//        {
-//            e.printStackTrace();
-//        }
-    }
-
     @Override public void startClient()
     {
         try

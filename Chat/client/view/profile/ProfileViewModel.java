@@ -35,7 +35,6 @@ public class ProfileViewModel
 
   public boolean editProfileChecker()
   {
-    System.out.println("bitchballs");
     String un = username.get();
     String pw = password.get();
     String fn = firstName.get();
@@ -127,6 +126,7 @@ public class ProfileViewModel
     username.setValue(userInfo.getUsername());
     password.setValue(userInfo.getPassword());
     firstName.setValue(userInfo.getFirstName());
+    lastName.setValue(userInfo.getLastName());
     yearsOld.setValue(userInfo.getAge());
     emailAddress.setValue(userInfo.getEmail());
     phoneNumber.setValue(userInfo.getPhoneNumber());

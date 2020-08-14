@@ -29,7 +29,6 @@ public class PrivateChatViewModel
 
     private void onSendMessage(PropertyChangeEvent event) {
         chatArea.setValue(event.getNewValue().toString());
-        System.out.println("arrived at view model");
     }
 
     public void sendMessage()

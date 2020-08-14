@@ -118,7 +118,6 @@ public class CommonChatClientImpl implements CommonChatClient,
   @Override public void sendMessageResult(Message message)
   {
     support.firePropertyChange("SendMessage", null, message);
-    System.out.println("arrived at client");
   }
 
   @Override public void sendUserList(PropertyChangeEvent event)

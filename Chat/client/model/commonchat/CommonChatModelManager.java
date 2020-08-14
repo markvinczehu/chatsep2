@@ -29,7 +29,6 @@ public class CommonChatModelManager implements CommonChatModel
   @Override public void onSendMessage(PropertyChangeEvent event)
   {
     support.firePropertyChange(event);
-    System.out.println("arrived at model");
   }
 
   @Override public void getUserList()

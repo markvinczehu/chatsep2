@@ -25,7 +25,6 @@ public class RegistrationViewModel {
     }
 
     public boolean registerUserChecker() {
-        System.out.println("cunttits");
         String un = username.get();
         String pw = password.get();
         String cpw = confirmPassword.get();

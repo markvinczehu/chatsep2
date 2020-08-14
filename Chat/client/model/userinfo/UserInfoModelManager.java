@@ -38,7 +38,6 @@ public class UserInfoModelManager implements UserInfoModel
   @Override public void onUserInfo(PropertyChangeEvent event)
   {
     support.firePropertyChange(event);
-    System.out.println("back to userinfomodel");
   }
 
   @Override public void addListener(String evtName,

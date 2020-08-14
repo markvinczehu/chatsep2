@@ -120,7 +120,6 @@ public class PrivateChatClientImpl implements PrivateChatClient,
     @Override
     public void sendMessageResult(Message message) throws RemoteException {
         support.firePropertyChange("SendMessage", null, message);
-        System.out.println("arrived at client");
     }
 
     @Override

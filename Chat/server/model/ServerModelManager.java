@@ -56,7 +56,6 @@ public class ServerModelManager implements ServerModel
     {
       throwables.printStackTrace();
     }
-    System.out.println("Account created");
   }
 
   @Override public void editProfile(String un, String pw, String fn, String ln,
@@ -84,7 +83,6 @@ public class ServerModelManager implements ServerModel
         allUsers.add(u.getUsername());
       }
       support.firePropertyChange("UsersList", null, allUsers);
-      System.out.println("server model");
     }
     catch (SQLException throwables)
     {
@@ -108,7 +106,6 @@ public class ServerModelManager implements ServerModel
         getInfo();
       }
       i++;
-      System.out.println("UserInfo in the servermodel is: " +userInfo.getUsername() + " " + userInfo.getIsOnline());
     }
     catch (SQLException throwables)
     {
@@ -145,7 +142,6 @@ public class ServerModelManager implements ServerModel
       guestUser = "anonymous" + (int)(Math.random()*1000);
       int id = database.createGuestUser(guestUser);
       currentUser.setUsername(guestUser);
-      System.out.println(guestUser);
     }
     catch (SQLException throwables)
     {

@@ -56,7 +56,6 @@ public class RMIServerImpl implements RMIServer
   @Override public void registerCommonChat(
       CommonChatCallback commonChatCallback)
   {
-    System.out.println("arrived at server");
     commonChatClientList.add(commonChatCallback);
   }
 
@@ -71,7 +70,6 @@ public class RMIServerImpl implements RMIServer
   {
     this.commonChatCallback = commonChatCallback;
     serverModel.getUserList();
-    System.out.println("server network");
   }
 
   @Override public void onUserList(PropertyChangeEvent event)
@@ -79,7 +77,6 @@ public class RMIServerImpl implements RMIServer
     try
     {
       commonChatCallback.sendUserList(event);
-      System.out.println("server callback");
     }
     catch (RemoteException e)
     {

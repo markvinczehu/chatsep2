@@ -33,25 +33,23 @@ public class DAOImpl implements DAO
 
   private Connection getConnection() throws SQLException
   {
-    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=test", "postgres", "293150");
+    return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=test",
+        "postgres", "293150");
   }
 
   @Override public void create(String username, String password) throws SQLException
   {
-    System.out.println("123123");
     try(Connection connection = getConnection()){
       PreparedStatement statement = connection.prepareStatement(
           "insert into userInfo(username, password) values (?, ?);");
       statement.setString(1, String.valueOf(username));
       statement.setString(2, String.valueOf(password));
-      System.out.println("blabla");
       statement.executeUpdate();
     }
   }
 
   @Override public void read(String name, String pass) throws SQLException
   {
-    System.out.println("123123");
     try(Connection connection = getConnection()) {
       PreparedStatement statement = connection.prepareStatement("SELECT * FROM userInfo WHERE username = ?");
       statement.setString(1, name);
@@ -61,11 +59,9 @@ public class DAOImpl implements DAO
         String username = resultSet.getString("username");
         String password = resultSet.getString("password");
         System.out.println(name + " " + pass);
-        }
-    else
-        System.out.println("Account does not exist");
       }
     }
+  }
 
   @Override public void updateName(String name) throws SQLException
   {
@@ -100,13 +96,11 @@ public class DAOImpl implements DAO
         String email = resultSet.getString("email");
         String phoneNumber = resultSet.getString("phonenumber");
         Boolean isOnline = resultSet.getBoolean("isonline");
-        System.out.println(name + " " + isOnline);
         return new UserInfo(id, name, password, firstname, lastname, age, email, phoneNumber,
             isOnline);
       }
       else
       {
-        System.out.println("Account does not exist");
         return null;
       }
     }
@@ -114,7 +108,6 @@ public class DAOImpl implements DAO
 
   @Override public boolean checkUser(String username, String password) throws SQLException
   {
-    System.out.println("getting user");
     try(Connection connection = getConnection()) {
       PreparedStatement statement = connection.prepareStatement("SELECT * FROM userinfo WHERE username = ?");
       statement.setString(1, username);
@@ -124,14 +117,12 @@ public class DAOImpl implements DAO
         String pass = resultSet.getString("password");
         if(name.equals(username) && password.equals(pass))
         {
-          System.out.println("correct");
           return true;
         }
         else return false;
       }
       else
       {
-        System.out.println("Account does not exist");
         return false;
       }
     }
@@ -139,7 +130,6 @@ public class DAOImpl implements DAO
 
   @Override public ArrayList<UserInfo> getAllUsers() throws SQLException
   {
-    System.out.println("getting all users");
     try(Connection connection = getConnection()) {
       PreparedStatement statement = connection.prepareStatement("SELECT * FROM userinfo");
       ResultSet resultSet = statement.executeQuery();
@@ -162,12 +152,9 @@ public class DAOImpl implements DAO
       statement.setString(1, username);
       ResultSet rs = statement.executeQuery();
       if(rs.next()) {
-          System.out.println("Account already exists");
           return false;
       }
       else
-        System.out.println("DAOcreation");
-      System.out.println(username);
       return true;
     }
   }
@@ -193,7 +180,6 @@ public class DAOImpl implements DAO
       statement.setString(3, privateMessage.getMsg());
       statement.setString(4, privateMessage.getDate());
       statement.executeUpdate();
-      System.out.println("private message created");
     }
   }
 
@@ -204,7 +190,6 @@ public class DAOImpl implements DAO
       statement.setString(1, username);
       ResultSet rs = statement.executeQuery();
       if(rs.next()) {
-        System.out.println("got the id");
         return rs.getInt("regid");
       }
       else

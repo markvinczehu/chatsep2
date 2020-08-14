@@ -33,7 +33,6 @@ public class CommonChatViewModel
   private void onSendMessage(PropertyChangeEvent event)
   {
     chatArea.setValue(event.getNewValue().toString());
-    System.out.println("arrived at view model");
   }
 
 
@@ -57,7 +56,6 @@ public class CommonChatViewModel
     list.removeIf(item -> item.equals(currentUser.getUsername()));
     allUsersList.removeAll();
     allUsersList.addAll(list);
-    System.out.println("back to viewmodel");
   }
 
   public void getUserList()
